@@ -76,6 +76,7 @@ behavior.
 ## Governance
 
 - [Source catalog](CATALOG.md)
+- [Governance documentation check](tests/governance-docs-tests.ps1)
 - [Admission policy](docs/THIRD_PARTY_ADMISSION.md) defines fork-necessity and
   evidence gates.
 - [Maintenance](docs/MAINTENANCE.md) defines synchronization, conflict,

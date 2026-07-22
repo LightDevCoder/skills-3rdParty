@@ -11,6 +11,7 @@ All notable changes to this repository are recorded here.
 - Empty upstream-lock inventory and reusable source/package record templates.
 - Human-readable empty source catalog synchronized with the governance-only
   boundary.
+- Governance documentation and installation consistency test.
 
 ### Not included
 
