@@ -10,6 +10,13 @@ records.
 The repository is governance-only today. These steps apply once a package has
 passed admission.
 
+## Current synchronization baseline
+
+There are currently no source groups, modified packages, or lock entries.
+CATALOG.md is the human-readable source inventory and UPSTREAM_LOCK.json
+remains the authoritative empty machine-readable inventory. Direct-use
+upstream Skills stay outside this repository.
+
 ## Upstream change detection
 
 Each source README and package UPSTREAM.md must state:
@@ -62,6 +69,7 @@ For an add, update, rename, deprecation, synchronization, or removal, update
 or deliberately review:
 
 - root README;
+- source catalog;
 - source README;
 - package UPSTREAM.md and PATCHES.md;
 - license and notice files;

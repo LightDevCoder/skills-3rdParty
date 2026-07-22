@@ -48,6 +48,7 @@ rejection.
 
 Every admitted package must include:
 
+- an entry in CATALOG.md;
 - completed UPSTREAM.md from [templates/UPSTREAM.md](templates/UPSTREAM.md);
 - completed PATCHES.md from [templates/PATCHES.md](templates/PATCHES.md);
 - applicable upstream license and notices;
@@ -76,6 +77,7 @@ package and target host.
 For a package add, rename, update, deprecation, sync, or removal, review:
 
 - root README and source README;
+- source catalog;
 - package provenance and patch records;
 - licenses/notices and UPSTREAM_LOCK.json;
 - installation guidance and verification evidence;

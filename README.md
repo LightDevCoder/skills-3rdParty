@@ -4,8 +4,12 @@ This repository is the governed home for locally modified third-party Skills.
 It is not a mirror, convenience cache, or alternative installation source for
 an unchanged upstream Skill.
 
-The repository currently contains governance only. No source group, third-party
-package, installer verification, or release has been admitted.
+## Current status
+
+The repository remains governance-only. It has no admitted source group,
+modified package, installer verification, release tag, or runtime-installation
+evidence. The empty state is intentional and is recorded in
+[CATALOG.md](CATALOG.md) and [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json).
 
 ## Admission boundary
 
@@ -27,6 +31,7 @@ from its original source.
 ~~~text
 .
 ├── AGENTS.md
+├── CATALOG.md
 ├── CHANGELOG.md
 ├── UPSTREAM_LOCK.json
 ├── docs/
@@ -39,7 +44,8 @@ from its original source.
     └── UPSTREAM.md
 ~~~
 
-An admitted package is grouped by original source, never by generic capability:
+An admitted package is grouped by original source, never by generic
+capability:
 
 ~~~text
 <source-id>/
@@ -64,17 +70,18 @@ and [templates/UPSTREAM.md](templates/UPSTREAM.md) plus
 | Locally modified third-party Skill | A released source-grouped package in this repository | Provenance, license, patch, synchronization, and installation records. |
 
 Read [docs/INSTALLATION.md](docs/INSTALLATION.md) before using either path.
-Its command forms are placeholders until a release verifies actual installer
+Its command forms are templates until a release verifies actual installer
 behavior.
 
 ## Governance
 
+- [Source catalog](CATALOG.md)
 - [Admission policy](docs/THIRD_PARTY_ADMISSION.md) defines fork-necessity and
   evidence gates.
 - [Maintenance](docs/MAINTENANCE.md) defines synchronization, conflict,
   regression, release, and removal rules.
 - [Installation](docs/INSTALLATION.md) separates original-upstream and
-  locally-modified installation, pinning, fallback, and provenance checks.
+  locally-modified installation, pinning, fallback, and provenance.
 - [AGENTS.md](AGENTS.md) is the maintenance contract.
 - [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) is the inventory of admitted
   modified packages and is intentionally empty today.

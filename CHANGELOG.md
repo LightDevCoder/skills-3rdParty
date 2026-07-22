@@ -9,6 +9,8 @@ All notable changes to this repository are recorded here.
 - Governance-only foundation for third-party admission, provenance, licensing,
   patch records, synchronization, installation, and release maintenance.
 - Empty upstream-lock inventory and reusable source/package record templates.
+- Human-readable empty source catalog synchronized with the governance-only
+  boundary.
 
 ### Not included
 
