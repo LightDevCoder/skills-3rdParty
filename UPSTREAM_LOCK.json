@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "description": "Authoritative inventory of admitted locally modified third-party Skills. Direct-use upstream Skills are intentionally excluded.",
+  "entryRequiredFields": [
+    "sourceId",
+    "skillId",
+    "upstreamRepository",
+    "upstreamPath",
+    "upstreamRef",
+    "upstreamCommit",
+    "license",
+    "upstreamRecord",
+    "patchRecord",
+    "lastSynchronized",
+    "modifiedInstallation"
+  ],
+  "entries": []
+}
