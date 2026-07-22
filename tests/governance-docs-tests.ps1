@@ -38,11 +38,16 @@ Assert-Governance (-not (Get-ChildItem -LiteralPath $Root -Recurse -Filter "SKIL
 
 $catalog = Get-Content -LiteralPath (Join-Path $Root "CATALOG.md") -Raw
 $installation = Get-Content -LiteralPath (Join-Path $Root "docs/INSTALLATION.md") -Raw
+$readme = Get-Content -LiteralPath (Join-Path $Root "README.md") -Raw
+$admission = Get-Content -LiteralPath (Join-Path $Root "docs/THIRD_PARTY_ADMISSION.md") -Raw
 Assert-Governance ($catalog -match "Source groups \| 0") "Catalog must record zero source groups."
 Assert-Governance ($catalog -match "Modified packages \| 0") "Catalog must record zero modified packages."
 Assert-Governance ($installation -match "npx skills add <owner>/<repository> --skill <skill-name>") "Installation template is missing."
 Assert-Governance ($installation -match "no usable local installation command") "Empty installation state must be explicit."
 Assert-Governance ($installation -match "Manual fallback") "Installation guidance must retain a manual fallback."
+Assert-Governance ($readme -match "governance-only" -and $readme -match "unchanged upstream") "README must preserve governance-only and direct-upstream boundaries."
+Assert-Governance ($installation -match "Original unchanged upstream Skill" -and $installation -match "Locally modified third-party Skill") "Installation guide must distinguish upstream and modified paths."
+Assert-Governance ($admission -match "concrete" -and $admission -match "fork") "Admission policy must retain concrete fork-necessity wording."
 
 $documentationFiles = @("README.md", "CATALOG.md", "CHANGELOG.md", "AGENTS.md") + @(rg --files docs)
 foreach ($file in $documentationFiles) {
