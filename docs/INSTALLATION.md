@@ -1,64 +1,66 @@
-# Installation
+# Installation and Fresh-Install Verification
 
-## Current status
+[简体中文](INSTALLATION.zh-CN.md)
 
-This repository is the private v0.1.0 governance release. It has no admitted
-source group or modified package, so it has no usable local installation command. Use the release for governance, provenance templates, and future
-modified-package records; install unchanged Skills directly from upstream.
+This private collection is installed from the released repository, not from a
+source checkout. A consumer must have access to the private GitHub repository
+through its configured Git credentials, SSH, or authenticated CLI.
 
-The source catalog and empty lock inventory are authoritative:
-[CATALOG.md](../CATALOG.md) and [UPSTREAM_LOCK.json](../UPSTREAM_LOCK.json).
+## Revision semantics
 
-## Select the correct path
+The official Skills CLI accepts GitHub shorthand and GitHub tree URLs, and its
+source parser also accepts a `#ref` fragment. Therefore these commands pin the
+local collection release:
 
-| Need | Install from | Do not |
-| --- | --- | --- |
-| Original unchanged upstream Skill | Original upstream repository using official instructions | Use this repository as a proxy or expect a local lock entry. |
-| Locally modified third-party Skill | Released source-grouped package in this repository | Substitute upstream instructions, which omit local changes. |
+```text
+npx skills add LightDevCoder/skills-3rdParty#v0.1.1
+npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill grill-me
+```
 
-An upstream Skill that works unchanged stays on the original-upstream path.
-The existence of a local variant signals an intentional documented
-difference, not a preference to avoid upstream.
+The first `v0.1.1` is the local repository tag. The mirrored Matt package
+content is independently pinned in `UPSTREAM_LOCK.json` to upstream
+`v1.1.0` / `d574778f94cf620fcc8ce741584093bc650a61d3`. A shorthand without
+`#v0.1.1` resolves the repository's default revision and is not described as
+immutable.
 
-## Installer form
+## Fresh installation procedure
 
-There is no local package command while the catalog is empty. The following
-shape remains documentation for a future admitted package, not an instruction
-to install anything from this governance-only release:
+1. Create an empty destination project with no source checkout of this
+   repository present.
+2. Run the whole-collection or single-package command above with the exact CLI
+   version recorded in the release evidence.
+3. Confirm the destination contains the selected complete package(s), including
+   `SKILL.md`, `agents/openai.yaml`, references, scripts, templates, assets,
+   `LICENSE`, and provenance records.
+4. Refresh or restart the Agent host and verify discovery from the destination,
+   not from this repository.
+5. Repeat the same command and record whether the installer is idempotent.
+6. Smoke-test a successful package, a stopping boundary, a missing peer
+   dependency, and the explicit invocation policy.
 
-~~~
-npx skills add <owner>/<repository> --skill <skill-name>
-~~~
+Record command, CLI version, tag/commit, destination class, discovery result,
+smoke result, and limitation in
+[release evidence](evidence/releases/v0.1.1/INSTALLATION_VERIFICATION.md).
 
-The [Skills CLI documentation](https://www.skills.sh/docs/cli) describes the
-general syntax. This repository does not publish an owner, repository,
-revision, installer version, destination, or verified local command while its
-catalog is empty.
+## Manual fallback
 
-For an original upstream Skill, use the original repository's exact command
-and record its revision and host evidence. For a locally modified package,
-wait for a completed source-group record and a released immutable local
-revision.
+When the installer cannot authenticate to the private repository, manually
+copy a complete released package from a checkout of tag `v0.1.1`:
 
-## Manual fallback for a future local package
+```powershell
+$sourceRoot = '<v0.1.1-release-checkout>'
+$skillName = '<skill-name>'
+$destinationRoot = '<host-recognized-skills-root>'
+Copy-Item -LiteralPath (Join-Path $sourceRoot "skills/$skillName") `
+  -Destination (Join-Path $destinationRoot $skillName) -Recurse
+```
 
-When a verified installer is unavailable:
+Do not copy only `SKILL.md`. If a linked file is absent, discovery or runtime
+use is not proven; mark the result `BLOCKED` or `NOT TESTED`.
 
-1. Obtain the exact released local package using its documented release pin.
-2. Copy the complete source-grouped package, including SKILL.md, resources,
-   UPSTREAM.md, PATCHES.md, and license/notices, to the host-supported Skills
-   location.
-3. Follow the host discovery/refresh procedure.
-4. Verify package identity, local pin, upstream revision, license/notices, and
-   documented differences.
-5. Run the package's independent installation/runtime check.
+## What this repository does not claim
 
-Manual copying is a fallback mechanism, not permission to copy an unchanged
-upstream package here.
-
-## Provenance verification after local installation
-
-Confirm that the source/package path matches the release record; UPSTREAM.md
-names original repository, path, ref, and resolved commit; PATCHES.md accounts
-for local changes; license/notices are present; the matching lock entry agrees;
-and installation evidence matches host and release.
+- The public `skills` repository does not contain these third-party packages.
+- The local release pin does not make upstream `v1.1.0` current forever.
+- A source-checkout scan is not fresh-host discovery.
+- A metadata file is not proof that the host actually loaded the Skill.

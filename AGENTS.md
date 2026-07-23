@@ -1,90 +1,85 @@
 # skills-3rdParty Maintenance Contract
 
-## Boundary
+English | [简体中文](README.zh-CN.md)
 
-This repository contains only third-party Skills requiring a local
-modification, compatibility adaptation, repackaging, deliberate version
-stabilization, or behaviorally different variant. It is a provenance and
-maintenance boundary, not a generic Skill catalog.
+This repository is the private, auditable home for approved third-party Skill
+packages. It supports three explicit source states:
 
-Do not add an unchanged upstream Skill. If direct upstream use works, document
-or recommend the upstream source outside this repository. Do not present a
-modified third-party Skill as original work.
+1. **Pinned upstream mirror** — an unchanged upstream package snapshot at an
+   immutable revision, plus clearly labeled collection metadata adapters when
+   the host contract requires them.
+2. **Modified upstream fork** — an upstream package with a documented,
+   behavior-affecting or compatibility patch and a concrete reason direct use
+   is insufficient.
+3. **External direct dependency** — a package that is intentionally not copied;
+   its authoritative upstream URL and required revision are recorded instead.
 
-## Source-based layout
+This broader third-party boundary does not weaken the public first-party
+repository's ownership gate. Unmodified third-party packages must never enter
+`skills/` in `LightDevCoder/skills`.
 
-Group every admitted package by original source:
+## Package and source layout
 
-~~~text
-<source-id>/
-├── README.md
-└── <skill-id>/
-    ├── SKILL.md
-    ├── UPSTREAM.md
-    ├── PATCHES.md
-    └── <license or notice files>
-~~~
+The installer-facing package root is `skills/<skill-name>/` because the Skills
+CLI and Agent hosts discover packages there. Source grouping is preserved in
+`UPSTREAM_LOCK.json`, `sources/mattpocock-skills/README.md`, and each package's
+`source_group` and upstream path; aesthetic nesting must not break discovery.
 
-Do not make empty source groups or group primarily by generic capability.
+Every mirrored package contains the complete upstream package files plus:
 
-## Admission before import
+- `agents/openai.yaml` — collection metadata adapter, if upstream does not
+  provide host metadata;
+- `LICENSE` — package-local copy of the upstream license;
+- `UPSTREAM.md` — provenance, pin, installation, and update record; and
+- `PATCHES.md` — explicit local-difference ledger.
 
-Before copying or modifying an upstream package:
+The machine-readable manifest is `UPSTREAM_LOCK.json`; the selected allowlist
+is `config/upstream-allowlist.json`.
 
-1. Follow [docs/THIRD_PARTY_ADMISSION.md](docs/THIRD_PARTY_ADMISSION.md).
-2. Record concrete evidence that direct upstream use is insufficient.
-3. Identify the original repository, package path, canonical URL, selected
-   tag/ref, immutable resolved commit, author, and license obligations.
-4. Define the smallest local change set, expected behavioral differences,
-   synchronization method, installation record, and test evidence.
-5. Obtain the required review before release.
+## Allowlist and provenance gates
 
-Only these categories can justify a fork: compatibility fix, additional Agent
-host support, stable pinned behavior unavailable upstream, package
-repair/repackaging, or deliberate behavioral variation. Convenience is a
-rejection.
+- Never add a package outside the named allowlist without a separate user
+  decision and a manifest update.
+- Pin an upstream tag/ref and verify its full resolved commit before sync.
+- Preserve every upstream-referenced resource; a source checkout scan is not
+  a fresh-install proof.
+- Keep upstream-managed file hashes unchanged unless a local patch record
+  explicitly names and reviews the difference.
+- Preserve the upstream license and distinguish snapshot, patch, and external
+  dependency states in catalog and release records.
+- `grill-me` depends on `grilling`; `grill-with-docs` depends on `grilling` and
+  `domain-modeling`. These are declared peer Skills, not hidden execution.
+- `ask-matt` remains navigation-only. It may describe routes but must not
+  install, invoke, or orchestrate another Skill.
+- `writing-great-skills` is an authoring knowledge source, not an implicit
+  runtime dependency of first-party `learn-anything`.
 
-## Required records
+## Synchronization
 
-Every admitted package must include:
+Use the controlled script with the read-only upstream checkout:
 
-- an entry in CATALOG.md;
-- completed UPSTREAM.md from [templates/UPSTREAM.md](templates/UPSTREAM.md);
-- completed PATCHES.md from [templates/PATCHES.md](templates/PATCHES.md);
-- applicable upstream license and notices;
-- original repository/path and immutable upstream revision;
-- local-change rationale, scope, known differences, and install record;
-- synchronization procedure and last synchronization date; and
-- an entry in [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json).
+```powershell
+.\scripts\sync-upstream.ps1 -Mode check
+.\scripts\sync-upstream.ps1 -Mode dry-run
+.\scripts\sync-upstream.ps1 -Mode diff
+.\scripts\sync-upstream.ps1 -Mode sync
+```
 
-Its source group must include README.md from
-[templates/SOURCE_README.md](templates/SOURCE_README.md). It owns source-wide
-provenance, installation, and synchronization facts; package files own
-package-specific facts.
+`check` fails on missing packages, missing referenced resources, drift from the
+pinned revision, or unauthorized local changes to upstream-managed files.
+`dry-run` and `diff` do not write. `sync` is allowed only after reviewing the
+upstream revision and its diff. Never silently resolve a conflict or overwrite
+an unrecorded local patch.
 
-## Updates and release
+## Review, installation, and release
 
-Follow [docs/MAINTENANCE.md](docs/MAINTENANCE.md). Preserve and reapply the
-documented patch set when synchronizing. Do not silently resolve a rebase
-conflict or license change. Imports are snapshots, never merged upstream Git
-histories.
+Package changes require structural, resource, provenance, synchronization,
+installation, invocation, and negative-path evidence. `review-loop` owns the
+final `PASS`, `FAIL`, or `BLOCKED` verdict; a script or specialist report is
+evidence, not the verdict.
 
-Follow [docs/INSTALLATION.md](docs/INSTALLATION.md) to distinguish original
-upstream installation from locally modified installation. Never publish an
-installer command until its actual behavior has been verified for the released
-package and target host.
-
-For a package add, rename, update, deprecation, sync, or removal, review:
-
-- root README and source README;
-- source catalog;
-- package provenance and patch records;
-- licenses/notices and UPSTREAM_LOCK.json;
-- installation guidance and verification evidence;
-- test/review evidence; and
-- release notes.
-
-Static path or Markdown checks are not runtime evidence. Do not release with
-unresolved provenance, license, patch, synchronization, installation, or
-behavioral-difference records. If upstream eliminates the concrete fork need,
-prefer removal and direct users to upstream.
+Before release, verify whole-collection and single-package installation into
+fresh destinations, discovery without the source checkout, repeat-install
+behavior, representative dependency boundaries, and private-repository
+access. Record real results under `docs/evidence/releases/` and mark any
+unexecuted item `NOT TESTED` or missing independent review `BLOCKED`.

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Grill Me"
+  short_description: "A relentless interview to sharpen a plan or design."
+  default_prompt: "Use $grill-me when this task matches its upstream contract; preserve its explicit stopping boundary."
+
+policy:
+  allow_implicit_invocation: false

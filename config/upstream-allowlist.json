@@ -1,0 +1,30 @@
+{
+  "upstream_repository": "https://github.com/mattpocock/skills.git",
+  "upstream_tag": "v1.1.0",
+  "upstream_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
+  "packages": [
+    { "name": "ask-matt", "upstream_path": "skills/engineering/ask-matt", "source_group": "engineering", "dependencies": [] },
+    { "name": "codebase-design", "upstream_path": "skills/engineering/codebase-design", "source_group": "engineering", "dependencies": [] },
+    { "name": "code-review", "upstream_path": "skills/engineering/code-review", "source_group": "engineering", "dependencies": [] },
+    { "name": "design-an-interface", "upstream_path": "skills/deprecated/design-an-interface", "source_group": "deprecated", "dependencies": [] },
+    { "name": "diagnosing-bugs", "upstream_path": "skills/engineering/diagnosing-bugs", "source_group": "engineering", "dependencies": [] },
+    { "name": "domain-modeling", "upstream_path": "skills/engineering/domain-modeling", "source_group": "engineering", "dependencies": [] },
+    { "name": "grilling", "upstream_path": "skills/productivity/grilling", "source_group": "productivity", "dependencies": [] },
+    { "name": "grill-me", "upstream_path": "skills/productivity/grill-me", "source_group": "productivity", "dependencies": ["grilling"] },
+    { "name": "grill-with-docs", "upstream_path": "skills/engineering/grill-with-docs", "source_group": "engineering", "dependencies": ["grilling", "domain-modeling"] },
+    { "name": "handoff", "upstream_path": "skills/productivity/handoff", "source_group": "productivity", "dependencies": [] },
+    { "name": "implement", "upstream_path": "skills/engineering/implement", "source_group": "engineering", "dependencies": [] },
+    { "name": "improve-codebase-architecture", "upstream_path": "skills/engineering/improve-codebase-architecture", "source_group": "engineering", "dependencies": [] },
+    { "name": "loop-me", "upstream_path": "skills/in-progress/loop-me", "source_group": "in-progress", "dependencies": [] },
+    { "name": "prototype", "upstream_path": "skills/engineering/prototype", "source_group": "engineering", "dependencies": [] },
+    { "name": "qa", "upstream_path": "skills/deprecated/qa", "source_group": "deprecated", "dependencies": [] },
+    { "name": "research", "upstream_path": "skills/engineering/research", "source_group": "engineering", "dependencies": [] },
+    { "name": "tdd", "upstream_path": "skills/engineering/tdd", "source_group": "engineering", "dependencies": [] },
+    { "name": "teach", "upstream_path": "skills/productivity/teach", "source_group": "productivity", "dependencies": [] },
+    { "name": "to-spec", "upstream_path": "skills/engineering/to-spec", "source_group": "engineering", "dependencies": [] },
+    { "name": "to-tickets", "upstream_path": "skills/engineering/to-tickets", "source_group": "engineering", "dependencies": [] },
+    { "name": "ubiquitous-language", "upstream_path": "skills/deprecated/ubiquitous-language", "source_group": "deprecated", "dependencies": [] },
+    { "name": "wayfinder", "upstream_path": "skills/engineering/wayfinder", "source_group": "engineering", "dependencies": [] },
+    { "name": "writing-great-skills", "upstream_path": "skills/productivity/writing-great-skills", "source_group": "productivity", "dependencies": [] }
+  ]
+}

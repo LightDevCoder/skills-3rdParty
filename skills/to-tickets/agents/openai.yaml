@@ -1,0 +1,7 @@
+interface:
+  display_name: "To Tickets"
+  short_description: "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker — edges as text in a local file, or native blocking links on a real tracker."
+  default_prompt: "Use $to-tickets when this task matches its upstream contract; preserve its explicit stopping boundary."
+
+policy:
+  allow_implicit_invocation: false

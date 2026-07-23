@@ -1,0 +1,7 @@
+interface:
+  display_name: "Loop Me"
+  short_description: "Grill me about specs for the workflows I want to build, within this workspace."
+  default_prompt: "Use $loop-me when this task matches its upstream contract; preserve its explicit stopping boundary."
+
+policy:
+  allow_implicit_invocation: false

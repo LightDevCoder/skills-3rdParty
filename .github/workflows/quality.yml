@@ -1,0 +1,24 @@
+name: Third-party collection quality
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  powershell:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout private collection
+        uses: actions/checkout@v4
+      - name: Checkout pinned public upstream
+        shell: pwsh
+        run: git clone --depth 1 --branch v1.1.0 https://github.com/mattpocock/skills.git "$env:RUNNER_TEMP\mattpocock-skills"
+      - name: Verify pinned upstream and package contract
+        shell: pwsh
+        run: .\scripts\sync-upstream.ps1 -Mode check -UpstreamRoot "$env:RUNNER_TEMP\mattpocock-skills"
+      - name: Run collection assertions
+        shell: pwsh
+        run: .\tests\third-party-collection-tests.ps1 -UpstreamRoot "$env:RUNNER_TEMP\mattpocock-skills"
