@@ -6,9 +6,11 @@ an unchanged upstream Skill.
 
 ## Current status
 
-The repository remains governance-only. It has no admitted source group,
-modified package, installer verification, release tag, or runtime-installation
-evidence. The empty state is intentional and is recorded in
+The repository remains governance-only, but its stable governance release is
+v0.1.0 at
+[LightDevCoder/skills-3rdParty](https://github.com/LightDevCoder/skills-3rdParty/releases/tag/v0.1.0).
+It has no admitted source group, modified package, or usable local installation
+command. The empty state is intentional and is recorded in
 [CATALOG.md](CATALOG.md) and [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json).
 
 ## Admission boundary
@@ -87,4 +89,5 @@ behavior.
 - [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) is the inventory of admitted
   modified packages and is intentionally empty today.
 
-This foundation makes no runtime, installer, or release claim.
+This governance release makes no runtime or local package installer claim;
+its v0.1.0 release metadata and empty boundary are intentional.

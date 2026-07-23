@@ -11,6 +11,7 @@ concrete fork has passed admission.
 | Source groups | 0 |
 | Modified packages | 0 |
 | Lock inventory | [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json), entries: 0 |
+| Stable release | [v0.1.0](https://github.com/LightDevCoder/skills-3rdParty/releases/tag/v0.1.0) — private governance release |
 | Installation authority | [docs/INSTALLATION.md](docs/INSTALLATION.md) |
 | Admission authority | [docs/THIRD_PARTY_ADMISSION.md](docs/THIRD_PARTY_ADMISSION.md) |
 

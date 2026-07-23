@@ -2,9 +2,9 @@
 
 ## Current status
 
-This repository contains governance only. It has no admitted source group or
-modified package, so it has no usable local installation command, version pin,
-or runtime-installation evidence.
+This repository is the private v0.1.0 governance release. It has no admitted
+source group or modified package, so it has no usable local installation command. Use the release for governance, provenance templates, and future
+modified-package records; install unchanged Skills directly from upstream.
 
 The source catalog and empty lock inventory are authoritative:
 [CATALOG.md](../CATALOG.md) and [UPSTREAM_LOCK.json](../UPSTREAM_LOCK.json).
@@ -22,8 +22,9 @@ difference, not a preference to avoid upstream.
 
 ## Installer form
 
-The general command shape is a template until a real local release and fresh
-host verification exist:
+There is no local package command while the catalog is empty. The following
+shape remains documentation for a future admitted package, not an instruction
+to install anything from this governance-only release:
 
 ~~~
 npx skills add <owner>/<repository> --skill <skill-name>

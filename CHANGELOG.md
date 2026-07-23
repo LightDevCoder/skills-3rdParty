@@ -2,7 +2,7 @@
 
 All notable changes to this repository are recorded here.
 
-## Unreleased
+## 0.1.0 — 2026-07-23
 
 ### Added
 
@@ -13,7 +13,13 @@ All notable changes to this repository are recorded here.
   boundary.
 - Governance documentation and installation consistency test.
 
-### Not included
-
 - No upstream Skill copy, source group, modified package, installer
-  verification, or release.
+  verification, or local package installation command; the private release is
+  governance-only by design.
+
+### Release verification
+
+- Published at https://github.com/LightDevCoder/skills-3rdParty.
+- Stable tag: v0.1.0.
+- Repository identity, private visibility, empty package boundary, and
+  governance test were verified against the released content.

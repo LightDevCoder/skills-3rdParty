@@ -44,6 +44,8 @@ Assert-Governance ($catalog -match "Source groups \| 0") "Catalog must record ze
 Assert-Governance ($catalog -match "Modified packages \| 0") "Catalog must record zero modified packages."
 Assert-Governance ($installation -match "npx skills add <owner>/<repository> --skill <skill-name>") "Installation template is missing."
 Assert-Governance ($installation -match "no usable local installation command") "Empty installation state must be explicit."
+Assert-Governance ($catalog -match "v0\.1\.0") "Catalog must record the stable governance release."
+Assert-Governance ($readme -match "v0\.1\.0") "README must record the stable governance release."
 Assert-Governance ($installation -match "Manual fallback") "Installation guidance must retain a manual fallback."
 Assert-Governance ($readme -match "governance-only" -and $readme -match "unchanged upstream") "README must preserve governance-only and direct-upstream boundaries."
 Assert-Governance ($installation -match "Original unchanged upstream Skill" -and $installation -match "Locally modified third-party Skill") "Installation guide must distinguish upstream and modified paths."
