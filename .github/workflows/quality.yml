@@ -20,6 +20,12 @@ jobs:
           repository: mattpocock/skills
           ref: v1.1.0
           path: upstream
+      - name: Normalize pinned upstream checkout
+        shell: pwsh
+        run: |
+          $upstream = $env:GITHUB_WORKSPACE + "\upstream"
+          git -C $upstream config core.autocrlf false
+          git -C $upstream reset --hard v1.1.0
       - name: Run collection and governance checks
         shell: pwsh
         working-directory: collection
