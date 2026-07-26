@@ -24,7 +24,7 @@ jobs:
         shell: pwsh
         run: |
           $upstream = $env:GITHUB_WORKSPACE + "\upstream"
-          git -C $upstream config core.autocrlf false
+          git -C $upstream config core.autocrlf true
           git -C $upstream reset --hard v1.1.0
       - name: Run collection and governance checks
         shell: pwsh
