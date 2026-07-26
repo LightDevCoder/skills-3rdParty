@@ -5,6 +5,7 @@
 状态：`IN PROGRESS`。创建 tag 或 GitHub release 前，必须用真实命令更新本记录。
 
 - 仓库：`LightDevCoder/skills-3rdParty`，保持 private
+- 证据日期：`2026-07-26`
 - upstream：`mattpocock/skills` `v1.1.0`，commit
   `d574778f94cf620fcc8ce741584093bc650a61d3`
 - 收录：严格 23 个指定 Skill

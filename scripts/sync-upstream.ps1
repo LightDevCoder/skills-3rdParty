@@ -1,12 +1,13 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('check', 'dry-run', 'sync', 'diff')]
+    [ValidateSet('check', 'dry-run', 'sync', 'diff', 'resource', 'unauthorized-patch')]
     [string]$Mode = 'check',
-    [string]$Root = (Split-Path -Parent $PSScriptRoot),
+    [string]$Root = '',
     [string]$UpstreamRoot = ''
 )
 
 $ErrorActionPreference = 'Stop'
+if ([string]::IsNullOrWhiteSpace($Root)) { $Root = Split-Path -Parent $PSScriptRoot }
 $Root = (Resolve-Path -LiteralPath $Root).Path
 if ([string]::IsNullOrWhiteSpace($UpstreamRoot)) {
     $UpstreamRoot = Join-Path $Root '..\..\sources\mattpocock-skills'
@@ -97,6 +98,14 @@ function Get-LocalAllowedPaths {
     return @('agents/openai.yaml', 'UPSTREAM.md', 'PATCHES.md', 'LICENSE')
 }
 
+function Get-UnauthorizedLocalFiles {
+    param([string]$Destination, [string[]]$UpstreamFiles)
+    $allowed = Get-LocalAllowedPaths
+    return @(Get-RelativeFiles $Destination | Where-Object {
+        $UpstreamFiles -notcontains $_ -and $allowed -notcontains $_
+    })
+}
+
 function Get-ReferencedResources {
     param([string]$PackagePath)
     $body = Get-Content -Raw -LiteralPath (Join-Path $PackagePath 'SKILL.md')
@@ -112,6 +121,12 @@ function Get-ReferencedResources {
         }
     }
     return @($missing)
+}
+
+function Get-IgnoredUpstreamFiles {
+    param($Package)
+    $status = Invoke-UpstreamGit @('status', '--ignored', '--porcelain', '--untracked-files=all', '--', $Package.upstream_path)
+    return @($status -split "`n" | Where-Object { $_ -match '^!!\s+' })
 }
 
 function New-AgentMetadata {
@@ -170,8 +185,8 @@ function New-ProvenanceFiles {
         '',
         '## Installation and update',
         '',
-        "- **Whole collection:** npx skills add LightDevCoder/skills-3rdParty#$($Revision)",
-        "- **Single package:** npx skills add LightDevCoder/skills-3rdParty#$($Revision) --skill $($Package.name)",
+        '- **Whole collection (target after the local v0.1.1 release gate):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1',
+        "- **Single package (target after the local v0.1.1 release gate):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill $($Package.name)",
         "- **Manual fallback:** copy this complete skills/$($Package.name)/ directory",
         "  into the host's recognized Skills root.",
         '- **Update source:** run `scripts/sync-upstream.ps1 -Mode check` against the',
@@ -236,6 +251,26 @@ function Get-EntryChecksum {
     finally { $sha.Dispose() }
 }
 
+function Get-CollectionChecksum {
+    param($Entries)
+    $serialized = (@($Entries | ForEach-Object { "$($_.package_name):$($_.checksum)" }) -join "`n")
+    $bytes = [Text.UTF8Encoding]::new($false).GetBytes($serialized)
+    $sha = [Security.Cryptography.SHA256]::Create()
+    try { return ([BitConverter]::ToString($sha.ComputeHash($bytes))).Replace('-', '').ToLowerInvariant() }
+    finally { $sha.Dispose() }
+}
+
+function Get-LocalPatchChecksum {
+    param([string]$Destination)
+    $paths = @(Get-LocalAllowedPaths)
+    foreach ($path in $paths) {
+        if (-not (Test-Path -LiteralPath (Join-Path $Destination $path) -PathType Leaf)) {
+            return ''
+        }
+    }
+    return Get-EntryChecksum (Get-FileRecords $Destination $paths)
+}
+
 function Sync-OnePackage {
     param($Package, [string]$Revision, [string]$Commit)
     $source = Join-Path $UpstreamRoot $Package.upstream_path
@@ -244,12 +279,49 @@ function Sync-OnePackage {
     if (-not (Test-Path -LiteralPath $source -PathType Container)) { throw "Upstream package is missing: $($Package.upstream_path)" }
     $sourceFiles = Get-RelativeFiles $source
     if (-not ($sourceFiles -contains 'SKILL.md')) { throw "Upstream package lacks SKILL.md: $($Package.name)" }
-    $oldEntry = @(Get-ManifestEntries | Where-Object name -eq $Package.name | Select-Object -First 1)
+    $oldEntry = @(Get-ManifestEntries | Where-Object package_name -eq $Package.name | Select-Object -First 1)
+    if (Test-Path -LiteralPath $destination -PathType Container) {
+        if ($oldEntry.Count -eq 0 -and (Get-RelativeFiles $destination).Count -gt 0) {
+            throw "$($Package.name) cannot be synced over an existing package without a manifest entry"
+        }
+        $knownManagedFiles = @($sourceFiles)
+        if ($oldEntry.Count -gt 0) { $knownManagedFiles += @($oldEntry[0].files | ForEach-Object path) }
+        $unauthorized = @(Get-UnauthorizedLocalFiles $destination $knownManagedFiles)
+        if ($unauthorized.Count -gt 0) {
+            throw "$($Package.name) has unauthorized local files: $($unauthorized -join ', ')"
+        }
+        if ($oldEntry.Count -gt 0) {
+            if ([string]::IsNullOrWhiteSpace([string]$oldEntry[0].local_patch_checksum)) {
+                throw "$($Package.name) manifest lacks a local patch checksum; refusing to overwrite local records"
+            }
+            $localPatchChecksum = Get-LocalPatchChecksum $destination
+            if ([string]::IsNullOrWhiteSpace($localPatchChecksum) -or $localPatchChecksum -ne [string]$oldEntry[0].local_patch_checksum) {
+                throw "$($Package.name) has unauthorized local modification: local patch records"
+            }
+            foreach ($relative in $sourceFiles) {
+                $existing = Join-Path $destination $relative
+                if (-not (Test-Path -LiteralPath $existing -PathType Leaf)) { continue }
+                if (@($oldEntry[0].files | Where-Object path -eq $relative).Count -eq 0) {
+                    throw "$($Package.name) has an unrecorded local file colliding with new upstream resource: $relative"
+                }
+                $record = @($oldEntry[0].files | Where-Object path -eq $relative | Select-Object -First 1)
+                if ($record.Count -eq 1 -and (Get-Sha256 $existing) -ne $record[0].sha256) {
+                    throw "$($Package.name) has unauthorized local modification: $relative"
+                }
+            }
+        }
+    }
     if ((Test-Path -LiteralPath $destination -PathType Container) -and $oldEntry.Count -gt 0) {
         $oldFiles = @($oldEntry[0].files | ForEach-Object path)
         foreach ($old in $oldFiles | Where-Object { $sourceFiles -notcontains $_ -and (Get-LocalAllowedPaths) -notcontains $_ }) {
             $stale = Join-Path $destination $old
-            if ((Test-Contained $stale $destination) -and (Test-Path -LiteralPath $stale -PathType Leaf)) { Remove-Item -LiteralPath $stale -Force }
+            if ((Test-Contained $stale $destination) -and (Test-Path -LiteralPath $stale -PathType Leaf)) {
+                $record = @($oldEntry[0].files | Where-Object path -eq $old | Select-Object -First 1)
+                if ($record.Count -eq 1 -and (Get-Sha256 $stale) -ne $record[0].sha256) {
+                    throw "$($Package.name) has unauthorized local modification: $old"
+                }
+                Remove-Item -LiteralPath $stale -Force
+            }
         }
     }
     New-Item -ItemType Directory -Path $destination -Force | Out-Null
@@ -279,6 +351,7 @@ function Build-Manifest {
         $entry = [ordered]@{
             package_name = $package.name
             source_group = $package.source_group
+            source_state = 'pinned-upstream-mirror'
             upstream_repository = 'mattpocock/skills'
             upstream_package_path = $package.upstream_path
             local_package_path = ('skills/' + $package.name)
@@ -288,6 +361,7 @@ function Build-Manifest {
             files = @($files)
             local_modification_state = 'metadata-adapter-only'
             local_patch_paths = @('agents/openai.yaml', 'UPSTREAM.md', 'PATCHES.md', 'LICENSE')
+            local_patch_checksum = Get-LocalPatchChecksum $destination
             upstream_snapshot = $true
             dependency_state = [ordered]@{
                 state = if (@($package.dependencies).Count -gt 0) { 'declared-peer-dependency' } else { 'none' }
@@ -302,16 +376,17 @@ function Build-Manifest {
         }
         $entries.Add($entry)
     }
-    $collectionData = (@($entries | ForEach-Object { "$($_.package_name):$($_.checksum)" }) -join "`n")
-    $collectionBytes = [Text.UTF8Encoding]::new($false).GetBytes($collectionData)
-    $collectionSha = [Security.Cryptography.SHA256]::Create()
-    try { $collectionChecksum = ([BitConverter]::ToString($collectionSha.ComputeHash($collectionBytes))).Replace('-', '').ToLowerInvariant() }
-    finally { $collectionSha.Dispose() }
+    $collectionChecksum = Get-CollectionChecksum $entries
     $manifest = [ordered]@{
         schema_version = 2
         repository = 'LightDevCoder/skills-3rdParty'
         visibility = 'private'
         source_kind = 'pinned-upstream-mirror-with-collection-metadata-adapter'
+        source_states = [ordered]@{
+            pinned_upstream_mirror = [ordered]@{ copied = $true; record = 'Complete package snapshot at a pinned upstream revision; collection metadata adapters are recorded as local patches.' }
+            modified_upstream_fork = [ordered]@{ copied = $false; record = 'Requires a concrete compatibility or behavior-difference rationale and an explicit patch review before admission.' }
+            external_direct_dependency = [ordered]@{ copied = $false; record = 'Record the authoritative upstream source and revision; do not copy the package into this collection.' }
+        }
         upstream = [ordered]@{
             repository = 'mattpocock/skills'
             url = 'https://github.com/mattpocock/skills'
@@ -336,15 +411,30 @@ function Build-Manifest {
 function Test-Manifest {
     param($Config, [string]$Revision, [string]$Commit)
     $failures = [System.Collections.Generic.List[string]]::new()
+    $manifest = Read-JsonFile $manifestPath
     $manifestEntries = @(Get-ManifestEntries)
     if ($manifestEntries.Count -ne @($Config.packages).Count) { $failures.Add("manifest entry count $($manifestEntries.Count) does not equal allowlist count $(@($Config.packages).Count)") }
     $manifestNames = @($manifestEntries | ForEach-Object package_name | Sort-Object)
     $allowNames = @($Config.packages | ForEach-Object name | Sort-Object)
     if (($manifestNames -join ',') -ne ($allowNames -join ',')) { $failures.Add('manifest names do not exactly match the selected allowlist') }
+    $manifestAllowNames = @($manifest.allowlist | ForEach-Object { [string]$_ } | Sort-Object)
+    if (($manifestAllowNames -join ',') -ne ($allowNames -join ',')) { $failures.Add('manifest allowlist names do not exactly match config/upstream-allowlist.json') }
+    foreach ($state in @('pinned_upstream_mirror', 'modified_upstream_fork', 'external_direct_dependency')) {
+        if ($null -eq $manifest.source_states.$state) { $failures.Add("manifest source state is missing: $state") }
+    }
     foreach ($package in @($Config.packages)) {
         $entry = @($manifestEntries | Where-Object package_name -eq $package.name | Select-Object -First 1)
         if ($entry.Count -eq 0) { $failures.Add("missing manifest entry: $($package.name)"); continue }
         if ($entry[0].resolved_commit -ne $Commit) { $failures.Add("$($package.name) resolved commit is not $Commit") }
+        if ([string]$entry[0].source_state -ne 'pinned-upstream-mirror') { $failures.Add("$($package.name) source state is not pinned-upstream-mirror") }
+        if ([string]$entry[0].source_group -ne [string]$package.source_group) { $failures.Add("$($package.name) source group does not match the allowlist") }
+        if ([string]$entry[0].upstream_package_path -ne [string]$package.upstream_path) { $failures.Add("$($package.name) upstream package path does not match the allowlist") }
+        if ([string]$entry[0].local_package_path -ne ('skills/' + $package.name)) { $failures.Add("$($package.name) local package path is not canonical") }
+        if ([string]$entry[0].license_path -ne ('skills/' + $package.name + '/LICENSE')) { $failures.Add("$($package.name) license path is not canonical") }
+        if ([string]$entry[0].provenance_path -ne ('skills/' + $package.name + '/UPSTREAM.md')) { $failures.Add("$($package.name) provenance path is not canonical") }
+        if ([string]$entry[0].patch_record_path -ne ('skills/' + $package.name + '/PATCHES.md')) { $failures.Add("$($package.name) patch record path is not canonical") }
+        if ([string]$entry[0].checksum -ne (Get-EntryChecksum $entry[0].files)) { $failures.Add("$($package.name) package checksum does not match its manifest file records") }
+        if ([string]::IsNullOrWhiteSpace([string]$entry[0].local_patch_checksum)) { $failures.Add("$($package.name) local patch checksum is missing") }
         $source = Join-Path $UpstreamRoot $package.upstream_path
         $destination = Join-Path $skillRoot $package.name
         if (-not (Test-Path -LiteralPath $source -PathType Container)) { $failures.Add("missing upstream package: $($package.upstream_path)"); continue }
@@ -359,11 +449,21 @@ function Test-Manifest {
             $actualHash = Get-Sha256 $path
             if ($expected.Count -eq 0 -or $actualHash -ne $expected[0].sha256) { $failures.Add("$($package.name) unauthorized local modification: $relative") }
         }
+        foreach ($extra in @(Get-UnauthorizedLocalFiles $destination $sourceFiles)) {
+            $failures.Add("$($package.name) unauthorized local file: $extra")
+        }
+        if (-not [string]::IsNullOrWhiteSpace([string]$entry[0].local_patch_checksum) -and (Get-LocalPatchChecksum $destination) -ne [string]$entry[0].local_patch_checksum) {
+            $failures.Add("$($package.name) unauthorized local patch record modification")
+        }
         foreach ($required in @('SKILL.md', 'agents/openai.yaml', 'UPSTREAM.md', 'PATCHES.md', 'LICENSE')) {
             if (-not (Test-Path -LiteralPath (Join-Path $destination $required) -PathType Leaf)) { $failures.Add("$($package.name) missing required package file: $required") }
         }
         $missing = Get-ReferencedResources $destination
         if ($missing.Count -gt 0) { $failures.Add("$($package.name) missing referenced resources: $($missing -join ', ')") }
+        $provenance = Get-Content -Raw -LiteralPath (Join-Path $destination 'UPSTREAM.md')
+        if ($provenance -notmatch [regex]::Escape("# Upstream Record: $($package.name)")) { $failures.Add("$($package.name) provenance package identity does not match the manifest") }
+        if ($provenance -notmatch [regex]::Escape("- **Original package path:** $($package.upstream_path)")) { $failures.Add("$($package.name) provenance upstream path does not match the manifest") }
+        if ($provenance -notmatch [regex]::Escape("UPSTREAM_LOCK.json entry $($package.name)")) { $failures.Add("$($package.name) provenance lock entry does not match the manifest") }
         $front = Get-Frontmatter (Join-Path $destination 'SKILL.md')
         $metadata = Get-Content -Raw -LiteralPath (Join-Path $destination 'agents/openai.yaml')
         foreach ($marker in @('display_name:', 'short_description:', 'default_prompt:', 'allow_implicit_invocation:')) {
@@ -371,6 +471,12 @@ function Test-Manifest {
         }
         if ($metadata -notmatch ('allow_implicit_invocation:\s*' + $(if ($front.allowImplicitInvocation) { 'true' } else { 'false' }))) { $failures.Add("$($package.name) metadata invocation policy disagrees with upstream frontmatter") }
     }
+    $orderedEntries = [System.Collections.Generic.List[object]]::new()
+    foreach ($package in @($Config.packages)) {
+        $entry = @($manifestEntries | Where-Object package_name -eq $package.name | Select-Object -First 1)
+        if ($entry.Count -eq 1) { $orderedEntries.Add($entry[0]) }
+    }
+    if ([string]$manifest.collection_checksum -ne (Get-CollectionChecksum $orderedEntries)) { $failures.Add('manifest collection checksum does not match package checksums') }
     $actualPackages = @(Get-ChildItem -LiteralPath $skillRoot -Directory -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name | Sort-Object)
     if (($actualPackages -join ',') -ne ($allowNames -join ',')) { $failures.Add('local skills/ package directories do not exactly match the 23-Skill allowlist') }
     return @($failures)
@@ -381,6 +487,18 @@ $revision = [string]$config.upstream_tag
 $expectedCommit = [string]$config.upstream_commit
 $resolvedCommit = Get-UpstreamCommit $revision
 if ($resolvedCommit -ne $expectedCommit) { throw "Pinned upstream revision mismatch: expected $expectedCommit, got $resolvedCommit" }
+$headCommit = Invoke-UpstreamGit @('rev-parse', 'HEAD')
+if ($headCommit -ne $expectedCommit) { throw "Upstream checkout HEAD mismatch: expected $expectedCommit, got $headCommit" }
+$upstreamStatus = Invoke-UpstreamGit @('status', '--porcelain', '--untracked-files=all')
+if (-not [string]::IsNullOrWhiteSpace($upstreamStatus)) {
+    throw "Upstream checkout is dirty; refusing to read working-tree content under the pinned commit: $upstreamStatus"
+}
+foreach ($package in @($config.packages)) {
+    $ignored = @(Get-IgnoredUpstreamFiles $package)
+    if ($ignored.Count -gt 0) {
+        throw "Upstream checkout contains ignored files under $($package.upstream_path); refusing to read working-tree content: $($ignored -join '; ')"
+    }
+}
 
 if ($Mode -eq 'dry-run') {
     foreach ($package in @($config.packages)) {
@@ -413,7 +531,34 @@ if ($Mode -eq 'diff') {
             $expected = @($entry[0].files | Where-Object path -eq $relative | Select-Object -First 1)
             if ($expected.Count -eq 0 -or (Get-Sha256 $path) -ne $expected[0].sha256) { Write-Output "DIFF $($package.name): changed $relative" }
         }
+        foreach ($extra in @(Get-UnauthorizedLocalFiles $destination (Get-RelativeFiles $source))) {
+            Write-Output "DIFF $($package.name): unauthorized local file $extra"
+        }
+        $entryPatchChecksum = [string]$entry[0].local_patch_checksum
+        if ([string]::IsNullOrWhiteSpace($entryPatchChecksum) -or (Get-LocalPatchChecksum $destination) -ne $entryPatchChecksum) {
+            Write-Output "DIFF $($package.name): unauthorized local patch record"
+        }
     }
+    exit 0
+}
+
+if ($Mode -eq 'resource') {
+    $resourceFailures = @(Test-Manifest $config $revision $resolvedCommit | Where-Object { $_ -match 'resource|missing|manifest resources|referenced' })
+    if ($resourceFailures.Count -gt 0) {
+        $resourceFailures | ForEach-Object { Write-Output "FAIL: $_" }
+        throw "UPSTREAM_SYNC=resource FAIL ($($resourceFailures.Count) failures)"
+    }
+    Write-Output "UPSTREAM_SYNC=resource PASS ($(@($config.packages).Count) packages, complete resources verified)"
+    exit 0
+}
+
+if ($Mode -eq 'unauthorized-patch') {
+    $patchFailures = @(Test-Manifest $config $revision $resolvedCommit | Where-Object { $_ -match 'unauthorized|local patch|extra|modification' })
+    if ($patchFailures.Count -gt 0) {
+        $patchFailures | ForEach-Object { Write-Output "FAIL: $_" }
+        throw "UPSTREAM_SYNC=unauthorized-patch FAIL ($($patchFailures.Count) failures)"
+    }
+    Write-Output "UPSTREAM_SYNC=unauthorized-patch PASS ($(@($config.packages).Count) packages, local patch boundary verified)"
     exit 0
 }
 

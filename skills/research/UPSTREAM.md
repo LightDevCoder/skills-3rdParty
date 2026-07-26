@@ -31,8 +31,8 @@ The upstream Skill instructions and referenced resources are preserved.
 
 ## Installation and update
 
-- **Whole collection:** npx skills add LightDevCoder/skills-3rdParty#v1.1.0
-- **Single package:** npx skills add LightDevCoder/skills-3rdParty#v1.1.0 --skill research
+- **Whole collection (target after the local v0.1.1 release gate):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1
+- **Single package (target after the local v0.1.1 release gate):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill research
 - **Manual fallback:** copy this complete skills/research/ directory
   into the host's recognized Skills root.
 - **Update source:** run `scripts/sync-upstream.ps1 -Mode check` against the

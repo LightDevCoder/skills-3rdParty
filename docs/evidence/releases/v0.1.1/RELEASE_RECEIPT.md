@@ -8,6 +8,7 @@ the tag or GitHub release is created.
 ## Identity
 
 - Repository: `LightDevCoder/skills-3rdParty` (private)
+- Evidence date: `2026-07-26`
 - Local baseline: `b038ab039b86c66119c392002448ae0d5ef837c4`
 - Upstream: `mattpocock/skills` tag `v1.1.0`, commit
   `d574778f94cf620fcc8ce741584093bc650a61d3`
@@ -18,6 +19,7 @@ the tag or GitHub release is created.
 ## Evidence links
 
 - [test summary](TEST_SUMMARY.md)
+- [admission record](ADMISSION_RECORD.md)
 - [installation verification](INSTALLATION_VERIFICATION.md)
 - [discovery verification](DISCOVERY_VERIFICATION.md)
 - [limitations](LIMITATIONS.md)

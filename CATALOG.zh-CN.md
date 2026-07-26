@@ -17,13 +17,14 @@
 | 本地 release | `v0.1.1`，须以真实发布证据为准 |
 | manifest | [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) |
 | 同步工具 | [scripts/sync-upstream.ps1](scripts/sync-upstream.ps1) |
+| 准入记录 | [v0.1.1 admission evidence](docs/evidence/releases/v0.1.1/ADMISSION_RECORD.zh-CN.md) |
 
 ## Source group
 
 | 分组 | 数量 | upstream 根路径 |
 | --- | ---: | --- |
-| engineering | 13 | `skills/engineering/` |
-| productivity | 6 | `skills/productivity/` |
+| engineering | 14 | `skills/engineering/` |
+| productivity | 5 | `skills/productivity/` |
 | deprecated | 3 | `skills/deprecated/` |
 | in-progress | 1 | `skills/in-progress/` |
 

@@ -18,13 +18,14 @@ each upstream `SKILL.md`; this file records source and installation facts.
 | Local release | `v0.1.1` after publication evidence |
 | Manifest | [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) |
 | Sync | [scripts/sync-upstream.ps1](scripts/sync-upstream.ps1) |
+| Admission record | [v0.1.1 admission evidence](docs/evidence/releases/v0.1.1/ADMISSION_RECORD.md) |
 
 ## Source groups
 
 | Source group | Packages | Original upstream root |
 | --- | ---: | --- |
-| engineering | 13 | `skills/engineering/` |
-| productivity | 6 | `skills/productivity/` |
+| engineering | 14 | `skills/engineering/` |
+| productivity | 5 | `skills/productivity/` |
 | deprecated | 3 | `skills/deprecated/` |
 | in-progress | 1 | `skills/in-progress/` |
 

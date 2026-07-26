@@ -34,8 +34,10 @@ manifest and [source-group record](sources/mattpocock-skills/README.md).
 
 ## Quick installation
 
-The `#v0.1.1` fragment pins this private collection release. It does not claim
-that the public shorthand without a fragment is immutable.
+The commands below are release-gate targets: `v0.1.1` has not yet been tagged,
+published, or fresh-install verified. Once the gate passes, the `#v0.1.1`
+fragment pins this private collection release. It does not claim that the
+shorthand without a fragment is immutable.
 
 Install the complete private collection:
 

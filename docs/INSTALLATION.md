@@ -2,15 +2,18 @@
 
 [简体中文](INSTALLATION.zh-CN.md)
 
-This private collection is installed from the released repository, not from a
-source checkout. A consumer must have access to the private GitHub repository
-through its configured Git credentials, SSH, or authenticated CLI.
+This private collection is intended to be installed from the released
+repository, not from a source checkout. The local v0.1.1 release candidate is
+not published yet; the commands below are targets, not installation evidence.
+A consumer must also have access to the private GitHub repository through its
+configured Git credentials, SSH, or authenticated CLI.
 
 ## Revision semantics
 
 The official Skills CLI accepts GitHub shorthand and GitHub tree URLs, and its
-source parser also accepts a `#ref` fragment. Therefore these commands pin the
-local collection release:
+source parser also accepts a `#ref` fragment. Therefore these are the target
+commands that will pin the local collection release after the release gate
+passes:
 
 ```text
 npx skills add LightDevCoder/skills-3rdParty#v0.1.1
@@ -45,7 +48,8 @@ smoke result, and limitation in
 ## Manual fallback
 
 When the installer cannot authenticate to the private repository, manually
-copy a complete released package from a checkout of tag `v0.1.1`:
+copy a complete package from a checkout of tag `v0.1.1` after that tag is
+published:
 
 ```powershell
 $sourceRoot = '<v0.1.1-release-checkout>'

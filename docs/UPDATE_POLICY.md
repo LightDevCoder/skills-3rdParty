@@ -7,7 +7,8 @@ Updates are explicit, pinned, and reviewable:
 1. fetch or inspect the proposed upstream tag/ref in a read-only checkout;
 2. resolve it to a full commit and update the allowlist only if the package set
    remains authorized;
-3. run `sync-upstream.ps1 -Mode dry-run` and `-Mode diff`;
+3. run `sync-upstream.ps1 -Mode dry-run`, `-Mode resource`, `-Mode diff`, and
+   `-Mode unauthorized-patch`;
 4. review removals, additions, references, licenses, metadata, and dependency
    changes;
 5. run `-Mode sync`, then `-Mode check` and the negative unauthorized-patch

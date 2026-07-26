@@ -3,6 +3,11 @@
   "repository": "LightDevCoder/skills-3rdParty",
   "visibility": "private",
   "source_kind": "pinned-upstream-mirror-with-collection-metadata-adapter",
+  "source_states": {
+    "pinned_upstream_mirror": { "copied": true, "record": "Complete package snapshot at a pinned upstream revision; collection metadata adapters are recorded as local patches." },
+    "modified_upstream_fork": { "copied": false, "record": "Requires a concrete compatibility or behavior-difference rationale and an explicit patch review before admission." },
+    "external_direct_dependency": { "copied": false, "record": "Record the authoritative upstream source and revision; do not copy the package into this collection." }
+  },
   "upstream": {
     "repository": "mattpocock/skills",
     "url": "https://github.com/mattpocock/skills",
@@ -41,12 +46,14 @@
   "installation": {
     "whole_collection": "npx skills add LightDevCoder/skills-3rdParty#v0.1.1",
     "single_skill": "npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill <skill-name>",
-    "revision_semantics": "The #v0.1.1 fragment pins the local collection release; the mirrored package content is pinned to upstream v1.1.0 and its resolved commit."
+    "revision_semantics": "The #v0.1.1 fragment pins the local collection release after the release gate; the mirrored package content is pinned to upstream v1.1.0 and its resolved commit.",
+    "release_status": "target-only; v0.1.1 tag, release, and fresh-install verification are not yet published or tested"
   },
   "entries": [
     {
       "package_name": "ask-matt",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/ask-matt",
       "local_package_path": "skills/ask-matt",
@@ -67,6 +74,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "2b6dd7502762d2da44631d7c666478c8324348a88620932db8dc5576d772b684",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -85,6 +93,7 @@
     {
       "package_name": "codebase-design",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/codebase-design",
       "local_package_path": "skills/codebase-design",
@@ -115,6 +124,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "809c31ef4bf4b7dc7a03fbd1565160268d3895d715b68e7ada36b6323c4cd949",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -133,6 +143,7 @@
     {
       "package_name": "code-review",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/code-review",
       "local_package_path": "skills/code-review",
@@ -153,6 +164,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "45032a66cd4dd4f1b31f8c566d5dc1ea729693cd0e7e9e829ef273a45546ba59",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -171,6 +183,7 @@
     {
       "package_name": "design-an-interface",
       "source_group": "deprecated",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/deprecated/design-an-interface",
       "local_package_path": "skills/design-an-interface",
@@ -191,6 +204,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "010e9467a29f4382a55b52fd61736579ed8f95920a4dee4bc266d2a923c1f14c",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -209,6 +223,7 @@
     {
       "package_name": "diagnosing-bugs",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/diagnosing-bugs",
       "local_package_path": "skills/diagnosing-bugs",
@@ -234,6 +249,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "9be939be749d1b270de3e1b83eef6513faf09eae9e90f6efe792364d0a7fd6d8",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -252,6 +268,7 @@
     {
       "package_name": "domain-modeling",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/domain-modeling",
       "local_package_path": "skills/domain-modeling",
@@ -282,6 +299,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "422c6abbc89845ae46dcb50502fb7fb363639982a60e3e8b3a85b2803653a494",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -300,6 +318,7 @@
     {
       "package_name": "grilling",
       "source_group": "productivity",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/productivity/grilling",
       "local_package_path": "skills/grilling",
@@ -320,6 +339,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "d308499f12cc24d83815292eedcb5bdf22bedef89965121cb27f263872c68f2c",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -338,6 +358,7 @@
     {
       "package_name": "grill-me",
       "source_group": "productivity",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/productivity/grill-me",
       "local_package_path": "skills/grill-me",
@@ -358,6 +379,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "61a34e8a85dcaa536d9192b1175679e29ebbacdc59d68aa55c4fe8087a3fb944",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "declared-peer-dependency",
@@ -378,6 +400,7 @@
     {
       "package_name": "grill-with-docs",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/grill-with-docs",
       "local_package_path": "skills/grill-with-docs",
@@ -398,6 +421,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "a541d6c9378ce03c753bc07b86259b38b809bda50aedce05d25855e368ef4746",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "declared-peer-dependency",
@@ -419,6 +443,7 @@
     {
       "package_name": "handoff",
       "source_group": "productivity",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/productivity/handoff",
       "local_package_path": "skills/handoff",
@@ -439,6 +464,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "3c4eb19639d979de6ae68d361f6018767259ab1a842d2cfb21c60f73a22c1015",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -457,6 +483,7 @@
     {
       "package_name": "implement",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/implement",
       "local_package_path": "skills/implement",
@@ -477,6 +504,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "a5d613f43346ae19dd957f9abd8bac9728bc6057521e55097dba28870ce0668b",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -495,6 +523,7 @@
     {
       "package_name": "improve-codebase-architecture",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/improve-codebase-architecture",
       "local_package_path": "skills/improve-codebase-architecture",
@@ -520,6 +549,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "f55e43fc22837af1602af5c58a7c5e53e94d32c7302b8d5ca3029a78c40d0ca4",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -538,6 +568,7 @@
     {
       "package_name": "loop-me",
       "source_group": "in-progress",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/in-progress/loop-me",
       "local_package_path": "skills/loop-me",
@@ -558,6 +589,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "3ee456c86ff8ecaad1cf0cb350ab96d37aea0bb4c9f80cb4c10b66449bde79aa",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -576,6 +608,7 @@
     {
       "package_name": "prototype",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/prototype",
       "local_package_path": "skills/prototype",
@@ -606,6 +639,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "f6db9b491e21984cfd4ca5568c662c4f97ab70e6d7e68e78caa3bf035f04ae40",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -624,6 +658,7 @@
     {
       "package_name": "qa",
       "source_group": "deprecated",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/deprecated/qa",
       "local_package_path": "skills/qa",
@@ -644,6 +679,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "c786f8b593b6e25eb126ea16ba52a8431c1ad64132d80f011ec8c1e9f34cd545",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -662,6 +698,7 @@
     {
       "package_name": "research",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/research",
       "local_package_path": "skills/research",
@@ -682,6 +719,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "31256462e21195486fa62120319d0211e9237fe7870a7831b29e5ff93d8ea88d",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -700,6 +738,7 @@
     {
       "package_name": "tdd",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/tdd",
       "local_package_path": "skills/tdd",
@@ -730,6 +769,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "3d0e69c9fb1d5352a46be2420fce4d1ca8b601ce385d63333f14a1ee30611bd0",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -748,6 +788,7 @@
     {
       "package_name": "teach",
       "source_group": "productivity",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/productivity/teach",
       "local_package_path": "skills/teach",
@@ -788,6 +829,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "25258a77a23bd0aae52b688f579b2f14253e765d94e8cc4a6485499da98b63f8",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -806,6 +848,7 @@
     {
       "package_name": "to-spec",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/to-spec",
       "local_package_path": "skills/to-spec",
@@ -826,6 +869,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "293e0057b2f737d2f7ec87f7b4f06a8bbeb921c9b0073a899218b62688da2dc0",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -844,6 +888,7 @@
     {
       "package_name": "to-tickets",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/to-tickets",
       "local_package_path": "skills/to-tickets",
@@ -864,6 +909,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "9ab139d59418a935d541f82dc16214da4ece1be75c6b0b205b30245a2e1cb919",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -882,6 +928,7 @@
     {
       "package_name": "ubiquitous-language",
       "source_group": "deprecated",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/deprecated/ubiquitous-language",
       "local_package_path": "skills/ubiquitous-language",
@@ -902,6 +949,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "a7c3931ef655e32a8960337ac51be019e5e8d604148ad6c8c3b58bdb6c26361e",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -920,6 +968,7 @@
     {
       "package_name": "wayfinder",
       "source_group": "engineering",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/engineering/wayfinder",
       "local_package_path": "skills/wayfinder",
@@ -940,6 +989,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "ea0d53d2fe6b0acd5290e09bf483d574c0f885a526027e42699a7e805e11b3fb",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -958,6 +1008,7 @@
     {
       "package_name": "writing-great-skills",
       "source_group": "productivity",
+      "source_state": "pinned-upstream-mirror",
       "upstream_repository": "mattpocock/skills",
       "upstream_package_path": "skills/productivity/writing-great-skills",
       "local_package_path": "skills/writing-great-skills",
@@ -983,6 +1034,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
+      "local_patch_checksum": "c8c098f84b64954eb8de01f089fb5765316a65e19237c6f336ccb2c0557e230a",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",

@@ -34,8 +34,9 @@ npx skills add LightDevCoder/skills-3rdParty#v0.1.1
 npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill grill-me
 ```
 
-`#v0.1.1` 固定的是本地集合 release；包内容另外固定在 upstream
-`v1.1.0`/完整 commit。请阅读[安装指南](docs/INSTALLATION.md)了解 private
+上面的命令是 release gate 目标：`v0.1.1` 尚未创建 tag、发布或完成
+fresh-install 验证。gate 通过后，`#v0.1.1` 固定本地集合 release；包内容另外固定在 upstream
+`v1.1.0`/完整 commit。不带 fragment 的简写不能描述为 immutable。请阅读[安装指南](docs/INSTALLATION.md)了解 private
 凭据、全新目录、重复安装、发现验证和手工回退。
 
 ## 边界与维护
