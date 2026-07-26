@@ -9,10 +9,10 @@ repository and remains private.
 
 ## Current release
 
-The next stable release is `v0.1.1` on the local `codex/t19-skills-3rdParty`
-change set; publication is recorded only after the real tag, release, and
-fresh-install evidence exist. The collection mirrors exactly 23 selected Matt
-Pocock Skills from upstream tag `v1.1.0`, resolved to
+The stable release is `v0.1.1`, released from commit
+`a891d39d7f34793d857c5b8eec3429c23871f421`; the [private GitHub release](https://github.com/LightDevCoder/skills-3rdParty/releases/tag/v0.1.1)
+is backed by fresh-install evidence. The collection mirrors exactly 23
+selected Matt Pocock Skills from upstream tag `v1.1.0`, resolved to
 `d574778f94cf620fcc8ce741584093bc650a61d3`.
 
 The authoritative inventory is [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json). It
@@ -34,21 +34,20 @@ manifest and [source-group record](sources/mattpocock-skills/README.md).
 
 ## Quick installation
 
-The commands below are release-gate targets: `v0.1.1` has not yet been tagged,
-published, or fresh-install verified. Once the gate passes, the `#v0.1.1`
-fragment pins this private collection release. It does not claim that the
-shorthand without a fragment is immutable.
+The commands below install the published private snapshot. The `#v0.1.1`
+fragment pins this collection release; shorthand without a fragment follows the
+repository's default revision and is not immutable.
 
 Install the complete private collection:
 
 ```text
-npx skills add LightDevCoder/skills-3rdParty#v0.1.1
+npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex
 ```
 
 Install one package:
 
 ```text
-npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill grill-me
+npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill grill-with-docs --yes --copy --agent codex
 ```
 
 Read [Installation](docs/INSTALLATION.md) for private-repository credentials,

@@ -25,16 +25,16 @@ package retains its detailed `UPSTREAM.md` and `PATCHES.md`.
 
 | Required field | Evidence |
 | --- | --- |
-| Installation method | Target commands: `npx skills add LightDevCoder/skills-3rdParty#v0.1.1` and `... --skill grill-me`; local tag/release remains `NOT TESTED`. |
-| Host and discovery | `NOT TESTED` until private-repository fresh-install verification is captured in [INSTALLATION_VERIFICATION.md](INSTALLATION_VERIFICATION.md) and [DISCOVERY_VERIFICATION.md](DISCOVERY_VERIFICATION.md). |
-| Known limitations | Private GitHub access, host refresh/discovery, repeat-install behavior, and peer-dependency smoke are recorded as `NOT TESTED` in [LIMITATIONS.md](LIMITATIONS.md). |
+| Installation method | Published commands: `npx --yes skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex` and the same command with `--skill grill-with-docs`; CLI `1.5.20` evidence is recorded. |
+| Host and discovery | Fresh destinations listed exactly 23 packages for whole install and exactly `grill-with-docs` for single install; source checkout was absent. |
+| Known limitations | Private access passed in the authenticated run; host refresh/model runtime remain `NOT TESTED`, and independent acceptance is `BLOCKED`; see [LIMITATIONS.md](LIMITATIONS.md). |
 | Update method | Run `scripts/sync-upstream.ps1 -Mode check`, review `dry-run`/`diff`, then use `sync` only for an approved pinned revision. Dirty upstream checkouts, extra local files, and unauthorized managed-file mutations fail or report. |
 | Conflict owner | Collection maintainer; no silent conflict resolution. A changed upstream file requires a new pinned revision or explicit patch record. |
 | Evidence links | [TEST_SUMMARY.md](TEST_SUMMARY.md), [RELEASE_RECEIPT.md](RELEASE_RECEIPT.md), [UPSTREAM_LOCK.json](../../../../UPSTREAM_LOCK.json), and package-local provenance/patch records. |
 
 ## Current decision
 
-`IMPLEMENTED` for the local mirror, provenance, manifest, and structural/negative
-checks. Local tag/release, private fresh installation, host discovery, and an
-independent final reviewer remain `NOT TESTED` or `BLOCKED`; this record does
-not promote them to acceptance.
+`VERIFIED` for the local mirror, provenance, manifest, structural/negative
+checks, private tag/release, and fresh installation/discovery evidence.
+Independent final acceptance remains `BLOCKED`; this record does not promote
+same-context evidence to independent acceptance.

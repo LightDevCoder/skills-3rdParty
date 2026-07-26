@@ -24,9 +24,9 @@
 
 | 必需字段 | 证据 |
 | --- | --- |
-| 安装方法 | 目标命令：`npx skills add LightDevCoder/skills-3rdParty#v0.1.1` 和 `... --skill grill-me`；本地 tag/release 仍为 `NOT TESTED`。 |
-| Host 与 discovery | 私有仓库 fresh-install 证据写入 [INSTALLATION_VERIFICATION.md](INSTALLATION_VERIFICATION.md) 和 [DISCOVERY_VERIFICATION.md](DISCOVERY_VERIFICATION.md) 前保持 `NOT TESTED`。 |
-| 已知限制 | 私有 GitHub 访问、host refresh/discovery、重复安装和 peer dependency smoke 在 [LIMITATIONS.md](LIMITATIONS.md) 中标记 `NOT TESTED`。 |
+| 安装方法 | 已发布命令：`npx --yes skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex`，以及同命令加 `--skill grill-with-docs`；CLI `1.5.20` 证据已记录。 |
+| Host 与 discovery | Fresh destination 的整仓安装恰好列出 23 个包，单包安装恰好列出 `grill-with-docs`；source checkout 不存在。 |
+| 已知限制 | 已认证运行中的 private access 通过；host refresh/model runtime 仍为 `NOT TESTED`，独立 acceptance 为 `BLOCKED`；见 [LIMITATIONS.md](LIMITATIONS.md)。 |
 | 更新方法 | 运行 `scripts/sync-upstream.ps1 -Mode check`，审查 `dry-run`/`diff`，仅在批准固定 revision 后执行 `sync`。 dirty upstream、额外本地文件和未授权 managed-file 改动会失败或报告。 |
 | 冲突负责人 | 集合维护者；不静默解决冲突。上游文件变化必须采用新 pinned revision 或建立明确 patch record。 |
 | 证据链接 | [TEST_SUMMARY.md](TEST_SUMMARY.md)、[RELEASE_RECEIPT.md](RELEASE_RECEIPT.md)、[UPSTREAM_LOCK.json](../../../../UPSTREAM_LOCK.json) 以及各包 provenance/patch 记录。 |
@@ -34,6 +34,6 @@
 ## 当前决定
 
 本地 mirror、provenance、manifest 以及 structural/negative checks 为
-`IMPLEMENTED`。本地 tag/release、私有 fresh installation、host discovery
-和独立最终 reviewer 仍为 `NOT TESTED` 或 `BLOCKED`；本记录不将它们提升为
-acceptance。
+`VERIFIED`：本地 mirror、provenance、manifest、结构/负向检查、私有
+tag/release 以及 fresh installation/discovery 证据均已核验。独立最终
+acceptance 仍为 `BLOCKED`；本记录不把同一上下文证据提升为 independent acceptance。

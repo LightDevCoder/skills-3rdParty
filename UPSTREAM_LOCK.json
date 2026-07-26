@@ -1,1054 +1,1151 @@
 {
-  "schema_version": 2,
-  "repository": "LightDevCoder/skills-3rdParty",
-  "visibility": "private",
-  "source_kind": "pinned-upstream-mirror-with-collection-metadata-adapter",
-  "source_states": {
-    "pinned_upstream_mirror": { "copied": true, "record": "Complete package snapshot at a pinned upstream revision; collection metadata adapters are recorded as local patches." },
-    "modified_upstream_fork": { "copied": false, "record": "Requires a concrete compatibility or behavior-difference rationale and an explicit patch review before admission." },
-    "external_direct_dependency": { "copied": false, "record": "Record the authoritative upstream source and revision; do not copy the package into this collection." }
-  },
-  "upstream": {
-    "repository": "mattpocock/skills",
-    "url": "https://github.com/mattpocock/skills",
-    "selected_tag": "v1.1.0",
-    "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-    "license": "MIT",
-    "license_source": "LICENSE at upstream repository root"
-  },
-  "allowlist": [
-    "ask-matt",
-    "codebase-design",
-    "code-review",
-    "design-an-interface",
-    "diagnosing-bugs",
-    "domain-modeling",
-    "grilling",
-    "grill-me",
-    "grill-with-docs",
-    "handoff",
-    "implement",
-    "improve-codebase-architecture",
-    "loop-me",
-    "prototype",
-    "qa",
-    "research",
-    "tdd",
-    "teach",
-    "to-spec",
-    "to-tickets",
-    "ubiquitous-language",
-    "wayfinder",
-    "writing-great-skills"
-  ],
-  "collection_checksum": "c712abb181e90de8502dd90d6c31f64c87e647d072fac256e9b6147cb8f2ec65",
-  "generated_utc": "2026-07-23T03:06:49.4499494Z",
-  "installation": {
-    "whole_collection": "npx skills add LightDevCoder/skills-3rdParty#v0.1.1",
-    "single_skill": "npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill <skill-name>",
-    "revision_semantics": "The #v0.1.1 fragment pins the local collection release after the release gate; the mirrored package content is pinned to upstream v1.1.0 and its resolved commit.",
-    "release_status": "target-only; v0.1.1 tag, release, and fresh-install verification are not yet published or tested"
-  },
-  "entries": [
-    {
-      "package_name": "ask-matt",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/ask-matt",
-      "local_package_path": "skills/ask-matt",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "a74cf85e50937410c1b75856d2118669aed0b9905b1d699b8da2757aa12a05c7",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "1905dee1e9d0a4b29c04f3bf507cc432f71a251c2ae1829a3bfdb940b1437e94",
-          "bytes": 7890
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "2b6dd7502762d2da44631d7c666478c8324348a88620932db8dc5576d772b684",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/ask-matt/LICENSE",
-      "provenance_path": "skills/ask-matt/UPSTREAM.md",
-      "patch_record_path": "skills/ask-matt/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "codebase-design",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/codebase-design",
-      "local_package_path": "skills/codebase-design",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "36fe7ffcce1c5aa6ca4d895f6c49b6a4dca855777be06a32c2e3b95cd28da250",
-      "files": [
-        {
-          "path": "DEEPENING.md",
-          "sha256": "793b7704484b704e1b5f93aac197a5758018e838afdb8bcb08ad6465960586dc",
-          "bytes": 2596
-        },
-        {
-          "path": "DESIGN-IT-TWICE.md",
-          "sha256": "578a9a67c20fda10a7e5442e2208d0e5cf68601d012b0ecd6469e651100a308f",
-          "bytes": 2756
-        },
-        {
-          "path": "SKILL.md",
-          "sha256": "22d3815e5629ddea7ed7c9f8e7c330f6a1559466ee904e58371e1e8a10be0c4b",
-          "bytes": 6602
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "809c31ef4bf4b7dc7a03fbd1565160268d3895d715b68e7ada36b6323c4cd949",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/codebase-design/LICENSE",
-      "provenance_path": "skills/codebase-design/UPSTREAM.md",
-      "patch_record_path": "skills/codebase-design/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 3
-      }
-    },
-    {
-      "package_name": "code-review",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/code-review",
-      "local_package_path": "skills/code-review",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "2ea7e85d156bd697cab1b21fb1afb8519364d864d137f8ffc7face9e595c0cdd",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "e5507100ac01a04d082ac23ac6311d0fec8699d1ab00c599db7064039b819f63",
-          "bytes": 6829
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "45032a66cd4dd4f1b31f8c566d5dc1ea729693cd0e7e9e829ef273a45546ba59",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/code-review/LICENSE",
-      "provenance_path": "skills/code-review/UPSTREAM.md",
-      "patch_record_path": "skills/code-review/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "design-an-interface",
-      "source_group": "deprecated",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/deprecated/design-an-interface",
-      "local_package_path": "skills/design-an-interface",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "e5a512c83d01a5bb845b1ea2b48b658491095c5c04e23fb08469413bc2778c65",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "88193ab179032918cdea0afe74b8610d6d079ac51191f286c10e9e47839a9e6b",
-          "bytes": 3460
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "010e9467a29f4382a55b52fd61736579ed8f95920a4dee4bc266d2a923c1f14c",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/design-an-interface/LICENSE",
-      "provenance_path": "skills/design-an-interface/UPSTREAM.md",
-      "patch_record_path": "skills/design-an-interface/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "diagnosing-bugs",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/diagnosing-bugs",
-      "local_package_path": "skills/diagnosing-bugs",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "e5633c97bf5e0e85b7ed627e285c32d1736358b4c69f286f11890b7a3464ca45",
-      "files": [
-        {
-          "path": "scripts/hitl-loop.template.sh",
-          "sha256": "a14e4d722c2324c130d331e87267bc9f9b03bbaf32c3b8e08310b039ea5e5863",
-          "bytes": 1205
-        },
-        {
-          "path": "SKILL.md",
-          "sha256": "3dfe5ec16b89a01dbc1bf606a1a1cfc32349e225f3bb75a3fb86117974a83cb8",
-          "bytes": 8670
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "9be939be749d1b270de3e1b83eef6513faf09eae9e90f6efe792364d0a7fd6d8",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/diagnosing-bugs/LICENSE",
-      "provenance_path": "skills/diagnosing-bugs/UPSTREAM.md",
-      "patch_record_path": "skills/diagnosing-bugs/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 2
-      }
-    },
-    {
-      "package_name": "domain-modeling",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/domain-modeling",
-      "local_package_path": "skills/domain-modeling",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "2c6ecbee7a21c2039de3dd034c89a35814894b6d8730767c7bf3084de2a5c8eb",
-      "files": [
-        {
-          "path": "ADR-FORMAT.md",
-          "sha256": "dba54707c3251660ecf7ee6ff154a816a62badddd4ef403062f3a34e23509636",
-          "bytes": 2813
-        },
-        {
-          "path": "CONTEXT-FORMAT.md",
-          "sha256": "f229cd8485b77ea76428ffb807058ebd1d254a391b9669b10081942d3d6e8dd3",
-          "bytes": 2359
-        },
-        {
-          "path": "SKILL.md",
-          "sha256": "004d5cb6258658f2e9cbf0d9f90bdc9104f8b83bd296556783800c31d503814f",
-          "bytes": 3501
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "422c6abbc89845ae46dcb50502fb7fb363639982a60e3e8b3a85b2803653a494",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/domain-modeling/LICENSE",
-      "provenance_path": "skills/domain-modeling/UPSTREAM.md",
-      "patch_record_path": "skills/domain-modeling/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 3
-      }
-    },
-    {
-      "package_name": "grilling",
-      "source_group": "productivity",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/productivity/grilling",
-      "local_package_path": "skills/grilling",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "7966a979b8fb5c75c5f946af9df52d3cde94f387c1058c9213d727b7a2d79a68",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "3ff64dbca5137e8d887bdf3caafbd9067376b251b507517fbe875b70dfb5d345",
-          "bytes": 833
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "d308499f12cc24d83815292eedcb5bdf22bedef89965121cb27f263872c68f2c",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/grilling/LICENSE",
-      "provenance_path": "skills/grilling/UPSTREAM.md",
-      "patch_record_path": "skills/grilling/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "grill-me",
-      "source_group": "productivity",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/productivity/grill-me",
-      "local_package_path": "skills/grill-me",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "6cb3a6e07b201bf025b2f0af56a8bff02eff487b21405cdba13fb93876456d60",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "9c71927d4f0fd32d815247b4ca1fc782d4c5f2f3c1d6d023d188d4a7e0299b21",
-          "bytes": 154
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "61a34e8a85dcaa536d9192b1175679e29ebbacdc59d68aa55c4fe8087a3fb944",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "declared-peer-dependency",
-        "packages": [
-          "grilling"
-        ],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/grill-me/LICENSE",
-      "provenance_path": "skills/grill-me/UPSTREAM.md",
-      "patch_record_path": "skills/grill-me/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "grill-with-docs",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/grill-with-docs",
-      "local_package_path": "skills/grill-with-docs",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "e053e365d6427a3b367db15b8dd10fd7321e2ef746b466f7f69e660f4dccd96a",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "269376d5146332f597c4194fa1adef93b879ad62e0183c0d111a447e7af51be9",
-          "bytes": 252
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "a541d6c9378ce03c753bc07b86259b38b809bda50aedce05d25855e368ef4746",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "declared-peer-dependency",
-        "packages": [
-          "grilling",
-          "domain-modeling"
-        ],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/grill-with-docs/LICENSE",
-      "provenance_path": "skills/grill-with-docs/UPSTREAM.md",
-      "patch_record_path": "skills/grill-with-docs/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "handoff",
-      "source_group": "productivity",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/productivity/handoff",
-      "local_package_path": "skills/handoff",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "6f6913f9de6beb705b24bed73916c2c8a6e06913367fa977f0e901b9918aa457",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "65e80725923677f128b1d3cf23397b4bf0cc8659cd408aaee5ab285d01aa54af",
-          "bytes": 895
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "3c4eb19639d979de6ae68d361f6018767259ab1a842d2cfb21c60f73a22c1015",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/handoff/LICENSE",
-      "provenance_path": "skills/handoff/UPSTREAM.md",
-      "patch_record_path": "skills/handoff/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "implement",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/implement",
-      "local_package_path": "skills/implement",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "999e56209065940682f9c729fdb7d4fd852fe5adff7b74aee89f96bd783c7da3",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "30cd7bc1ebfb3891e85a1eed3b3b81aea0fa4ad4553a784de7f8e421b2d223e0",
-          "bytes": 448
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "a5d613f43346ae19dd957f9abd8bac9728bc6057521e55097dba28870ce0668b",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/implement/LICENSE",
-      "provenance_path": "skills/implement/UPSTREAM.md",
-      "patch_record_path": "skills/implement/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "improve-codebase-architecture",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/improve-codebase-architecture",
-      "local_package_path": "skills/improve-codebase-architecture",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "b3f5963f06bf0d72166df91fc7ceb99ed6e867c489ff0763f19fdcfbee078bb7",
-      "files": [
-        {
-          "path": "HTML-REPORT.md",
-          "sha256": "a1b8f23e710e68c2bba04edc4c6b9001a08af7bdebb8bc01c6964e76c9ba4855",
-          "bytes": 6808
-        },
-        {
-          "path": "SKILL.md",
-          "sha256": "5408ce415a8610568edaf44bd7a32e35ca2b8a65051bcae7d3ed61801e20088d",
-          "bytes": 5487
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "f55e43fc22837af1602af5c58a7c5e53e94d32c7302b8d5ca3029a78c40d0ca4",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/improve-codebase-architecture/LICENSE",
-      "provenance_path": "skills/improve-codebase-architecture/UPSTREAM.md",
-      "patch_record_path": "skills/improve-codebase-architecture/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 2
-      }
-    },
-    {
-      "package_name": "loop-me",
-      "source_group": "in-progress",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/in-progress/loop-me",
-      "local_package_path": "skills/loop-me",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "ef766c16c8888e6bc82b9ac23143e4037d91bae6ad7b4fe18326b64751e586f3",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "8214df9c466030e90172421d1d26f2a71dc3197ffbc7f354bac20c7d88318169",
-          "bytes": 2584
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "3ee456c86ff8ecaad1cf0cb350ab96d37aea0bb4c9f80cb4c10b66449bde79aa",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/loop-me/LICENSE",
-      "provenance_path": "skills/loop-me/UPSTREAM.md",
-      "patch_record_path": "skills/loop-me/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "prototype",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/prototype",
-      "local_package_path": "skills/prototype",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "262a21afd7a7c4187bc680615a21953b3e2b6418f0c743c0dfb784490e6e9a80",
-      "files": [
-        {
-          "path": "LOGIC.md",
-          "sha256": "3ce34ce7c2d06bcbdac4d846aafc488bbef0b2cd067134eeeda34c3804842f2f",
-          "bytes": 5673
-        },
-        {
-          "path": "SKILL.md",
-          "sha256": "9c750b700a6396697ddce3bcca04d322179d73c5d4f7d82268309eff84fd1176",
-          "bytes": 3032
-        },
-        {
-          "path": "UI.md",
-          "sha256": "be9846286540f0db138f7ba02e0b52ac8ba14ee561992be6788e4725284c89b7",
-          "bytes": 6901
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "f6db9b491e21984cfd4ca5568c662c4f97ab70e6d7e68e78caa3bf035f04ae40",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/prototype/LICENSE",
-      "provenance_path": "skills/prototype/UPSTREAM.md",
-      "patch_record_path": "skills/prototype/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 3
-      }
-    },
-    {
-      "package_name": "qa",
-      "source_group": "deprecated",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/deprecated/qa",
-      "local_package_path": "skills/qa",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "aa688402bb65f7bcf17a0f538557a88314bbc750b17bbf2139c2402d067a0618",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "199b4d8cbea7a2b69de091e221f42b7835a3d0b3215d4d1eff53f6e9fd7f3a6c",
-          "bytes": 5095
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "c786f8b593b6e25eb126ea16ba52a8431c1ad64132d80f011ec8c1e9f34cd545",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/qa/LICENSE",
-      "provenance_path": "skills/qa/UPSTREAM.md",
-      "patch_record_path": "skills/qa/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "research",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/research",
-      "local_package_path": "skills/research",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "669d1e6de12a0e8516dba1b7648897d559eeb508d7b2b755fc4e56bfa57aedcd",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "0b6597c453178536b50c044a9e57cbc32dbffa47607a370e40768332f54bf8c2",
-          "bytes": 811
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "31256462e21195486fa62120319d0211e9237fe7870a7831b29e5ff93d8ea88d",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/research/LICENSE",
-      "provenance_path": "skills/research/UPSTREAM.md",
-      "patch_record_path": "skills/research/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "tdd",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/tdd",
-      "local_package_path": "skills/tdd",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "c165fe21aeaaad637abe8355699ed410a94f7ebeb3dad0549dbdcacabb900198",
-      "files": [
-        {
-          "path": "mocking.md",
-          "sha256": "73a10b6a26b56197c738a764c1e4205af98c74553f4a713795997f6bc35b917d",
-          "bytes": 1540
-        },
-        {
-          "path": "SKILL.md",
-          "sha256": "2de14b893e7a1bf7030b9eb778a3714a19da70c4284ad18a6e43b2402aa693ef",
-          "bytes": 3249
-        },
-        {
-          "path": "tests.md",
-          "sha256": "0b401f98bd3684d2fea6440d6946afcf8f5f68ac6a65599dd7a2b90dd9f02eb5",
-          "bytes": 2291
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "3d0e69c9fb1d5352a46be2420fce4d1ca8b601ce385d63333f14a1ee30611bd0",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/tdd/LICENSE",
-      "provenance_path": "skills/tdd/UPSTREAM.md",
-      "patch_record_path": "skills/tdd/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 3
-      }
-    },
-    {
-      "package_name": "teach",
-      "source_group": "productivity",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/productivity/teach",
-      "local_package_path": "skills/teach",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "7aadc88d6bc6c8fa71df8c1aba17a43e98b8e789cbe87a1beb68eda0df6e8903",
-      "files": [
-        {
-          "path": "GLOSSARY-FORMAT.md",
-          "sha256": "408c96dce06be99b53a6e05b1e3201c900bcbb46ae3cf08ead8aa3e3cb545d8c",
-          "bytes": 2166
-        },
-        {
-          "path": "LEARNING-RECORD-FORMAT.md",
-          "sha256": "7bbbf6e325370633c77ec772cf4d30da19037ff2892c9e751f23e2696cf80888",
-          "bytes": 2823
-        },
-        {
-          "path": "MISSION-FORMAT.md",
-          "sha256": "ba1bc536615a6940414d96a1d87562f8f2684f56649d44ba15abaaf1833d0ce9",
-          "bytes": 1584
-        },
-        {
-          "path": "RESOURCES-FORMAT.md",
-          "sha256": "b5c7f17ce7c7b7f49a3a0007162e5024948c7b5c45c549643cafeb900ed431a6",
-          "bytes": 1958
-        },
-        {
-          "path": "SKILL.md",
-          "sha256": "99c077a05f66237c95392dc440974e9d144c1267309e978c7a18aaf065ce7fd3",
-          "bytes": 9647
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "25258a77a23bd0aae52b688f579b2f14253e765d94e8cc4a6485499da98b63f8",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/teach/LICENSE",
-      "provenance_path": "skills/teach/UPSTREAM.md",
-      "patch_record_path": "skills/teach/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 5
-      }
-    },
-    {
-      "package_name": "to-spec",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/to-spec",
-      "local_package_path": "skills/to-spec",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "2962348d344be0a09fc8946fc08e358208b79ddcb3a309139d36f9e1bbefd584",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "a8ffe2ecd1692f012d310dca3f3c9a75f61086df77dbb0a5bc38ddbc0bd2e6bc",
-          "bytes": 3148
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "293e0057b2f737d2f7ec87f7b4f06a8bbeb921c9b0073a899218b62688da2dc0",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/to-spec/LICENSE",
-      "provenance_path": "skills/to-spec/UPSTREAM.md",
-      "patch_record_path": "skills/to-spec/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "to-tickets",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/to-tickets",
-      "local_package_path": "skills/to-tickets",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "e830a0046407fd2c393d2bd5d0165266de6e11feab6000742c782105d4a1c8d1",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "573999404e46537ae441eaefe751fe85cb353b81e630bccbf9af0a2c475356b2",
-          "bytes": 5902
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "9ab139d59418a935d541f82dc16214da4ece1be75c6b0b205b30245a2e1cb919",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/to-tickets/LICENSE",
-      "provenance_path": "skills/to-tickets/UPSTREAM.md",
-      "patch_record_path": "skills/to-tickets/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "ubiquitous-language",
-      "source_group": "deprecated",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/deprecated/ubiquitous-language",
-      "local_package_path": "skills/ubiquitous-language",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "18b5d153102737e71d92adb3cfeafd966a0d29bdd86934d1a11a4f213294867d",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "a1efafd7ec7a630ed2b0753be2ddbcf53e50573e5c20a3d43e98056da25afce2",
-          "bytes": 4983
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "a7c3931ef655e32a8960337ac51be019e5e8d604148ad6c8c3b58bdb6c26361e",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/ubiquitous-language/LICENSE",
-      "provenance_path": "skills/ubiquitous-language/UPSTREAM.md",
-      "patch_record_path": "skills/ubiquitous-language/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "wayfinder",
-      "source_group": "engineering",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/engineering/wayfinder",
-      "local_package_path": "skills/wayfinder",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "4b3ba022e3f5a7617f694fef98a949b543a47bf06f471cb871ce691484df097b",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "f6b44ce86d9d15c1848a06b6dc89e6237eaebf3c47201aa7263645690719df7a",
-          "bytes": 11630
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "ea0d53d2fe6b0acd5290e09bf483d574c0f885a526027e42699a7e805e11b3fb",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": false,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/wayfinder/LICENSE",
-      "provenance_path": "skills/wayfinder/UPSTREAM.md",
-      "patch_record_path": "skills/wayfinder/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 1
-      }
-    },
-    {
-      "package_name": "writing-great-skills",
-      "source_group": "productivity",
-      "source_state": "pinned-upstream-mirror",
-      "upstream_repository": "mattpocock/skills",
-      "upstream_package_path": "skills/productivity/writing-great-skills",
-      "local_package_path": "skills/writing-great-skills",
-      "pinned_revision": "v1.1.0",
-      "resolved_commit": "d574778f94cf620fcc8ce741584093bc650a61d3",
-      "checksum": "801ced90a47140b9789cf6a49b0da614e4a79b3d601b1324d6c03536a7ab97c8",
-      "files": [
-        {
-          "path": "GLOSSARY.md",
-          "sha256": "7c8b520536aa90fdd5ceeedfbfc5e24e21df0dd480619d9f2bba38c959f3c49e",
-          "bytes": 18689
-        },
-        {
-          "path": "SKILL.md",
-          "sha256": "8c38389dbcfdb3605690c5ce2fe0fa433e7a2f2371a7f1e697d080d81d15fdea",
-          "bytes": 9497
-        }
-      ],
-      "local_modification_state": "metadata-adapter-only",
-      "local_patch_paths": [
-        "agents/openai.yaml",
-        "UPSTREAM.md",
-        "PATCHES.md",
-        "LICENSE"
-      ],
-      "local_patch_checksum": "c8c098f84b64954eb8de01f089fb5765316a65e19237c6f336ccb2c0557e230a",
-      "upstream_snapshot": true,
-      "dependency_state": {
-        "state": "none",
-        "packages": [],
-        "writing_great_skills_is_authoring_knowledge_only": true,
-        "learn_anything_runtime_dependency": false
-      },
-      "license_path": "skills/writing-great-skills/LICENSE",
-      "provenance_path": "skills/writing-great-skills/UPSTREAM.md",
-      "patch_record_path": "skills/writing-great-skills/PATCHES.md",
-      "referenced_resource_check": {
-        "missing": [],
-        "source_file_count": 2
-      }
-    }
-  ]
+    "schema_version":  2,
+    "repository":  "LightDevCoder/skills-3rdParty",
+    "visibility":  "private",
+    "source_kind":  "pinned-upstream-mirror-with-collection-metadata-adapter",
+    "source_states":  {
+                          "pinned_upstream_mirror":  {
+                                                         "copied":  true,
+                                                         "record":  "Complete package snapshot at a pinned upstream revision; collection metadata adapters are recorded as local patches."
+                                                     },
+                          "modified_upstream_fork":  {
+                                                         "copied":  false,
+                                                         "record":  "Requires a concrete compatibility or behavior-difference rationale and an explicit patch review before admission."
+                                                     },
+                          "external_direct_dependency":  {
+                                                             "copied":  false,
+                                                             "record":  "Record the authoritative upstream source and revision; do not copy the package into this collection."
+                                                         }
+                      },
+    "upstream":  {
+                     "repository":  "mattpocock/skills",
+                     "url":  "https://github.com/mattpocock/skills",
+                     "selected_tag":  "v1.1.0",
+                     "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                     "license":  "MIT",
+                     "license_source":  "LICENSE at upstream repository root"
+                 },
+    "allowlist":  [
+                      "ask-matt",
+                      "codebase-design",
+                      "code-review",
+                      "design-an-interface",
+                      "diagnosing-bugs",
+                      "domain-modeling",
+                      "grilling",
+                      "grill-me",
+                      "grill-with-docs",
+                      "handoff",
+                      "implement",
+                      "improve-codebase-architecture",
+                      "loop-me",
+                      "prototype",
+                      "qa",
+                      "research",
+                      "tdd",
+                      "teach",
+                      "to-spec",
+                      "to-tickets",
+                      "ubiquitous-language",
+                      "wayfinder",
+                      "writing-great-skills"
+                  ],
+    "collection_checksum":  "c712abb181e90de8502dd90d6c31f64c87e647d072fac256e9b6147cb8f2ec65",
+    "generated_utc":  "2026-07-26T06:17:17.0140273Z",
+    "installation":  {
+                         "whole_collection":  "npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex",
+                         "single_skill":  "npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill \u003cskill-name\u003e --yes --copy --agent codex",
+                         "revision_semantics":  "The #v0.1.1 fragment pins the local collection release; the mirrored package content is pinned to upstream v1.1.0 and its resolved commit.",
+                         "release_status":  "released-with-acceptance-limitation; tag, private release, fresh install, and CI verified; independent acceptance BLOCKED"
+                     },
+    "entries":  [
+                    {
+                        "package_name":  "ask-matt",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/ask-matt",
+                        "local_package_path":  "skills/ask-matt",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "a74cf85e50937410c1b75856d2118669aed0b9905b1d699b8da2757aa12a05c7",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "1905dee1e9d0a4b29c04f3bf507cc432f71a251c2ae1829a3bfdb940b1437e94",
+                                          "bytes":  7890
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "b6cabc4635afb7b4265fdd92d2334389a50a19ccae7572f4881f55afce493e2a",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/ask-matt/LICENSE",
+                        "provenance_path":  "skills/ask-matt/UPSTREAM.md",
+                        "patch_record_path":  "skills/ask-matt/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "codebase-design",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/codebase-design",
+                        "local_package_path":  "skills/codebase-design",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "36fe7ffcce1c5aa6ca4d895f6c49b6a4dca855777be06a32c2e3b95cd28da250",
+                        "files":  [
+                                      {
+                                          "path":  "DEEPENING.md",
+                                          "sha256":  "793b7704484b704e1b5f93aac197a5758018e838afdb8bcb08ad6465960586dc",
+                                          "bytes":  2596
+                                      },
+                                      {
+                                          "path":  "DESIGN-IT-TWICE.md",
+                                          "sha256":  "578a9a67c20fda10a7e5442e2208d0e5cf68601d012b0ecd6469e651100a308f",
+                                          "bytes":  2756
+                                      },
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "22d3815e5629ddea7ed7c9f8e7c330f6a1559466ee904e58371e1e8a10be0c4b",
+                                          "bytes":  6602
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "aa50c1fb8ccf39e88a1f6f50ccc2eda8d2055d25277cc7f4626ce6c9fb125b82",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/codebase-design/LICENSE",
+                        "provenance_path":  "skills/codebase-design/UPSTREAM.md",
+                        "patch_record_path":  "skills/codebase-design/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  3
+                                                      }
+                    },
+                    {
+                        "package_name":  "code-review",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/code-review",
+                        "local_package_path":  "skills/code-review",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "2ea7e85d156bd697cab1b21fb1afb8519364d864d137f8ffc7face9e595c0cdd",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "e5507100ac01a04d082ac23ac6311d0fec8699d1ab00c599db7064039b819f63",
+                                          "bytes":  6829
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "dd256d682f2ac5ad5e9372a4c9acd8b7157209859043bf6b32c1b28e4384e2d1",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/code-review/LICENSE",
+                        "provenance_path":  "skills/code-review/UPSTREAM.md",
+                        "patch_record_path":  "skills/code-review/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "design-an-interface",
+                        "source_group":  "deprecated",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/deprecated/design-an-interface",
+                        "local_package_path":  "skills/design-an-interface",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "e5a512c83d01a5bb845b1ea2b48b658491095c5c04e23fb08469413bc2778c65",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "88193ab179032918cdea0afe74b8610d6d079ac51191f286c10e9e47839a9e6b",
+                                          "bytes":  3460
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "41004de747f69823d3a4825318845d6379056250331c761d221e6e85e2a2e51c",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/design-an-interface/LICENSE",
+                        "provenance_path":  "skills/design-an-interface/UPSTREAM.md",
+                        "patch_record_path":  "skills/design-an-interface/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "diagnosing-bugs",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/diagnosing-bugs",
+                        "local_package_path":  "skills/diagnosing-bugs",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "e5633c97bf5e0e85b7ed627e285c32d1736358b4c69f286f11890b7a3464ca45",
+                        "files":  [
+                                      {
+                                          "path":  "scripts/hitl-loop.template.sh",
+                                          "sha256":  "a14e4d722c2324c130d331e87267bc9f9b03bbaf32c3b8e08310b039ea5e5863",
+                                          "bytes":  1205
+                                      },
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "3dfe5ec16b89a01dbc1bf606a1a1cfc32349e225f3bb75a3fb86117974a83cb8",
+                                          "bytes":  8670
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "55d8f02e761dcc24fbc6b3cb25a3e7b4a4d6e17b83dbf278e07244874d915dc3",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/diagnosing-bugs/LICENSE",
+                        "provenance_path":  "skills/diagnosing-bugs/UPSTREAM.md",
+                        "patch_record_path":  "skills/diagnosing-bugs/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  2
+                                                      }
+                    },
+                    {
+                        "package_name":  "domain-modeling",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/domain-modeling",
+                        "local_package_path":  "skills/domain-modeling",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "2c6ecbee7a21c2039de3dd034c89a35814894b6d8730767c7bf3084de2a5c8eb",
+                        "files":  [
+                                      {
+                                          "path":  "ADR-FORMAT.md",
+                                          "sha256":  "dba54707c3251660ecf7ee6ff154a816a62badddd4ef403062f3a34e23509636",
+                                          "bytes":  2813
+                                      },
+                                      {
+                                          "path":  "CONTEXT-FORMAT.md",
+                                          "sha256":  "f229cd8485b77ea76428ffb807058ebd1d254a391b9669b10081942d3d6e8dd3",
+                                          "bytes":  2359
+                                      },
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "004d5cb6258658f2e9cbf0d9f90bdc9104f8b83bd296556783800c31d503814f",
+                                          "bytes":  3501
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "65cce4152b948fcc099b8bf92118bd776b93eb2560b3f6149c09d9be246b0e6d",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/domain-modeling/LICENSE",
+                        "provenance_path":  "skills/domain-modeling/UPSTREAM.md",
+                        "patch_record_path":  "skills/domain-modeling/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  3
+                                                      }
+                    },
+                    {
+                        "package_name":  "grilling",
+                        "source_group":  "productivity",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/productivity/grilling",
+                        "local_package_path":  "skills/grilling",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "7966a979b8fb5c75c5f946af9df52d3cde94f387c1058c9213d727b7a2d79a68",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "3ff64dbca5137e8d887bdf3caafbd9067376b251b507517fbe875b70dfb5d345",
+                                          "bytes":  833
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "8bcc5c96441a069a7fbcd34e28bdb28214a8ab78feb95dee1d8a1c61f832493e",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/grilling/LICENSE",
+                        "provenance_path":  "skills/grilling/UPSTREAM.md",
+                        "patch_record_path":  "skills/grilling/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "grill-me",
+                        "source_group":  "productivity",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/productivity/grill-me",
+                        "local_package_path":  "skills/grill-me",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "6cb3a6e07b201bf025b2f0af56a8bff02eff487b21405cdba13fb93876456d60",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "9c71927d4f0fd32d815247b4ca1fc782d4c5f2f3c1d6d023d188d4a7e0299b21",
+                                          "bytes":  154
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "9c51083f67c22e757b577401c9f2051db60ba7a21060bf24c8d54bc65c005d8f",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "declared-peer-dependency",
+                                                 "packages":  [
+                                                                  "grilling"
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/grill-me/LICENSE",
+                        "provenance_path":  "skills/grill-me/UPSTREAM.md",
+                        "patch_record_path":  "skills/grill-me/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "grill-with-docs",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/grill-with-docs",
+                        "local_package_path":  "skills/grill-with-docs",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "e053e365d6427a3b367db15b8dd10fd7321e2ef746b466f7f69e660f4dccd96a",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "269376d5146332f597c4194fa1adef93b879ad62e0183c0d111a447e7af51be9",
+                                          "bytes":  252
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "38cb7eb13f7252234c086606c1d3a4251934fdf1d66152d06a6d4fc2692a55dd",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "declared-peer-dependency",
+                                                 "packages":  [
+                                                                  "grilling",
+                                                                  "domain-modeling"
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/grill-with-docs/LICENSE",
+                        "provenance_path":  "skills/grill-with-docs/UPSTREAM.md",
+                        "patch_record_path":  "skills/grill-with-docs/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "handoff",
+                        "source_group":  "productivity",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/productivity/handoff",
+                        "local_package_path":  "skills/handoff",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "6f6913f9de6beb705b24bed73916c2c8a6e06913367fa977f0e901b9918aa457",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "65e80725923677f128b1d3cf23397b4bf0cc8659cd408aaee5ab285d01aa54af",
+                                          "bytes":  895
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "08c0a05599096a44747dc684fb689c0ace1f5fe4ed40a285b51516b26d2991d4",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/handoff/LICENSE",
+                        "provenance_path":  "skills/handoff/UPSTREAM.md",
+                        "patch_record_path":  "skills/handoff/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "implement",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/implement",
+                        "local_package_path":  "skills/implement",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "999e56209065940682f9c729fdb7d4fd852fe5adff7b74aee89f96bd783c7da3",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "30cd7bc1ebfb3891e85a1eed3b3b81aea0fa4ad4553a784de7f8e421b2d223e0",
+                                          "bytes":  448
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "92f376cfaf8f8a96f34c2ccfebc46cb20d74d47145006cb644cd3c2d702d0719",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/implement/LICENSE",
+                        "provenance_path":  "skills/implement/UPSTREAM.md",
+                        "patch_record_path":  "skills/implement/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "improve-codebase-architecture",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/improve-codebase-architecture",
+                        "local_package_path":  "skills/improve-codebase-architecture",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "b3f5963f06bf0d72166df91fc7ceb99ed6e867c489ff0763f19fdcfbee078bb7",
+                        "files":  [
+                                      {
+                                          "path":  "HTML-REPORT.md",
+                                          "sha256":  "a1b8f23e710e68c2bba04edc4c6b9001a08af7bdebb8bc01c6964e76c9ba4855",
+                                          "bytes":  6808
+                                      },
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "5408ce415a8610568edaf44bd7a32e35ca2b8a65051bcae7d3ed61801e20088d",
+                                          "bytes":  5487
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "7962437b5927a52472a08c5284317a7b1f68f0014e532b7a49f2a54afae2a7f9",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/improve-codebase-architecture/LICENSE",
+                        "provenance_path":  "skills/improve-codebase-architecture/UPSTREAM.md",
+                        "patch_record_path":  "skills/improve-codebase-architecture/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  2
+                                                      }
+                    },
+                    {
+                        "package_name":  "loop-me",
+                        "source_group":  "in-progress",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/in-progress/loop-me",
+                        "local_package_path":  "skills/loop-me",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "ef766c16c8888e6bc82b9ac23143e4037d91bae6ad7b4fe18326b64751e586f3",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "8214df9c466030e90172421d1d26f2a71dc3197ffbc7f354bac20c7d88318169",
+                                          "bytes":  2584
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "eb4e2794fee5d0676560c5fdcd9c089069028883eb0efbd67039606025dcba9a",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/loop-me/LICENSE",
+                        "provenance_path":  "skills/loop-me/UPSTREAM.md",
+                        "patch_record_path":  "skills/loop-me/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "prototype",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/prototype",
+                        "local_package_path":  "skills/prototype",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "262a21afd7a7c4187bc680615a21953b3e2b6418f0c743c0dfb784490e6e9a80",
+                        "files":  [
+                                      {
+                                          "path":  "LOGIC.md",
+                                          "sha256":  "3ce34ce7c2d06bcbdac4d846aafc488bbef0b2cd067134eeeda34c3804842f2f",
+                                          "bytes":  5673
+                                      },
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "9c750b700a6396697ddce3bcca04d322179d73c5d4f7d82268309eff84fd1176",
+                                          "bytes":  3032
+                                      },
+                                      {
+                                          "path":  "UI.md",
+                                          "sha256":  "be9846286540f0db138f7ba02e0b52ac8ba14ee561992be6788e4725284c89b7",
+                                          "bytes":  6901
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "8075ecf6a6676b18dc24146434557536a64a27565994749780baf55473734218",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/prototype/LICENSE",
+                        "provenance_path":  "skills/prototype/UPSTREAM.md",
+                        "patch_record_path":  "skills/prototype/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  3
+                                                      }
+                    },
+                    {
+                        "package_name":  "qa",
+                        "source_group":  "deprecated",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/deprecated/qa",
+                        "local_package_path":  "skills/qa",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "aa688402bb65f7bcf17a0f538557a88314bbc750b17bbf2139c2402d067a0618",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "199b4d8cbea7a2b69de091e221f42b7835a3d0b3215d4d1eff53f6e9fd7f3a6c",
+                                          "bytes":  5095
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "4aa2095ae4b9c638520405d7cb38dd339077d3ce52d0c08e149d2e8a0c0d6b3e",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/qa/LICENSE",
+                        "provenance_path":  "skills/qa/UPSTREAM.md",
+                        "patch_record_path":  "skills/qa/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "research",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/research",
+                        "local_package_path":  "skills/research",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "669d1e6de12a0e8516dba1b7648897d559eeb508d7b2b755fc4e56bfa57aedcd",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "0b6597c453178536b50c044a9e57cbc32dbffa47607a370e40768332f54bf8c2",
+                                          "bytes":  811
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "2ab609bc10dd97c5242583f5eaec6b14b742108e642dfb7205cadf29f526ba47",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/research/LICENSE",
+                        "provenance_path":  "skills/research/UPSTREAM.md",
+                        "patch_record_path":  "skills/research/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "tdd",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/tdd",
+                        "local_package_path":  "skills/tdd",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "c165fe21aeaaad637abe8355699ed410a94f7ebeb3dad0549dbdcacabb900198",
+                        "files":  [
+                                      {
+                                          "path":  "mocking.md",
+                                          "sha256":  "73a10b6a26b56197c738a764c1e4205af98c74553f4a713795997f6bc35b917d",
+                                          "bytes":  1540
+                                      },
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "2de14b893e7a1bf7030b9eb778a3714a19da70c4284ad18a6e43b2402aa693ef",
+                                          "bytes":  3249
+                                      },
+                                      {
+                                          "path":  "tests.md",
+                                          "sha256":  "0b401f98bd3684d2fea6440d6946afcf8f5f68ac6a65599dd7a2b90dd9f02eb5",
+                                          "bytes":  2291
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "32953f5cd57b104c0485c66c39f8694deab22850f2dce200f6609d4706cc6ddd",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/tdd/LICENSE",
+                        "provenance_path":  "skills/tdd/UPSTREAM.md",
+                        "patch_record_path":  "skills/tdd/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  3
+                                                      }
+                    },
+                    {
+                        "package_name":  "teach",
+                        "source_group":  "productivity",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/productivity/teach",
+                        "local_package_path":  "skills/teach",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "7aadc88d6bc6c8fa71df8c1aba17a43e98b8e789cbe87a1beb68eda0df6e8903",
+                        "files":  [
+                                      {
+                                          "path":  "GLOSSARY-FORMAT.md",
+                                          "sha256":  "408c96dce06be99b53a6e05b1e3201c900bcbb46ae3cf08ead8aa3e3cb545d8c",
+                                          "bytes":  2166
+                                      },
+                                      {
+                                          "path":  "LEARNING-RECORD-FORMAT.md",
+                                          "sha256":  "7bbbf6e325370633c77ec772cf4d30da19037ff2892c9e751f23e2696cf80888",
+                                          "bytes":  2823
+                                      },
+                                      {
+                                          "path":  "MISSION-FORMAT.md",
+                                          "sha256":  "ba1bc536615a6940414d96a1d87562f8f2684f56649d44ba15abaaf1833d0ce9",
+                                          "bytes":  1584
+                                      },
+                                      {
+                                          "path":  "RESOURCES-FORMAT.md",
+                                          "sha256":  "b5c7f17ce7c7b7f49a3a0007162e5024948c7b5c45c549643cafeb900ed431a6",
+                                          "bytes":  1958
+                                      },
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "99c077a05f66237c95392dc440974e9d144c1267309e978c7a18aaf065ce7fd3",
+                                          "bytes":  9647
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "15d7649f391674d75af541f6c671acdc9a83a89ea3d9b09a0deb4860744d1059",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/teach/LICENSE",
+                        "provenance_path":  "skills/teach/UPSTREAM.md",
+                        "patch_record_path":  "skills/teach/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  5
+                                                      }
+                    },
+                    {
+                        "package_name":  "to-spec",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/to-spec",
+                        "local_package_path":  "skills/to-spec",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "2962348d344be0a09fc8946fc08e358208b79ddcb3a309139d36f9e1bbefd584",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "a8ffe2ecd1692f012d310dca3f3c9a75f61086df77dbb0a5bc38ddbc0bd2e6bc",
+                                          "bytes":  3148
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "554f89e7b9bd7f927fe6f12f7555bcadac07ec474a0f4a98d8c6b52e59ab5de0",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/to-spec/LICENSE",
+                        "provenance_path":  "skills/to-spec/UPSTREAM.md",
+                        "patch_record_path":  "skills/to-spec/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "to-tickets",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/to-tickets",
+                        "local_package_path":  "skills/to-tickets",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "e830a0046407fd2c393d2bd5d0165266de6e11feab6000742c782105d4a1c8d1",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "573999404e46537ae441eaefe751fe85cb353b81e630bccbf9af0a2c475356b2",
+                                          "bytes":  5902
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "85819bdbb423bcec8945d29a74c2ad45db26ea8622a8b732322ddfc7c42c3fe4",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/to-tickets/LICENSE",
+                        "provenance_path":  "skills/to-tickets/UPSTREAM.md",
+                        "patch_record_path":  "skills/to-tickets/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "ubiquitous-language",
+                        "source_group":  "deprecated",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/deprecated/ubiquitous-language",
+                        "local_package_path":  "skills/ubiquitous-language",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "18b5d153102737e71d92adb3cfeafd966a0d29bdd86934d1a11a4f213294867d",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "a1efafd7ec7a630ed2b0753be2ddbcf53e50573e5c20a3d43e98056da25afce2",
+                                          "bytes":  4983
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "184194a7ff4203658188744d8be80caa4a6d93d89af73e6c233b3d3e0389aebb",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/ubiquitous-language/LICENSE",
+                        "provenance_path":  "skills/ubiquitous-language/UPSTREAM.md",
+                        "patch_record_path":  "skills/ubiquitous-language/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "wayfinder",
+                        "source_group":  "engineering",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/engineering/wayfinder",
+                        "local_package_path":  "skills/wayfinder",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "4b3ba022e3f5a7617f694fef98a949b543a47bf06f471cb871ce691484df097b",
+                        "files":  [
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "f6b44ce86d9d15c1848a06b6dc89e6237eaebf3c47201aa7263645690719df7a",
+                                          "bytes":  11630
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "dfaddc07d0bd0b0d519699522ca4022f34fed09e4f9450d3eb565a2cfd6be911",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  false,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/wayfinder/LICENSE",
+                        "provenance_path":  "skills/wayfinder/UPSTREAM.md",
+                        "patch_record_path":  "skills/wayfinder/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  1
+                                                      }
+                    },
+                    {
+                        "package_name":  "writing-great-skills",
+                        "source_group":  "productivity",
+                        "source_state":  "pinned-upstream-mirror",
+                        "upstream_repository":  "mattpocock/skills",
+                        "upstream_package_path":  "skills/productivity/writing-great-skills",
+                        "local_package_path":  "skills/writing-great-skills",
+                        "pinned_revision":  "v1.1.0",
+                        "resolved_commit":  "d574778f94cf620fcc8ce741584093bc650a61d3",
+                        "checksum":  "801ced90a47140b9789cf6a49b0da614e4a79b3d601b1324d6c03536a7ab97c8",
+                        "files":  [
+                                      {
+                                          "path":  "GLOSSARY.md",
+                                          "sha256":  "7c8b520536aa90fdd5ceeedfbfc5e24e21df0dd480619d9f2bba38c959f3c49e",
+                                          "bytes":  18689
+                                      },
+                                      {
+                                          "path":  "SKILL.md",
+                                          "sha256":  "8c38389dbcfdb3605690c5ce2fe0fa433e7a2f2371a7f1e697d080d81d15fdea",
+                                          "bytes":  9497
+                                      }
+                                  ],
+                        "local_modification_state":  "metadata-adapter-only",
+                        "local_patch_paths":  [
+                                                  "agents/openai.yaml",
+                                                  "UPSTREAM.md",
+                                                  "PATCHES.md",
+                                                  "LICENSE"
+                                              ],
+                        "local_patch_checksum":  "95dc3f6c22e631efebda8f7b6321227a025ce326b63279c5a0391f34f79de022",
+                        "upstream_snapshot":  true,
+                        "dependency_state":  {
+                                                 "state":  "none",
+                                                 "packages":  [
+
+                                                              ],
+                                                 "writing_great_skills_is_authoring_knowledge_only":  true,
+                                                 "learn_anything_runtime_dependency":  false
+                                             },
+                        "license_path":  "skills/writing-great-skills/LICENSE",
+                        "provenance_path":  "skills/writing-great-skills/UPSTREAM.md",
+                        "patch_record_path":  "skills/writing-great-skills/PATCHES.md",
+                        "referenced_resource_check":  {
+                                                          "missing":  [
+
+                                                                      ],
+                                                          "source_file_count":  2
+                                                      }
+                    }
+                ]
 }

@@ -1,16 +1,32 @@
 # v0.1.1 Discovery Verification
 
-Status: `NOT TESTED` until discovery is observed outside the source checkout.
+[中文验证](DISCOVERY_VERIFICATION.zh-CN.md)
 
-## Required record
+Status: `PASS` — the tagged artifact was installed into fresh destinations
+and listed successfully without a source checkout.
 
-- Host and version: `NOT RECORDED`
-- Fresh destination: `NOT RECORDED`
-- Whole collection discovered: `NOT TESTED`
-- Single `grill-me` discovered: `NOT TESTED`
-- Metadata policy observed: `NOT TESTED`
-- Peer dependency boundary observed: `NOT TESTED`
-- Source checkout excluded from search path: `NOT TESTED`
+## Fresh artifact observations
 
-The manifest and structural tests prove package completeness only; they do not
-prove that a particular Agent host loaded the installed package.
+- Whole install: `npx --yes skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex`
+  exited 0; exactly 23 packages were listed by `npx --yes skills list`.
+- Single install: the same tagged command with `--skill grill-with-docs`
+  exited 0; exactly `grill-with-docs` was listed.
+- Both destinations had no `skills/` source checkout.
+- The whole destination contained the dependency peers `grilling` and
+  `domain-modeling`; the single destination did not silently install either
+  peer.
+- All installed packages retained their complete resources; the single
+  `grill-with-docs` package contained `SKILL.md`, `agents/openai.yaml`,
+  `LICENSE`, `UPSTREAM.md`, and `PATCHES.md`.
+- The whole install was repeated successfully and reported `overwrites: Codex`
+  for all 23 packages.
+
+## Structural command
+
+```text
+powershell -File tests/third-party-collection-tests.ps1
+```
+
+Observed local result: `THIRD_PARTY_COLLECTION_ASSERTIONS=959`,
+`THIRD_PARTY_COLLECTION=PASS`. This is collection/resource evidence; it does
+not prove host refresh or model-mediated runtime behavior.

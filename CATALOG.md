@@ -15,7 +15,7 @@ each upstream `SKILL.md`; this file records source and installation facts.
 | Packages | 23 selected Matt Pocock Skills |
 | Upstream tag | `v1.1.0` |
 | Upstream commit | `d574778f94cf620fcc8ce741584093bc650a61d3` |
-| Local release | `v0.1.1` after publication evidence |
+| Local release | `v0.1.1` — published at `a891d39d7f34793d857c5b8eec3429c23871f421` |
 | Manifest | [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) |
 | Sync | [scripts/sync-upstream.ps1](scripts/sync-upstream.ps1) |
 | Admission record | [v0.1.1 admission evidence](docs/evidence/releases/v0.1.1/ADMISSION_RECORD.md) |

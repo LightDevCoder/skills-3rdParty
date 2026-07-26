@@ -31,8 +31,8 @@ The upstream Skill instructions and referenced resources are preserved.
 
 ## Installation and update
 
-- **Whole collection (target after the local v0.1.1 release gate):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1
-- **Single package (target after the local v0.1.1 release gate):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill improve-codebase-architecture
+- **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex
+- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill improve-codebase-architecture --yes --copy --agent codex
 - **Manual fallback:** copy this complete skills/improve-codebase-architecture/ directory
   into the host's recognized Skills root.
 - **Update source:** run `scripts/sync-upstream.ps1 -Mode check` against the

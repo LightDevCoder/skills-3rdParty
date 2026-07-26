@@ -27,7 +27,7 @@ function Write-Utf8 {
 function Read-JsonFile {
     param([string]$Path)
     if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) { throw "JSON file is missing: $Path" }
-    return Get-Content -Raw -LiteralPath $Path | ConvertFrom-Json
+    return Get-Content -Raw -Encoding UTF8 -LiteralPath $Path | ConvertFrom-Json
 }
 
 function Get-FullPath {
@@ -78,7 +78,7 @@ function Get-ManifestEntries {
 
 function Get-Frontmatter {
     param([string]$Path)
-    $text = Get-Content -Raw -LiteralPath $Path
+    $text = Get-Content -Raw -Encoding UTF8 -LiteralPath $Path
     $match = [regex]::Match($text, '(?ms)^---\r?\n(?<body>.*?)\r?\n---')
     if (-not $match.Success) { throw "SKILL.md has no complete frontmatter: $Path" }
     $body = $match.Groups['body'].Value
@@ -108,7 +108,7 @@ function Get-UnauthorizedLocalFiles {
 
 function Get-ReferencedResources {
     param([string]$PackagePath)
-    $body = Get-Content -Raw -LiteralPath (Join-Path $PackagePath 'SKILL.md')
+    $body = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $PackagePath 'SKILL.md')
     $links = [regex]::Matches($body, '\]\(([^)]+)\)') |
         ForEach-Object { $_.Groups[1].Value.Split('#')[0].Split('?')[0] } |
         Where-Object { $_ -and $_ -notmatch '^(https?|mailto):' -and $_ -notmatch '^/' -and $_ -notmatch '^<.*>$' -and $_ -notmatch '^(link|path|url)$' } |
@@ -185,8 +185,8 @@ function New-ProvenanceFiles {
         '',
         '## Installation and update',
         '',
-        '- **Whole collection (target after the local v0.1.1 release gate):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1',
-        "- **Single package (target after the local v0.1.1 release gate):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill $($Package.name)",
+        '- **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex',
+        "- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill $($Package.name) --yes --copy --agent codex",
         "- **Manual fallback:** copy this complete skills/$($Package.name)/ directory",
         "  into the host's recognized Skills root.",
         '- **Update source:** run `scripts/sync-upstream.ps1 -Mode check` against the',
@@ -210,7 +210,7 @@ function New-ProvenanceFiles {
         '- **Local state:** metadata-adapter-only; no upstream behavior patch.',
         '- **Allowed local paths:** `agents/openai.yaml`, `UPSTREAM.md`, `PATCHES.md`, `LICENSE`',
         '',
-        '## P0001 — Collection host metadata adapter',
+        ("## P0001 " + [string][char]0x2014 + " Collection host metadata adapter"),
         '',
         '- **Status:** active',
         '- **Local file:** `agents/openai.yaml`',
@@ -399,9 +399,10 @@ function Build-Manifest {
         collection_checksum = $collectionChecksum
         generated_utc = (Get-Date).ToUniversalTime().ToString('o')
         installation = [ordered]@{
-            whole_collection = 'npx skills add LightDevCoder/skills-3rdParty#v0.1.1'
-            single_skill = 'npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill <skill-name>'
+            whole_collection = 'npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex'
+            single_skill = 'npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill <skill-name> --yes --copy --agent codex'
             revision_semantics = 'The #v0.1.1 fragment pins the local collection release; the mirrored package content is pinned to upstream v1.1.0 and its resolved commit.'
+            release_status = 'released-with-acceptance-limitation; tag, private release, fresh install, and CI verified; independent acceptance BLOCKED'
         }
         entries = @($entries)
     }
@@ -460,12 +461,12 @@ function Test-Manifest {
         }
         $missing = Get-ReferencedResources $destination
         if ($missing.Count -gt 0) { $failures.Add("$($package.name) missing referenced resources: $($missing -join ', ')") }
-        $provenance = Get-Content -Raw -LiteralPath (Join-Path $destination 'UPSTREAM.md')
+        $provenance = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $destination 'UPSTREAM.md')
         if ($provenance -notmatch [regex]::Escape("# Upstream Record: $($package.name)")) { $failures.Add("$($package.name) provenance package identity does not match the manifest") }
         if ($provenance -notmatch [regex]::Escape("- **Original package path:** $($package.upstream_path)")) { $failures.Add("$($package.name) provenance upstream path does not match the manifest") }
         if ($provenance -notmatch [regex]::Escape("UPSTREAM_LOCK.json entry $($package.name)")) { $failures.Add("$($package.name) provenance lock entry does not match the manifest") }
         $front = Get-Frontmatter (Join-Path $destination 'SKILL.md')
-        $metadata = Get-Content -Raw -LiteralPath (Join-Path $destination 'agents/openai.yaml')
+        $metadata = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $destination 'agents/openai.yaml')
         foreach ($marker in @('display_name:', 'short_description:', 'default_prompt:', 'allow_implicit_invocation:')) {
             if ($metadata -notmatch [regex]::Escape($marker)) { $failures.Add("$($package.name) metadata missing $marker") }
         }

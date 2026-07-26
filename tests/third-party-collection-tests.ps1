@@ -129,7 +129,7 @@ foreach ($package in @($allowlist.packages)) {
     Assert-ThirdParty ($provenance -match [regex]::Escape("UPSTREAM_LOCK.json entry $($package.name)")) "$($package.name) provenance lock entry matches the manifest"
     Assert-ThirdParty ($provenance -match [regex]::Escape([string]$manifest.upstream.resolved_commit)) "$($package.name) provenance records the resolved commit"
     Assert-ThirdParty ($provenance -match 'skills-3rdParty#v0\.1\.1' -and $provenance -notmatch 'skills-3rdParty#v1\.1\.0') "$($package.name) provenance distinguishes the local release pin from the upstream pin"
-    Assert-ThirdParty ($provenance -match 'target after the local v0\.1\.1 release gate') "$($package.name) unpublished local release command is labeled as a target"
+    Assert-ThirdParty ($provenance -match 'published release' -and $provenance -match '--yes --copy --agent codex') "$($package.name) published local release command is explicit and reproducible"
     Assert-ThirdParty ((Get-Content -Raw -LiteralPath (Join-Path $destination 'PATCHES.md')) -match 'P0001') "$($package.name) has a local patch ledger"
     Assert-ThirdParty ($entry.local_modification_state -eq 'metadata-adapter-only') "$($package.name) local modification state is explicit"
     Assert-ThirdParty ((@($entry.referenced_resource_check.missing).Count -eq 0)) "$($package.name) has no missing referenced resources"
