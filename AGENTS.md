@@ -61,15 +61,19 @@ Use the controlled script with the read-only upstream checkout:
 ```powershell
 .\scripts\sync-upstream.ps1 -Mode check
 .\scripts\sync-upstream.ps1 -Mode dry-run
+.\scripts\sync-upstream.ps1 -Mode resource
 .\scripts\sync-upstream.ps1 -Mode diff
+.\scripts\sync-upstream.ps1 -Mode unauthorized-patch
 .\scripts\sync-upstream.ps1 -Mode sync
 ```
 
 `check` fails on missing packages, missing referenced resources, drift from the
 pinned revision, or unauthorized local changes to upstream-managed files.
-`dry-run` and `diff` do not write. `sync` is allowed only after reviewing the
-upstream revision and its diff. Never silently resolve a conflict or overwrite
-an unrecorded local patch.
+`resource` isolates complete-package and referenced-resource checks;
+`unauthorized-patch` isolates managed-file, local-patch-record, and extra-file
+boundary checks. `dry-run` and `diff` do not write. `sync` is allowed only after
+reviewing the upstream revision and its diff. Never silently resolve a conflict
+or overwrite an unrecorded local patch.
 
 ## Review, installation, and release
 
