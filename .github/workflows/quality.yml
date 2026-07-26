@@ -1,24 +1,36 @@
-name: Third-party collection quality
+name: private-third-party-quality
 
 on:
   push:
+    branches: [main]
   pull_request:
-
-permissions:
-  contents: read
+  workflow_dispatch:
 
 jobs:
-  powershell:
+  quality:
     runs-on: windows-latest
     steps:
       - name: Checkout private collection
         uses: actions/checkout@v4
-      - name: Checkout pinned public upstream
+        with:
+          path: collection
+      - name: Checkout pinned upstream
+        uses: actions/checkout@v4
+        with:
+          repository: mattpocock/skills
+          ref: v1.1.0
+          path: upstream
+      - name: Run collection and governance checks
         shell: pwsh
-        run: git clone --depth 1 --branch v1.1.0 https://github.com/mattpocock/skills.git "$env:RUNNER_TEMP\mattpocock-skills"
-      - name: Verify pinned upstream and package contract
-        shell: pwsh
-        run: .\scripts\sync-upstream.ps1 -Mode check -UpstreamRoot "$env:RUNNER_TEMP\mattpocock-skills"
-      - name: Run collection assertions
-        shell: pwsh
-        run: .\tests\third-party-collection-tests.ps1 -UpstreamRoot "$env:RUNNER_TEMP\mattpocock-skills"
+        working-directory: collection
+        run: |
+          $ErrorActionPreference = "Stop"
+          $root = $env:GITHUB_WORKSPACE + "\collection"
+          $upstream = $env:GITHUB_WORKSPACE + "\upstream"
+          ./tests/third-party-collection-tests.ps1 -Root $root -UpstreamRoot $upstream
+          ./tests/governance-docs-tests.ps1 -Root $root
+          ./scripts/sync-upstream.ps1 -Mode check -Root $root -UpstreamRoot $upstream
+          ./scripts/sync-upstream.ps1 -Mode dry-run -Root $root -UpstreamRoot $upstream
+          ./scripts/sync-upstream.ps1 -Mode resource -Root $root -UpstreamRoot $upstream
+          ./scripts/sync-upstream.ps1 -Mode diff -Root $root -UpstreamRoot $upstream
+          ./scripts/sync-upstream.ps1 -Mode unauthorized-patch -Root $root -UpstreamRoot $upstream
