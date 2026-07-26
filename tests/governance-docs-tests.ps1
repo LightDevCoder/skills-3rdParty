@@ -64,7 +64,10 @@ Assert-Governance ($readme -match "Pinned upstream mirror" -and $readme -match "
 Assert-Governance ($installation -match "private collection" -and $installation -match "mirrored Matt\s+package") "Installation guide must distinguish the private collection from its upstream content."
 Assert-Governance ($admission -match "concrete" -and $admission -match "fork") "Admission policy must retain concrete fork-necessity wording."
 
-$documentationFiles = @("README.md", "CATALOG.md", "CHANGELOG.md", "AGENTS.md") + @(rg --files docs)
+$documentationFiles = @("README.md", "CATALOG.md", "CHANGELOG.md", "AGENTS.md") + @(
+    Get-ChildItem -LiteralPath (Join-Path $Root "docs") -Recurse -Filter "*.md" -File |
+        ForEach-Object { $_.FullName.Substring($Root.Length + 1).Replace("\", "/") }
+)
 foreach ($file in $documentationFiles) {
     $filePath = Join-Path $Root $file
     $text = Get-Content -LiteralPath $filePath -Raw
