@@ -1,93 +1,86 @@
-# skills-3rdParty
+# Private Third-Party Skills Collection
 
-This repository is the governed home for locally modified third-party Skills.
-It is not a mirror, convenience cache, or alternative installation source for
-an unchanged upstream Skill.
+[中文说明](README.zh-CN.md)
 
-## Current status
+`LightDevCoder/skills-3rdParty` is a private, source-audited collection of
+third-party Agent Skills. It is intentionally separate from the public
+first-party [LightDevCoder/skills](https://github.com/LightDevCoder/skills)
+repository and remains private.
 
-The repository remains governance-only, but its stable governance release is
-v0.1.0 at
-[LightDevCoder/skills-3rdParty](https://github.com/LightDevCoder/skills-3rdParty/releases/tag/v0.1.0).
-It has no admitted source group, modified package, or usable local installation
-command. The empty state is intentional and is recorded in
-[CATALOG.md](CATALOG.md) and [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json).
+## Current release
 
-## Admission boundary
+The next stable release is `v0.1.1` on the local `codex/t19-skills-3rdParty`
+change set; publication is recorded only after the real tag, release, and
+fresh-install evidence exist. The collection mirrors exactly 23 selected Matt
+Pocock Skills from upstream tag `v1.1.0`, resolved to
+`d574778f94cf620fcc8ce741584093bc650a61d3`.
 
-A Skill may enter only when direct upstream use is concretely insufficient for
-one of these reasons:
+The authoritative inventory is [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json). It
+records upstream paths, per-file checksums, source groups, license paths,
+dependencies, local modification state, and release installation semantics.
 
-- a compatibility fix is needed;
-- another Agent host must be supported;
-- stable pinned behavior is unavailable through direct installation;
-- the upstream package needs repair or repackaging; or
-- the owner deliberately maintains a behaviorally different variant.
+## What is included
 
-Convenience, discoverability, backup, or a preference for one catalog is never
-enough. An upstream Skill that works unchanged stays upstream and is installed
-from its original source.
-
-## Structure
-
-~~~text
-.
-├── AGENTS.md
-├── CATALOG.md
-├── CHANGELOG.md
-├── UPSTREAM_LOCK.json
-├── docs/
-│   ├── THIRD_PARTY_ADMISSION.md
-│   ├── INSTALLATION.md
-│   └── MAINTENANCE.md
-└── templates/
-    ├── PATCHES.md
-    ├── SOURCE_README.md
-    └── UPSTREAM.md
-~~~
-
-An admitted package is grouped by original source, never by generic
-capability:
-
-~~~text
-<source-id>/
-├── README.md
-└── <skill-id>/
-    ├── SKILL.md
-    ├── UPSTREAM.md
-    ├── PATCHES.md
-    └── <applicable license or notice files>
-~~~
-
-Create source groups only after admission. Use
-[templates/SOURCE_README.md](templates/SOURCE_README.md) for the source record
-and [templates/UPSTREAM.md](templates/UPSTREAM.md) plus
-[templates/PATCHES.md](templates/PATCHES.md) for every package.
-
-## Installation distinction
-
-| Need | Authoritative source | Required record |
+| State | Meaning | Record |
 | --- | --- | --- |
-| Original unchanged upstream Skill | Original upstream repository and its documentation | No local copy or lock entry. |
-| Locally modified third-party Skill | A released source-grouped package in this repository | Provenance, license, patch, synchronization, and installation records. |
+| Pinned upstream mirror | Upstream package files are copied at an immutable revision; only the collection metadata adapter is local. | `UPSTREAM_LOCK.json`, `skills/<name>/UPSTREAM.md` |
+| Modified upstream fork | A behavior or compatibility change is explicitly justified and patched. | `UPSTREAM.md`, `PATCHES.md`, tests |
+| External direct dependency | The package is not copied; users install from its authoritative upstream source. | Source record and installation docs |
 
-Read [docs/INSTALLATION.md](docs/INSTALLATION.md) before using either path.
-Its command forms are templates until a release verifies actual installer
-behavior.
+The 23 selected packages are installed under `skills/<skill-name>/` so the
+Skills CLI can discover them. Original upstream grouping (`engineering`,
+`productivity`, `deprecated`, and `in-progress`) remains auditable in the
+manifest and [source-group record](sources/mattpocock-skills/README.md).
 
-## Governance
+## Quick installation
 
-- [Source catalog](CATALOG.md)
-- [Governance documentation check](tests/governance-docs-tests.ps1)
-- [Admission policy](docs/THIRD_PARTY_ADMISSION.md) defines fork-necessity and
-  evidence gates.
-- [Maintenance](docs/MAINTENANCE.md) defines synchronization, conflict,
-  regression, release, and removal rules.
-- [Installation](docs/INSTALLATION.md) separates original-upstream and
-  locally-modified installation, pinning, fallback, and provenance.
-- [AGENTS.md](AGENTS.md) is the maintenance contract.
-- [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) is the inventory of admitted
-  modified packages and is intentionally empty today.
+The commands below are release-gate targets: `v0.1.1` has not yet been tagged,
+published, or fresh-install verified. Once the gate passes, the `#v0.1.1`
+fragment pins this private collection release. It does not claim that the
+shorthand without a fragment is immutable.
 
-This governance release makes no runtime or local package installer claim;
-its v0.1.0 release metadata and empty boundary are intentional.
+Install the complete private collection:
+
+```text
+npx skills add LightDevCoder/skills-3rdParty#v0.1.1
+```
+
+Install one package:
+
+```text
+npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill grill-me
+```
+
+Read [Installation](docs/INSTALLATION.md) for private-repository credentials,
+fresh destinations, repeat installation, discovery, and the manual fallback.
+
+## Dependencies and boundaries
+
+- `grill-me` retains its `grilling` dependency.
+- `grill-with-docs` retains its `grilling` and `domain-modeling` dependencies.
+- `ask-matt` is navigation-only; it never becomes an automatic executor.
+- `writing-great-skills` is authoring knowledge, not an implicit runtime
+  dependency of first-party `learn-anything`.
+
+## Maintenance and evidence
+
+- [Third-party admission](docs/THIRD_PARTY_ADMISSION.md)
+- [Provenance policy](docs/PROVENANCE_POLICY.md)
+- [Update policy](docs/UPDATE_POLICY.md)
+- [Maintenance](docs/MAINTENANCE.md)
+- [Installation and fresh-install verification](docs/INSTALLATION.md)
+- [Review policy](docs/REVIEW_POLICY.md)
+- [Catalog](CATALOG.md)
+- [Changelog](CHANGELOG.md)
+- [Release evidence](docs/evidence/releases/v0.1.1/RELEASE_RECEIPT.md)
+- [Sync tool](scripts/sync-upstream.ps1)
+
+Run the repository checks from a clean checkout:
+
+```powershell
+.\scripts\sync-upstream.ps1 -Mode check
+.\tests\third-party-collection-tests.ps1
+```
+
+Structural checks do not replace fresh installation, discovery, or independent
+review evidence.

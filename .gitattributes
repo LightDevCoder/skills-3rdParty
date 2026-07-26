@@ -1,0 +1,5 @@
+# Keep local patch records byte-stable without rewriting mirrored upstream files.
+skills/*/agents/openai.yaml text eol=lf
+skills/*/UPSTREAM.md text eol=lf
+skills/*/PATCHES.md text eol=lf
+skills/*/LICENSE text eol=crlf

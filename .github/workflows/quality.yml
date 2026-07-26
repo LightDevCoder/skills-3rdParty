@@ -1,0 +1,42 @@
+name: private-third-party-quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  quality:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout private collection
+        uses: actions/checkout@v4
+        with:
+          path: collection
+      - name: Checkout pinned upstream
+        uses: actions/checkout@v4
+        with:
+          repository: mattpocock/skills
+          ref: v1.1.0
+          path: upstream
+      - name: Normalize pinned upstream checkout
+        shell: pwsh
+        run: |
+          $upstream = $env:GITHUB_WORKSPACE + "\upstream"
+          git -C $upstream config core.autocrlf true
+          git -C $upstream reset --hard v1.1.0
+      - name: Run collection and governance checks
+        shell: pwsh
+        working-directory: collection
+        run: |
+          $ErrorActionPreference = "Stop"
+          $root = $env:GITHUB_WORKSPACE + "\collection"
+          $upstream = $env:GITHUB_WORKSPACE + "\upstream"
+          ./tests/third-party-collection-tests.ps1 -Root $root -UpstreamRoot $upstream
+          ./tests/governance-docs-tests.ps1 -Root $root
+          ./scripts/sync-upstream.ps1 -Mode check -Root $root -UpstreamRoot $upstream
+          ./scripts/sync-upstream.ps1 -Mode dry-run -Root $root -UpstreamRoot $upstream
+          ./scripts/sync-upstream.ps1 -Mode resource -Root $root -UpstreamRoot $upstream
+          ./scripts/sync-upstream.ps1 -Mode diff -Root $root -UpstreamRoot $upstream
+          ./scripts/sync-upstream.ps1 -Mode unauthorized-patch -Root $root -UpstreamRoot $upstream

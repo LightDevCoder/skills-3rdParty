@@ -1,25 +1,32 @@
 # Changelog
 
-All notable changes to this repository are recorded here.
+[简体中文](CHANGELOG.zh-CN.md)
 
-## 0.1.0 — 2026-07-23
+All release claims below require the corresponding repository evidence. A
+draft entry is not proof of a tag, release, installation, or independent
+review.
+
+## 0.1.1 — 2026-07-23 (pending evidence confirmation)
 
 ### Added
 
-- Governance-only foundation for third-party admission, provenance, licensing,
-  patch records, synchronization, installation, and release maintenance.
-- Empty upstream-lock inventory and reusable source/package record templates.
-- Human-readable empty source catalog synchronized with the governance-only
-  boundary.
-- Governance documentation and installation consistency test.
+- Exactly 23 selected Matt Pocock Skills from upstream `v1.1.0`, pinned to
+  `d574778f94cf620fcc8ce741584093bc650a61d3`.
+- Complete per-package upstream resources, license copies, metadata adapters,
+  provenance records, patch ledgers, and machine-readable checksums.
+- Explicit pinned-mirror, modified-fork, and external-dependency governance.
+- `check`, `dry-run`, `diff`, and `sync` maintenance tooling with an
+  unauthorized-local-patch negative fixture.
+- English/Chinese catalogs, installation, maintenance, provenance, update,
+  review, source-group, and release-evidence documents.
 
-- No upstream Skill copy, source group, modified package, installer
-  verification, or local package installation command; the private release is
-  governance-only by design.
+### Release evidence
 
-### Release verification
+See [v0.1.1 release receipt](docs/evidence/releases/v0.1.1/RELEASE_RECEIPT.md).
+Until the real tag, private release, fresh-install verification, and
+independent review exist, any unrun item remains `NOT TESTED` or `BLOCKED`.
 
-- Published at https://github.com/LightDevCoder/skills-3rdParty.
-- Stable tag: v0.1.0.
-- Repository identity, private visibility, empty package boundary, and
-  governance test were verified against the released content.
+## 0.1.0 — 2026-07-23
+
+The initial private governance-only release. Its empty boundary has been
+superseded by the explicitly admitted pinned upstream mirror in `v0.1.1`.

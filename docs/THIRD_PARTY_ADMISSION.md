@@ -1,113 +1,57 @@
-# Third-Party Skill Admission
+# Third-Party Admission Policy
 
-## Policy
+[简体中文](THIRD_PARTY_ADMISSION.zh-CN.md)
 
-A package may enter only as a source-grouped, locally modified third-party
-Skill. The proposer must first show that direct use of original upstream is
-insufficient for a concrete, reproducible reason.
+This policy governs what may enter the private third-party collection. It is
+deliberately different from the public first-party ownership policy, while
+still requiring provenance and evidence.
 
-Do not accept unmodified copies for convenience, discovery, backup,
-centralization, or a preference for one catalog. Passing admission does not
-transfer ownership: upstream attribution and licensing remain visible.
+## Allowed source states
 
-## Direct-upstream gate
+Every entry must be exactly one of:
 
-Record one permitted category and concrete evidence:
+- **Pinned upstream mirror:** a complete package snapshot at a selected tag/ref
+  and full resolved commit. A small collection metadata adapter is allowed and
+  must be listed as a local patch. No upstream behavior may be silently edited.
+- **Modified upstream fork:** a package with a concrete compatibility,
+  repackaging, stable-pin, host-support, or behavior-variation reason that
+  direct upstream installation cannot meet. The patch and difference must be
+  reviewed.
+- **External direct dependency:** a package deliberately not copied. Record its
+  authoritative source, revision, and installation guidance instead.
 
-| Category | Required evidence |
-| --- | --- |
-| Compatibility fix | Host/version, observed failure, and why direct upstream cannot work. |
-| Additional Agent-host support | Required host behavior, upstream gap, and bounded adaptation. |
-| Stable pinned behavior | Required behavior, upstream drift/unavailability, immutable revision, and why upstream cannot provide it. |
-| Package repair or repackaging | Broken/incompatible upstream structure and the smallest repair. |
-| Behavioral variation | Intentional difference, user value, compatibility cost, and why a wrapper/configuration is insufficient. |
+Convenience, backup, centralization, or an untested preference is not a fork
+reason. A pinned mirror is allowed only when the owner explicitly requests the
+auditable snapshot or when a reproducible collection boundary is required; it
+must not be misrepresented as first-party authorship.
 
-Reject a proposal based only on convenience, unchanged mirroring,
-discoverability, generic future-proofing, or unsubstantiated preference.
+## Required admission record
 
-Consider this order before a fork:
+Before release, each package and source group must identify:
 
-1. use upstream directly;
-2. configure or adapt at the boundary;
-3. add a local Profile or Layer;
-4. create a wrapper only when necessary; then
-5. create a local modified variant only when a permitted category remains.
+1. upstream repository, URL, original package path, author, and license/notice;
+2. selected tag/ref and full resolved commit;
+3. source group and local install path;
+4. snapshot, adapter, patch, or external-dependency state;
+5. complete upstream file inventory and checksum;
+6. every local patch and why it exists;
+7. declared peer dependencies and whether they are installed or external;
+8. installation method, host, discovery result, and known limitations; and
+9. update method, conflict owner, and evidence links.
 
-## Provenance and license gate
+The 23-package Matt snapshot is admitted by the user-provided T19 scope. Its
+allowlist is intentionally closed; `UPSTREAM_LOCK.json` must contain exactly
+the names in `config/upstream-allowlist.json`.
 
-Record all of the following:
+## Boundary rules
 
-- source identifier and source-group directory;
-- upstream owner, repository, canonical URL, and original package path;
-- selected upstream tag/ref and immutable resolved commit SHA;
-- required upstream author attribution;
-- applicable license identifier, license text location, and notices;
-- compatibility of that license with planned local distribution; and
-- snapshot date and method.
-
-A missing or incompatible license blocks admission. Carry required license text
-and notices with the modified package unless the license requires another
-equally visible documented location.
-
-## Bounded-change gate
-
-Define the smallest local change set before import:
-
-- rationale for every local change;
-- affected files or package elements;
-- behavior preserved from upstream;
-- intentional behavior changes and compatibility effects;
-- known differences and limitations;
-- rollback/removal path; and
-- independent runtime and relevant interaction-boundary tests.
-
-Reject a fork when a Profile, Layer, configuration, boundary adaptation, or
-wrapper solves the actual need.
-
-## Required records
-
-Before release, complete:
-
-| Record | Required content |
-| --- | --- |
-| source README | Source identity, grouped packages, source-wide attribution/licensing, original-upstream versus local-modified installation, synchronization, and release status. |
-| package UPSTREAM.md | Original identity/path, immutable revision, license, fork rationale, upstream and local installation, synchronization, and differences. |
-| package PATCHES.md | Every local change, rationale, revision, reapplication status, conflict decision, and regression evidence. |
-| package license/notices | Applicable license text and notices. |
-| UPSTREAM_LOCK.json entry | Source/package identity, immutable revision, license, record paths, sync date, and modified installation reference. |
-
-Use [templates/UPSTREAM.md](../templates/UPSTREAM.md),
-[templates/PATCHES.md](../templates/PATCHES.md), and
-[templates/SOURCE_README.md](../templates/SOURCE_README.md). The completed
-source and package records are the human-readable provenance authority; the
-lock file is the repository-wide inventory.
-
-## Synchronization and installation gate
-
-Define upstream change detection, owner/cadence, patch reapplication/rebase,
-conflict escalation, post-sync regression and interaction tests, original
-upstream installation source, local modified installation source/release pin,
-manual fallback, and post-install verification.
-
-Installer syntax is not evidence. Publish a command only after testing the
-actual released package and source group on the intended host.
-
-## Decision and pre-release checklist
-
-Independent review must confirm concrete direct-upstream insufficiency,
-complete provenance/license/revision, bounded changes, complete records,
-feasible synchronization/removal, independent local runtime evidence, and
-relevant interaction-boundary evidence. It returns PASS, FAIL, or BLOCKED.
-
-- [ ] Direct upstream installation was evaluated.
-- [ ] Permitted fork category and concrete evidence are recorded.
-- [ ] Boundary, Profile/Layer, and wrapper alternatives were considered.
-- [ ] Source, path, URL, tag/ref, and resolved commit are recorded.
-- [ ] License compatibility, text, and notices are identified.
-- [ ] Local changes, known differences, and behavioral effects are recorded.
-- [ ] Source README, package records, license/notices, and lock entry exist.
-- [ ] Synchronization, conflict, regression, installation, and removal plans
-      are defined.
-- [ ] Original-upstream and local-modified installation paths are distinct.
-- [ ] Independent runtime and relevant interaction evidence is recorded before
-      release.
+- Do not add these packages to the public first-party `skills` repository.
+- Preserve upstream `SKILL.md`, scripts, references, assets, templates, and
+  other resources; a package is not complete if its referenced resources are
+  missing.
+- Keep `grill-me` → `grilling` and `grill-with-docs` → `grilling` +
+  `domain-modeling` as declared peer dependencies.
+- Keep `ask-matt` as a navigation-only router.
+- Treat `writing-great-skills` as authoring knowledge, not a hidden runtime
+  dependency of `learn-anything`.
+- A structural scan is not fresh-install, runtime, or review evidence.
