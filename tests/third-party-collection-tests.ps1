@@ -58,6 +58,12 @@ function Run-Script {
     }
 }
 
+function Result-Message {
+    param([string]$Label, $Result)
+    if ($Result.exitCode -eq 0) { return $Label }
+    return "$Label (exitCode=$($Result.exitCode)): $($Result.output)"
+}
+
 $allowlist = Read-Json (Join-Path $Root 'config/upstream-allowlist.json')
 $manifest = Read-Json (Join-Path $Root 'UPSTREAM_LOCK.json')
 $expected = @('ask-matt','codebase-design','code-review','design-an-interface','diagnosing-bugs','domain-modeling','grilling','grill-me','grill-with-docs','handoff','implement','improve-codebase-architecture','loop-me','prototype','qa','research','tdd','teach','to-spec','to-tickets','ubiquitous-language','wayfinder','writing-great-skills')
@@ -170,13 +176,13 @@ foreach ($file in $docs) {
 }
 
 $check = Run-Script 'check'
-Assert-ThirdParty ($check.exitCode -eq 0 -and $check.output -match 'UPSTREAM_SYNC=check PASS') 'sync check passes with real assertions'
+Assert-ThirdParty ($check.exitCode -eq 0 -and $check.output -match 'UPSTREAM_SYNC=check PASS') (Result-Message 'sync check passes with real assertions' $check)
 $dry = Run-Script 'dry-run'
 Assert-ThirdParty ($dry.exitCode -eq 0 -and $dry.output -match 'DRY-RUN revision') 'sync dry-run is non-writing and reports the pinned revision'
 $resource = Run-Script 'resource'
 Assert-ThirdParty ($resource.exitCode -eq 0 -and $resource.output -match 'UPSTREAM_SYNC=resource PASS') 'resource mode verifies complete package resources'
 $patchBoundary = Run-Script 'unauthorized-patch'
-Assert-ThirdParty ($patchBoundary.exitCode -eq 0 -and $patchBoundary.output -match 'UPSTREAM_SYNC=unauthorized-patch PASS') 'unauthorized-patch mode verifies the local patch boundary'
+Assert-ThirdParty ($patchBoundary.exitCode -eq 0 -and $patchBoundary.output -match 'UPSTREAM_SYNC=unauthorized-patch PASS') (Result-Message 'unauthorized-patch mode verifies the local patch boundary' $patchBoundary)
 
 $fixture = Join-Path ([IO.Path]::GetTempPath()) ('third-party-negative-' + [guid]::NewGuid().ToString('N'))
 $diffFixture = Join-Path ([IO.Path]::GetTempPath()) ('third-party-diff-' + [guid]::NewGuid().ToString('N'))
@@ -233,7 +239,7 @@ try {
 
     Copy-Item -LiteralPath $Root -Destination $cleanSyncFixture -Recurse -Force
     $cleanSyncResult = Run-Script 'sync' $cleanSyncFixture $UpstreamRoot
-    Assert-ThirdParty ($cleanSyncResult.exitCode -eq 0 -and @([regex]::Matches($cleanSyncResult.output, 'SYNCED ')).Count -eq 23) 'sync regenerates all 23 packages in a disposable clean fixture'
+    Assert-ThirdParty ($cleanSyncResult.exitCode -eq 0 -and @([regex]::Matches($cleanSyncResult.output, 'SYNCED ')).Count -eq 23) (Result-Message 'sync regenerates all 23 packages in a disposable clean fixture' $cleanSyncResult)
 
     Copy-Item -LiteralPath $UpstreamRoot -Destination $dirtyUpstreamFixture -Recurse -Force
     Add-Content -LiteralPath (Join-Path $dirtyUpstreamFixture 'README.md') -Value "`ndirty upstream fixture`n"
