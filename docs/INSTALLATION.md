@@ -2,22 +2,21 @@
 
 [简体中文](INSTALLATION.zh-CN.md)
 
-This private collection is intended to be installed from the released
-repository, not from a source checkout. The local v0.1.1 release candidate is
-not published yet; the commands below are targets, not installation evidence.
-A consumer must also have access to the private GitHub repository through its
-configured Git credentials, SSH, or authenticated CLI.
+This private collection is intended to be installed from the published
+repository, not from a source checkout. Release `v0.1.1` points to commit
+`a891d39d7f34793d857c5b8eec3429c23871f421`. A consumer must also have access to
+the private GitHub repository through configured Git credentials, SSH, or an
+authenticated CLI.
 
 ## Revision semantics
 
 The official Skills CLI accepts GitHub shorthand and GitHub tree URLs, and its
-source parser also accepts a `#ref` fragment. Therefore these are the target
-commands that will pin the local collection release after the release gate
-passes:
+source parser also accepts a `#ref` fragment. Therefore these commands pin the
+published local collection release:
 
 ```text
-npx skills add LightDevCoder/skills-3rdParty#v0.1.1
-npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill grill-me
+npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex
+npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill grill-with-docs --yes --copy --agent codex
 ```
 
 The first `v0.1.1` is the local repository tag. The mirrored Matt package
@@ -41,15 +40,13 @@ immutable.
 6. Smoke-test a successful package, a stopping boundary, a missing peer
    dependency, and the explicit invocation policy.
 
-Record command, CLI version, tag/commit, destination class, discovery result,
-smoke result, and limitation in
-[release evidence](evidence/releases/v0.1.1/INSTALLATION_VERIFICATION.md).
+The actual CLI `1.5.20` fresh-install result is recorded in [release
+evidence](evidence/releases/v0.1.1/INSTALLATION_VERIFICATION.md).
 
 ## Manual fallback
 
 When the installer cannot authenticate to the private repository, manually
-copy a complete package from a checkout of tag `v0.1.1` after that tag is
-published:
+copy a complete package from a checkout of the published tag `v0.1.1`:
 
 ```powershell
 $sourceRoot = '<v0.1.1-release-checkout>'

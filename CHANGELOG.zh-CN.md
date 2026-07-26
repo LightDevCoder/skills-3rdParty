@@ -16,5 +16,6 @@
 
 ### 发布证据
 
-在真实 tag/release、fresh install 和 independent review 完成前，本条目不得写成
-已发布或已验证；请查看 `docs/evidence/releases/v0.1.1/`。
+tag/release、fresh install 和 CI 已有真实证据；如果没有独立 evaluator 记录，
+independent acceptance 仍保持 `BLOCKED`。发布提交为
+`a891d39d7f34793d857c5b8eec3429c23871f421`，详见 `docs/evidence/releases/v0.1.1/`。

@@ -8,8 +8,9 @@
 
 ## 当前版本
 
-本次变更目标版本为 `v0.1.1`；只有真实 tag、release 和 fresh-install 证据
-产生后才可宣称已发布。集合准确收录 Matt Pocock 上游 `v1.1.0` 的 23 个
+稳定版本为 `v0.1.1`，发布提交为
+`a891d39d7f34793d857c5b8eec3429c23871f421`；对应的[私有 GitHub release](https://github.com/LightDevCoder/skills-3rdParty/releases/tag/v0.1.1)
+已有 fresh-install 证据。集合准确收录 Matt Pocock 上游 `v1.1.0` 的 23 个
 指定 Skill，解析 commit 为 `d574778f94cf620fcc8ce741584093bc650a61d3`。
 
 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 是权威清单，记录 upstream 路径、
@@ -30,13 +31,12 @@ manifest 和 [source-group 记录](sources/mattpocock-skills/README.md)中。
 ## 安装
 
 ```text
-npx skills add LightDevCoder/skills-3rdParty#v0.1.1
-npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill grill-me
+npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex
+npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill grill-with-docs --yes --copy --agent codex
 ```
 
-上面的命令是 release gate 目标：`v0.1.1` 尚未创建 tag、发布或完成
-fresh-install 验证。gate 通过后，`#v0.1.1` 固定本地集合 release；包内容另外固定在 upstream
-`v1.1.0`/完整 commit。不带 fragment 的简写不能描述为 immutable。请阅读[安装指南](docs/INSTALLATION.md)了解 private
+上面的命令安装已发布的 private snapshot。`#v0.1.1` 固定本地集合 release；包内容另外固定在 upstream
+`v1.1.0`/完整 commit。不带 fragment 的简写跟随仓库默认 revision，不能描述为 immutable。请阅读[安装指南](docs/INSTALLATION.md)了解 private
 凭据、全新目录、重复安装、发现验证和手工回退。
 
 ## 边界与维护

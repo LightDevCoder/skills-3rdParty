@@ -14,7 +14,7 @@
 | 包数量 | Matt Pocock 指定 Skill 23 个 |
 | upstream tag | `v1.1.0` |
 | upstream commit | `d574778f94cf620fcc8ce741584093bc650a61d3` |
-| 本地 release | `v0.1.1`，须以真实发布证据为准 |
+| 本地 release | `v0.1.1`，发布提交 `a891d39d7f34793d857c5b8eec3429c23871f421` |
 | manifest | [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) |
 | 同步工具 | [scripts/sync-upstream.ps1](scripts/sync-upstream.ps1) |
 | 准入记录 | [v0.1.1 admission evidence](docs/evidence/releases/v0.1.1/ADMISSION_RECORD.zh-CN.md) |

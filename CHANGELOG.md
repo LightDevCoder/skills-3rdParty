@@ -6,7 +6,7 @@ All release claims below require the corresponding repository evidence. A
 draft entry is not proof of a tag, release, installation, or independent
 review.
 
-## 0.1.1 — 2026-07-23 (pending evidence confirmation)
+## 0.1.1 — 2026-07-26
 
 ### Added
 
@@ -23,8 +23,11 @@ review.
 ### Release evidence
 
 See [v0.1.1 release receipt](docs/evidence/releases/v0.1.1/RELEASE_RECEIPT.md).
-Until the real tag, private release, fresh-install verification, and
-independent review exist, any unrun item remains `NOT TESTED` or `BLOCKED`.
+The tag, private release, fresh-install verification, and CI are verified.
+Independent acceptance remains `BLOCKED` when no independent evaluator record
+is available.
+
+Release commit: `a891d39d7f34793d857c5b8eec3429c23871f421`.
 
 ## 0.1.0 — 2026-07-23
 
