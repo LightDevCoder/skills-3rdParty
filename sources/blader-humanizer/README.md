@@ -1,10 +1,9 @@
-# blader/humanizer external dependency
+# blader/humanizer 来源记录
 
-This source group records the authoritative upstream for the `humanizer`
-package, which is admitted as an **external direct dependency**: it is
-deliberately not copied into `skills/`, and is installed from its authoritative
-upstream source instead. This state is one of the three allowed by
-[THIRD_PARTY_ADMISSION.md](../../docs/THIRD_PARTY_ADMISSION.md).
+`humanizer` 是第二个来源仓库（与 `mattpocock/skills` 平级），自 v0.2.0 起以
+**pinned mirror** 状态入库：上游仓库根即一个 skill，完整复制到
+`skills/blader/humanizer/`，包含 `SKILL.md`、`LICENSE`、`README.md`、
+`AGENTS.md`、`agents/`、`scripts/`、`.claude-plugin/`、`.github/`。
 
 ## Identity
 
@@ -14,42 +13,32 @@ upstream source instead. This state is one of the three allowed by
 - Resolved commit: `523374dee72d67c7b2b5f858ea0094ffda49c3ac`
 - License: MIT (`LICENSE` at upstream repository root)
 - Upstream author/notice: blader and contributors; preserve the upstream license.
-- Homepage: https://skills.sh/blader/humanizer
+- Local package path: `skills/blader/humanizer/`
 
-## What it is
+## 什么是 humanizer
 
-An agent skill (writing editor) that identifies and removes signs of
-AI-generated writing: inflated symbolism, promotional language, superficial
--ing analyses, vague attributions, em dash overuse, rule of three, AI
-vocabulary words, passive voice, negative parallelisms, and filler phrases.
-Based on Wikipedia's "Signs of AI writing" guide (WikiProject AI Cleanup),
-version 2.9.1.
+一个写作编辑 skill：识别并去除 AI 写作痕迹（inflated symbolism、promotional
+language、superficial -ing analyses、vague attributions、em dash overuse、
+rule of three、AI vocabulary words、passive voice、negative parallelisms、
+filler phrases）。基于 Wikipedia 的 "Signs of AI writing" 指南
+（WikiProject AI Cleanup），版本 2.9.1。
 
-## Why external direct dependency
+## 为什么从 external dependency 改为镜像
 
-- The collection's pinned-mirror tooling and allowlist are scoped to the
-  23-package `mattpocock/skills` snapshot; a second mirrored upstream would
-  require extending the sync tooling, manifest schema, and tests.
-- Mirroring is not required by the admission policy; copying for convenience
-  is explicitly not a fork reason. The authoritative upstream is public, MIT,
-  and installable directly.
-- The upstream publishes installers for common harnesses (Claude Code
-  marketplace, manual copy), which keeps installation reproducible without a
-  local snapshot.
+- v0.2.0 起收集目录按 `<source>/<group>/<skill>` 组织，来源仓库已成为一等
+  公民；humanizer 作为第二个来源入库，与其他包同等治理（哈希受检、
+  `UPSTREAM.md`/`PATCHES.md` 记录）。
+- 上游自带 `agents/openai.yaml` 与 `LICENSE`，无需本地适配器。
 
-## Installation and update
+## 安装与更新
 
-- **Manual fallback:** copy the complete upstream repository root (`SKILL.md`,
-  `README.md`, `AGENTS.md`, `scripts/`, `agents/`, `.claude-plugin/`) into the
-  host's recognized Skills root.
-- **Claude Code:** `/plugin marketplace add blader/humanizer`.
-- **Update source:** track the upstream repository; pin a new tag/ref and
-  resolved commit in [config/external-dependencies.json](../../config/external-dependencies.json)
-  and [UPSTREAM_LOCK.json](../../UPSTREAM_LOCK.json) before relying on a newer
-  revision.
+- **整仓安装：** `npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --yes --copy --agent codex`
+- **单包安装：** `npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --skill humanizer --yes --copy --agent codex`
+- **更新来源：** 修改 allowlist 中 `blader` 的 tag/commit → 重跑
+  `scripts/sync-upstream.sh -Mode sync` 与 `scripts/generate-lock.sh`。
 
 ## Record
 
-- Machine record: [config/external-dependencies.json](../../config/external-dependencies.json)
-- Lock entry: `external_dependencies` in [UPSTREAM_LOCK.json](../../UPSTREAM_LOCK.json)
-- Admission decision: user-requested 2026-08-10
+- 机器记录：[config/upstream-allowlist.json](../../config/upstream-allowlist.json)
+- Lock entry：[UPSTREAM_LOCK.json](../../UPSTREAM_LOCK.json) 中 `humanizer`
+- 准入决策：user-requested 2026-08-10（v0.2.0 由 external 转为 mirror）

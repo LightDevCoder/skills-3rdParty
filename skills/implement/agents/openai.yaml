@@ -1,7 +1,0 @@
-interface:
-  display_name: "Implement"
-  short_description: "Implement a piece of work based on a spec or set of tickets."
-  default_prompt: "Use $implement when this task matches its upstream contract; preserve its explicit stopping boundary."
-
-policy:
-  allow_implicit_invocation: false

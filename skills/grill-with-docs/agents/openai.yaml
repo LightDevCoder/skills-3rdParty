@@ -1,7 +1,0 @@
-interface:
-  display_name: "Grill With Docs"
-  short_description: "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go."
-  default_prompt: "Use $grill-with-docs when this task matches its upstream contract; preserve its explicit stopping boundary."
-
-policy:
-  allow_implicit_invocation: false

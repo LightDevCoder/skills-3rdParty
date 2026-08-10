@@ -1,4 +1,4 @@
-name: private-third-party-quality
+name: third-party-quality
 
 on:
   push:
@@ -8,35 +8,32 @@ on:
 
 jobs:
   quality:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout private collection
+      - name: Checkout collection
         uses: actions/checkout@v4
         with:
           path: collection
-      - name: Checkout pinned upstream
+      - name: Checkout pinned upstream mattpocock/skills
         uses: actions/checkout@v4
         with:
           repository: mattpocock/skills
-          ref: v1.1.0
-          path: upstream
-      - name: Normalize pinned upstream checkout
-        shell: pwsh
-        run: |
-          $upstream = $env:GITHUB_WORKSPACE + "\upstream"
-          git -C $upstream config core.autocrlf true
-          git -C $upstream reset --hard v1.1.0
-      - name: Run collection and governance checks
-        shell: pwsh
+          ref: v1.2.3
+          path: sources/mattpocock
+      - name: Checkout pinned upstream blader/humanizer
+        uses: actions/checkout@v4
+        with:
+          repository: blader/humanizer
+          ref: v2.9.1
+          path: sources/blader
+      - name: Run collection checks
+        shell: bash
         working-directory: collection
         run: |
-          $ErrorActionPreference = "Stop"
-          $root = $env:GITHUB_WORKSPACE + "\collection"
-          $upstream = $env:GITHUB_WORKSPACE + "\upstream"
-          ./tests/third-party-collection-tests.ps1 -Root $root -UpstreamRoot $upstream
-          ./tests/governance-docs-tests.ps1 -Root $root
-          ./scripts/sync-upstream.ps1 -Mode check -Root $root -UpstreamRoot $upstream
-          ./scripts/sync-upstream.ps1 -Mode dry-run -Root $root -UpstreamRoot $upstream
-          ./scripts/sync-upstream.ps1 -Mode resource -Root $root -UpstreamRoot $upstream
-          ./scripts/sync-upstream.ps1 -Mode diff -Root $root -UpstreamRoot $upstream
-          ./scripts/sync-upstream.ps1 -Mode unauthorized-patch -Root $root -UpstreamRoot $upstream
+          set -euo pipefail
+          ./tests/collection-checks.sh -Root "$GITHUB_WORKSPACE/collection"
+          ./scripts/sync-upstream.sh -Mode check -Root "$GITHUB_WORKSPACE/collection" -SourcesRoot "$GITHUB_WORKSPACE/sources"
+          ./scripts/sync-upstream.sh -Mode resource -Root "$GITHUB_WORKSPACE/collection" -SourcesRoot "$GITHUB_WORKSPACE/sources"
+          ./scripts/sync-upstream.sh -Mode unauthorized-patch -Root "$GITHUB_WORKSPACE/collection" -SourcesRoot "$GITHUB_WORKSPACE/sources"
+          ./scripts/sync-upstream.sh -Mode diff -Root "$GITHUB_WORKSPACE/collection" -SourcesRoot "$GITHUB_WORKSPACE/sources"
+          ./scripts/sync-upstream.sh -Mode prune -Root "$GITHUB_WORKSPACE/collection" -SourcesRoot "$GITHUB_WORKSPACE/sources"

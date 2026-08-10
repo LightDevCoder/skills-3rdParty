@@ -1,7 +1,0 @@
-interface:
-  display_name: "Design An Interface"
-  short_description: "Generate multiple radically different interface designs for a module using parallel sub-agents. Use when user wants to design an API, explore interface options, compare module shapes, or mentions \"design it twice\"."
-  default_prompt: "Use $design-an-interface when this task matches its upstream contract; preserve its explicit stopping boundary."
-
-policy:
-  allow_implicit_invocation: true

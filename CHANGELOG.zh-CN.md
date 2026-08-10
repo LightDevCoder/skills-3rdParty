@@ -2,38 +2,33 @@
 
 [English](CHANGELOG.md)
 
-## Unreleased
+以下发布声明均需 `docs/evidence/releases/` 下对应证据支撑。
 
-### 新增
+## v0.2.0 — 2026-08-10
 
-- 按 2026-08-10 用户决策，将 `humanizer`（upstream `blader/humanizer`，tag
-  `v2.9.1`，commit `523374dee72d67c7b2b5f858ea0094ffda49c3ac`）以
-  **external direct dependency** 状态准入。该包刻意不复制进 `skills/`；
-  权威 upstream、pin、license 与安装指引记录在
-  [config/external-dependencies.json](config/external-dependencies.json)、
-  [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 的 `external_dependencies` 段，以及
-  [sources/blader-humanizer/README.md](sources/blader-humanizer/README.md)。
-- 中英文目录补充外部依赖条目。
+### 变更
 
-### 说明
+- **仓库公开化**并发布 `v0.2.0`；安装不再需要私有仓库凭据。
+- **上游升级**：mattpocock/skills 从 `v1.1.0`（23 包）升级到 `v1.2.3`
+  （25 包）：新增 `setup-matt-pocock-skills`、`triage`、
+  `resolving-merge-conflicts`、`wizard`、`to-questionnaire`、`wait-what` 与
+  `writing-for-agents`；移除 `design-an-interface`、`qa`、
+  `ubiquitous-language`、`loop-me` 与 `writing-great-skills`（由重写后的
+  `writing-for-agents` 取代）。
+- **`humanizer` 作为第二个镜像来源入库**（`blader/humanizer` `v2.9.1`），
+  由外部直接依赖升级为 pinned mirror，位于 `skills/blader/humanizer/`。
+- **嵌套目录**：包改为 `skills/<source>/<group>/<name>/`（无分组包为
+  `skills/<source>/<name>/`），保留上游分组且仍可被 Skills CLI 发现。
+- **工具链跨平台重写**：PowerShell 同步脚本与测试替换为 bash + jq
+  （`scripts/sync-upstream.sh`、`scripts/generate-lock.sh`、
+  `tests/collection-checks.sh`）；CI 迁到 ubuntu-latest。
+- **`UPSTREAM_LOCK.json` 改为生成式**（`schema_version: 3`，多来源），CI
+  校验可重新生成；不再手工维护 manifest。
+- **治理精简**：删除准入与审查策略文档，废除独立验收 gate；剩余策略合并
+  到 `docs/POLICIES.md`（中文）；README 与 CATALOG 保持双语。
 
-- 23 包 pinned mirror、allowlist 与单 upstream 同步工具保持不变；外部依赖
-  只是 manifest 级记录，不影响 `skills/` 发现。
+## v0.1.1 — 2026-07-26
 
-## 0.1.1 — 2026-07-23（待真实发布证据确认）
-
-### 新增与修复
-
-- 按 allowlist 收录 Matt Pocock upstream `v1.1.0` 的 23 个 Skill，并锁定完整
-  commit、逐文件 checksum、license、provenance 和依赖状态。
-- 支持 pinned upstream mirror、modified upstream fork、external direct dependency
-  三种第三方状态。
-- 增加 `check`、`dry-run`、`diff`、`sync` 同步工具与 unauthorized patch 负向测试。
-- 增加中英文目录、安装、维护、provenance、更新、review、source-group 和 release
-  evidence 文档。
-
-### 发布证据
-
-tag/release、fresh install 和 CI 已有真实证据；如果没有独立 evaluator 记录，
-independent acceptance 仍保持 `BLOCKED`。发布提交为
-`a891d39d7f34793d857c5b8eec3429c23871f421`，详见 `docs/evidence/releases/v0.1.1/`。
+- 初始私有发布：23 个固定版本 Matt Pocock Skills（上游 `v1.1.0`），含
+  metadata 适配器、来源记录、同步工具与双语治理文档。历史证据保留在
+  `docs/evidence/releases/v0.1.1/`。

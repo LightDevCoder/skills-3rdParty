@@ -1,7 +1,0 @@
-interface:
-  display_name: "Writing Great Skills"
-  short_description: "Reference for writing and editing skills well — the vocabulary and principles that make a skill predictable."
-  default_prompt: "Use $writing-great-skills when this task matches its upstream contract; preserve its explicit stopping boundary."
-
-policy:
-  allow_implicit_invocation: false

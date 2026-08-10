@@ -1,66 +1,75 @@
-# 私有第三方 Skills 集合
+# 第三方 Skills 收藏集
 
 [English](README.md)
 
-`LightDevCoder/skills-3rdParty` 是私有、可审计的第三方 Agent Skill 集合，
-与公开的[第一方集合](https://github.com/LightDevCoder/skills)严格分开，
-仓库保持 private。
+`LightDevCoder/skills-3rdParty` 是一个公开的、带来源审计的第三方 Agent
+Skills 收藏集，刻意与 first-party 的
+[LightDevCoder/skills](https://github.com/LightDevCoder/skills) 仓库分离。
 
 ## 当前版本
 
-稳定版本为 `v0.1.1`，发布提交为
-`a891d39d7f34793d857c5b8eec3429c23871f421`；对应的[私有 GitHub release](https://github.com/LightDevCoder/skills-3rdParty/releases/tag/v0.1.1)
-已有 fresh-install 证据。集合准确收录 Matt Pocock 上游 `v1.1.0` 的 23 个
-指定 Skill，解析 commit 为 `d574778f94cf620fcc8ce741584093bc650a61d3`。
+稳定版本为 `v0.2.0`，公开发布并带全新安装证据。镜像 **两个来源仓库共
+26 个包**：
 
-[UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 是权威清单，记录 upstream 路径、
-逐文件 checksum、source group、许可证、依赖、本地修改状态和安装语义。
+| 来源 | Pin | 包数 |
+| --- | --- | --- |
+| [mattpocock/skills](https://github.com/mattpocock/skills) | tag `v1.2.3`，commit `6acc160e4e0cd062dbbbd7a1b26ae92855edf07e` | 25（engineering 18，productivity 7） |
+| [blader/humanizer](https://github.com/blader/humanizer) | tag `v2.9.1`，commit `523374dee72d67c7b2b5f858ea0094ffda49c3ac` | 1 |
 
-## 三种来源状态
+权威清单是 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json)：记录每个来源的 pin、
+逐文件 checksum、源分组、license 路径、依赖与本地修改状态。该 manifest 由
+[scripts/generate-lock.sh](scripts/generate-lock.sh) 生成，禁止手工编辑。
 
-- **Pinned upstream mirror：** 在不可变 revision 上保存完整 upstream 包；
-  若主机需要，额外的集合 metadata adapter 必须单独标记。
-- **Modified upstream fork：** 有明确兼容性、重打包、稳定 pin、主机支持或
-  行为差异原因，并在 `PATCHES.md` 中记录。
-- **External direct dependency：** 不复制，记录权威 upstream 与安装方式。
+## 目录
 
-23 个包位于 `skills/<skill-name>/` 以保持 Skills CLI 发现能力；原始的
-`engineering`、`productivity`、`deprecated`、`in-progress` 分组保存在
-manifest 和 [source-group 记录](sources/mattpocock-skills/README.md)中。
+```
+skills/mattpocock/engineering/<skill>/  18 个包
+skills/mattpocock/productivity/<skill>/  7 个包
+skills/blader/humanizer/                 1 个包
+```
 
-外部依赖另行准入、刻意不复制。当前外部依赖为 `humanizer`
-（[blader/humanizer](https://github.com/blader/humanizer)，tag `v2.9.1`，
-commit `523374dee72d67c7b2b5f858ea0094ffda49c3ac`），从权威 upstream
-安装。记录见 [config/external-dependencies.json](config/external-dependencies.json)、
-[UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 的 `external_dependencies` 段与
-[sources/blader-humanizer/README.md](sources/blader-humanizer/README.md)。
+每个包包含未经修改的上游文件，加上 `UPSTREAM.md`（来源记录）与
+`PATCHES.md`（本地改动账本）；mattpocock 包另带 `LICENSE` 副本。上游文件
+受哈希校验，本地记录是唯一的本地差异。
 
-## 安装
+## 快速安装
 
 ```text
-npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex
-npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill grill-with-docs --yes --copy --agent codex
+npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --yes --copy --agent codex
 ```
 
-上面的命令安装已发布的 private snapshot。`#v0.1.1` 固定本地集合 release；包内容另外固定在 upstream
-`v1.1.0`/完整 commit。不带 fragment 的简写跟随仓库默认 revision，不能描述为 immutable。请阅读[安装指南](docs/INSTALLATION.md)了解 private
-凭据、全新目录、重复安装、发现验证和手工回退。
+只装一个包：
 
-## 边界与维护
+```text
+npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --skill grill-with-docs --yes --copy --agent codex
+```
 
-- `grill-me` 保留 `grilling` 依赖。
-- `grill-with-docs` 保留 `grilling` 与 `domain-modeling` 依赖。
-- `ask-matt` 只能导航，不得自动执行或安装。
-- `writing-great-skills` 是 authoring knowledge，不是 `learn-anything` 的
+收录、同步与发布策略见 [POLICIES.md](docs/POLICIES.md)。
+
+## 依赖与边界
+
+- `grill-me` 依赖 `grilling`；`grill-with-docs` 依赖 `grilling` 与
+  `domain-modeling`（声明的 peer Skills，不是隐藏运行时依赖）。
+- `ask-matt` 纯导航，永不自动作执行器。
+- `writing-for-agents` 是写作知识源，不是 first-party `learn-anything` 的
   隐式运行时依赖。
 
-请从[第三方准入](docs/THIRD_PARTY_ADMISSION.md)、[provenance policy](docs/PROVENANCE_POLICY.md)、
-[update policy](docs/UPDATE_POLICY.md)、[维护](docs/MAINTENANCE.md)、[review policy](docs/REVIEW_POLICY.md)、
-[目录](CATALOG.md)和[发布证据](docs/evidence/releases/v0.1.1/RELEASE_RECEIPT.md)开始。
+## 维护
 
-```powershell
-.\scripts\sync-upstream.ps1 -Mode check
-.\tests\third-party-collection-tests.ps1
+全部工具跨平台（bash + jq；macOS/Linux/CI 通用）：
+
+```bash
+scripts/sync-upstream.sh -Mode check        # 完整性/哈希/资源/记录
+scripts/sync-upstream.sh -Mode diff         # 本地与上游差异
+scripts/sync-upstream.sh -Mode sync         # 从固定上游快照复制
+scripts/generate-lock.sh                    # 重新生成 UPSTREAM_LOCK.json
+tests/collection-checks.sh                  # 结构性检查
 ```
 
-结构测试不等于 fresh installation、runtime 或独立 review 证据。
+源快照放在一个 `sources/` 根下，每个来源一个 checkout
+（`sources/mattpocock`、`sources/blader`）；工具用 `-SourcesRoot <dir>`
+指定。发布证据：[docs/evidence/releases/](docs/evidence/releases/)。
+
+- [目录](CATALOG.md)
+- [更新日志](CHANGELOG.md)
+- [收录与维护策略](docs/POLICIES.md)

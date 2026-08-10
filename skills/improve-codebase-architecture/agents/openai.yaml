@@ -1,7 +1,0 @@
-interface:
-  display_name: "Improve Codebase Architecture"
-  short_description: "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick."
-  default_prompt: "Use $improve-codebase-architecture when this task matches its upstream contract; preserve its explicit stopping boundary."
-
-policy:
-  allow_implicit_invocation: false

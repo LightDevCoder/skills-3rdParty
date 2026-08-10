@@ -1,7 +1,0 @@
-interface:
-  display_name: "Diagnosing Bugs"
-  short_description: "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow."
-  default_prompt: "Use $diagnosing-bugs when this task matches its upstream contract; preserve its explicit stopping boundary."
-
-policy:
-  allow_implicit_invocation: true

@@ -1,5 +1,9 @@
-# Keep local patch records byte-stable without rewriting mirrored upstream files.
-skills/*/agents/openai.yaml text eol=lf
-skills/*/UPSTREAM.md text eol=lf
-skills/*/PATCHES.md text eol=lf
-skills/*/LICENSE text eol=crlf
+# Normalize text files to LF for byte-stable hash checks across platforms.
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.template.sh text eol=lf
+LICENSE text eol=lf

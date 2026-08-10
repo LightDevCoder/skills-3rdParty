@@ -1,7 +1,0 @@
-interface:
-  display_name: "Tdd"
-  short_description: "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests."
-  default_prompt: "Use $tdd when this task matches its upstream contract; preserve its explicit stopping boundary."
-
-policy:
-  allow_implicit_invocation: true

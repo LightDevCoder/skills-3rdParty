@@ -2,55 +2,38 @@
 
 [简体中文](CHANGELOG.zh-CN.md)
 
-All release claims below require the corresponding repository evidence. A
-draft entry is not proof of a tag, release, installation, or independent
-review.
+All release claims below require the corresponding repository evidence under
+`docs/evidence/releases/`.
 
-## Unreleased
+## v0.2.0 — 2026-08-10
 
-### Added
+### Changed
 
-- Admitted `humanizer` (upstream `blader/humanizer`, tag `v2.9.1`, commit
-  `523374dee72d67c7b2b5f858ea0094ffda49c3ac`) as an **external direct
-  dependency** per user decision on 2026-08-10. The package is deliberately
-  not copied into `skills/`; the authoritative upstream, pin, license, and
-  installation guidance are recorded in
-  [config/external-dependencies.json](config/external-dependencies.json),
-  the `external_dependencies` section of
-  [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json), and
-  [sources/blader-humanizer/README.md](sources/blader-humanizer/README.md).
-- Catalog entries for the external dependency in English and Chinese.
+- **Repository made public** and released as `v0.2.0`; installation no longer
+  requires private-repository credentials.
+- **Upstream upgraded** from mattpocock/skills `v1.1.0` (23 packages) to
+  `v1.2.3` (25 packages): added `setup-matt-pocock-skills`, `triage`,
+  `resolving-merge-conflicts`, `wizard`, `to-questionnaire`, `wait-what`, and
+  `writing-for-agents`; removed `design-an-interface`, `qa`,
+  `ubiquitous-language`, `loop-me`, and `writing-great-skills` (superseded by
+  the rewritten `writing-for-agents`).
+- **`humanizer` admitted as a second mirrored source** (`blader/humanizer`
+  `v2.9.1`), promoted from external direct dependency to pinned mirror under
+  `skills/blader/humanizer/`.
+- **Nested layout**: packages now live at `skills/<source>/<group>/<name>/`
+  (or `skills/<source>/<name>/` for ungrouped packages), preserving upstream
+  grouping and remaining Skills CLI-discoverable.
+- **Tooling rewritten cross-platform**: PowerShell sync script and tests
+  replaced by bash + jq (`scripts/sync-upstream.sh`, `scripts/generate-lock.sh`,
+  `tests/collection-checks.sh`); CI moved to ubuntu-latest.
+- **`UPSTREAM_LOCK.json` is now generated** (`schema_version: 3`, multi-source)
+  and verified regenerable in CI; no more hand-maintained manifest.
+- **Governance slimmed**: admission and review policy documents removed; the
+  independent acceptance gate is abolished. Remaining policy consolidated in
+  `docs/POLICIES.md` (Chinese); README and CATALOG stay bilingual.
 
-### Notes
+## v0.1.1 — 2026-07-26
 
-- The 23-package pinned mirror, its allowlist, and the single-upstream sync
-  tooling are unchanged; the external dependency is a manifest-level record
-  and does not affect `skills/` discovery.
-
-## 0.1.1 — 2026-07-26
-
-### Added
-
-- Exactly 23 selected Matt Pocock Skills from upstream `v1.1.0`, pinned to
-  `d574778f94cf620fcc8ce741584093bc650a61d3`.
-- Complete per-package upstream resources, license copies, metadata adapters,
-  provenance records, patch ledgers, and machine-readable checksums.
-- Explicit pinned-mirror, modified-fork, and external-dependency governance.
-- `check`, `dry-run`, `diff`, and `sync` maintenance tooling with an
-  unauthorized-local-patch negative fixture.
-- English/Chinese catalogs, installation, maintenance, provenance, update,
-  review, source-group, and release-evidence documents.
-
-### Release evidence
-
-See [v0.1.1 release receipt](docs/evidence/releases/v0.1.1/RELEASE_RECEIPT.md).
-The tag, private release, fresh-install verification, and CI are verified.
-Independent acceptance remains `BLOCKED` when no independent evaluator record
-is available.
-
-Release commit: `a891d39d7f34793d857c5b8eec3429c23871f421`.
-
-## 0.1.0 — 2026-07-23
-
-The initial private governance-only release. Its empty boundary has been
-superseded by the explicitly admitted pinned upstream mirror in `v0.1.1`.
+- Initial private release: 23 pinned Matt Pocock Skills from upstream `v1.1.0`
+  with metadata adapters, provenance, sync tooling, and bilingual governance
+  docs. Historical evidence retained under `docs/evidence/releases/v0.1.1/`.

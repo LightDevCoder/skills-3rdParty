@@ -1,7 +1,0 @@
-interface:
-  display_name: "Grilling"
-  short_description: "Grill the user relentlessly about a plan or design. Use when the user wants to stress-test a plan before building, or uses any 'grill' trigger phrases."
-  default_prompt: "Use $grilling when this task matches its upstream contract; preserve its explicit stopping boundary."
-
-policy:
-  allow_implicit_invocation: true
