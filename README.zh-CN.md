@@ -28,6 +28,13 @@
 `engineering`、`productivity`、`deprecated`、`in-progress` 分组保存在
 manifest 和 [source-group 记录](sources/mattpocock-skills/README.md)中。
 
+外部依赖另行准入、刻意不复制。当前外部依赖为 `humanizer`
+（[blader/humanizer](https://github.com/blader/humanizer)，tag `v2.9.1`，
+commit `523374dee72d67c7b2b5f858ea0094ffda49c3ac`），从权威 upstream
+安装。记录见 [config/external-dependencies.json](config/external-dependencies.json)、
+[UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 的 `external_dependencies` 段与
+[sources/blader-humanizer/README.md](sources/blader-humanizer/README.md)。
+
 ## 安装
 
 ```text

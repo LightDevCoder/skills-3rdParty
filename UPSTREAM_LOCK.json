@@ -51,13 +51,28 @@
                       "writing-great-skills"
                   ],
     "collection_checksum":  "c712abb181e90de8502dd90d6c31f64c87e647d072fac256e9b6147cb8f2ec65",
-    "generated_utc":  "2026-07-26T06:17:17.0140273Z",
+    "generated_utc":  "2026-08-10T10:30:00.0000000Z",
     "installation":  {
                          "whole_collection":  "npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --yes --copy --agent codex",
                          "single_skill":  "npx skills add LightDevCoder/skills-3rdParty#v0.1.1 --skill \u003cskill-name\u003e --yes --copy --agent codex",
                          "revision_semantics":  "The #v0.1.1 fragment pins the local collection release; the mirrored package content is pinned to upstream v1.1.0 and its resolved commit.",
                          "release_status":  "released-with-acceptance-limitation; tag, private release, fresh install, and CI verified; independent acceptance BLOCKED"
                      },
+    "external_dependencies":  [
+                                  {
+                                      "package_name":  "humanizer",
+                                      "source_state":  "external-direct-dependency",
+                                      "upstream_repository":  "blader/humanizer",
+                                      "url":  "https://github.com/blader/humanizer",
+                                      "canonical_skill_path":  "repository root is the skill (SKILL.md at root)",
+                                      "pinned_tag":  "v2.9.1",
+                                      "resolved_commit":  "523374dee72d67c7b2b5f858ea0094ffda49c3ac",
+                                      "license":  "MIT",
+                                      "local_copy":  false,
+                                      "admission_decision":  "user-requested 2026-08-10",
+                                      "record":  "Deliberately not copied; install from authoritative upstream. See config/external-dependencies.json and sources/blader-humanizer/README.md."
+                                  }
+                              ],
     "entries":  [
                     {
                         "package_name":  "ask-matt",

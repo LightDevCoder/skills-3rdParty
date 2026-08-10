@@ -6,6 +6,27 @@ All release claims below require the corresponding repository evidence. A
 draft entry is not proof of a tag, release, installation, or independent
 review.
 
+## Unreleased
+
+### Added
+
+- Admitted `humanizer` (upstream `blader/humanizer`, tag `v2.9.1`, commit
+  `523374dee72d67c7b2b5f858ea0094ffda49c3ac`) as an **external direct
+  dependency** per user decision on 2026-08-10. The package is deliberately
+  not copied into `skills/`; the authoritative upstream, pin, license, and
+  installation guidance are recorded in
+  [config/external-dependencies.json](config/external-dependencies.json),
+  the `external_dependencies` section of
+  [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json), and
+  [sources/blader-humanizer/README.md](sources/blader-humanizer/README.md).
+- Catalog entries for the external dependency in English and Chinese.
+
+### Notes
+
+- The 23-package pinned mirror, its allowlist, and the single-upstream sync
+  tooling are unchanged; the external dependency is a manifest-level record
+  and does not affect `skills/` discovery.
+
 ## 0.1.1 — 2026-07-26
 
 ### Added

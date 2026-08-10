@@ -64,3 +64,17 @@ manifest entry retains its original path and source group.
 Each package has a package-local [UPSTREAM.md](skills/ask-matt/UPSTREAM.md)
 and [PATCHES.md](skills/ask-matt/PATCHES.md); replace the package name in the
 path to inspect another entry.
+
+## External dependencies
+
+Admitted as **external direct dependencies** (deliberately not copied; install
+from the authoritative upstream source). Recorded in
+[config/external-dependencies.json](config/external-dependencies.json) and the
+`external_dependencies` section of [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json).
+
+| Skill | Upstream | Pin | License | Install |
+| --- | --- | --- | --- | --- |
+| `humanizer` | [blader/humanizer](https://github.com/blader/humanizer) | tag `v2.9.1`, commit `523374dee72d67c7b2b5f858ea0094ffda49c3ac` | MIT | copy repository root into the host Skills root, or Claude Code `/plugin marketplace add blader/humanizer` |
+
+Source-group record: [sources/blader-humanizer/README.md](sources/blader-humanizer/README.md).
+

@@ -32,6 +32,15 @@ Skills CLI can discover them. Original upstream grouping (`engineering`,
 `productivity`, `deprecated`, and `in-progress`) remains auditable in the
 manifest and [source-group record](sources/mattpocock-skills/README.md).
 
+External dependencies are admitted separately and deliberately not copied.
+The current external dependency is `humanizer`
+([blader/humanizer](https://github.com/blader/humanizer), tag `v2.9.1`,
+commit `523374dee72d67c7b2b5f858ea0094ffda49c3ac`); install it from the
+authoritative upstream. Record:
+[config/external-dependencies.json](config/external-dependencies.json),
+`external_dependencies` in [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json), and
+[sources/blader-humanizer/README.md](sources/blader-humanizer/README.md).
+
 ## Quick installation
 
 The commands below install the published private snapshot. The `#v0.1.1`

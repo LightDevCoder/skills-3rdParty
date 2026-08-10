@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "policy": "External direct dependencies are deliberately not copied into skills/; their authoritative upstream source, pinned revision, license, and installation guidance are recorded instead. Admission requires a separate user decision and this manifest update.",
+  "dependencies": [
+    {
+      "name": "humanizer",
+      "source_state": "external-direct-dependency",
+      "upstream_repository": "blader/humanizer",
+      "url": "https://github.com/blader/humanizer",
+      "canonical_skill_path": "repository root is the skill (SKILL.md at root)",
+      "pinned_tag": "v2.9.1",
+      "resolved_commit": "523374dee72d67c7b2b5f858ea0094ffda49c3ac",
+      "license": "MIT",
+      "license_source": "LICENSE at upstream repository root",
+      "admission_decision": "user-requested 2026-08-10",
+      "install_guidance": "Copy the complete upstream repository root (SKILL.md, README.md, AGENTS.md, scripts/, agents/, .claude-plugin/) into the host's recognized Skills root; or add the upstream Claude Code marketplace: /plugin marketplace add blader/humanizer. Upstream also publishes at https://skills.sh/blader/humanizer.",
+      "source_group_record": "sources/blader-humanizer/README.md"
+    }
+  ]
+}

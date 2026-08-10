@@ -40,3 +40,16 @@
 
 23 个包的逐项路径、资源、checksum、本地状态和 provenance 请直接查看
 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 及包内 `UPSTREAM.md` / `PATCHES.md`。
+
+## 外部依赖
+
+以 **external direct dependency** 状态准入（刻意不复制，从权威 upstream
+安装）。记录见 [config/external-dependencies.json](config/external-dependencies.json)
+与 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 的 `external_dependencies` 段。
+
+| Skill | Upstream | Pin | License | 安装 |
+| --- | --- | --- | --- | --- |
+| `humanizer` | [blader/humanizer](https://github.com/blader/humanizer) | tag `v2.9.1`，commit `523374dee72d67c7b2b5f858ea0094ffda49c3ac` | MIT | 复制仓库根到宿主 Skills 根目录，或 Claude Code `/plugin marketplace add blader/humanizer` |
+
+Source-group 记录：[sources/blader-humanizer/README.md](sources/blader-humanizer/README.md)。
+
