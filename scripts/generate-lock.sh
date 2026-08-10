@@ -4,7 +4,12 @@
 # CI verifies that the committed manifest matches a fresh generation.
 #
 # Usage:
-#   scripts/generate-lock.sh [-Root <repo root>] [-Output <path|->]
+#   scripts/generate-lock.sh [-Root <repo root>] [-Output <path|->] [-Utc <timestamp>]
+#
+# -Root     repository root (default: script's parent/..)
+# -Output   write target (default: UPSTREAM_LOCK.json; "-" prints to stdout)
+# -Utc      fixed generated_utc timestamp for reproducible regeneration
+#           (used by tests/collection-checks.sh's regenerability check)
 
 set -euo pipefail
 
@@ -42,7 +47,6 @@ sha256_file() {
   fi
 }
 
-sha256_of_text() { printf '%s' "$1" | (sha256_file /dev/stdin 2>/dev/null || die "sha256 unavailable"); }
 
 local_patch_paths() {
   local src

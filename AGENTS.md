@@ -45,12 +45,15 @@ English | [简体中文](README.zh-CN.md)
 全部工具跨平台（bash + jq，macOS/Linux/CI）：
 
 ```bash
-scripts/sync-upstream.sh -Mode check
-scripts/sync-upstream.sh -Mode diff
-scripts/sync-upstream.sh -Mode sync
-scripts/sync-upstream.sh -Mode prune
-scripts/generate-lock.sh
-tests/collection-checks.sh
+scripts/sync-upstream.sh -Mode check        # completeness/hashes/resources/records
+scripts/sync-upstream.sh -Mode resource     # SKILL.md referenced-resource existence
+scripts/sync-upstream.sh -Mode unauthorized-patch  # upstream files unmodified locally
+scripts/sync-upstream.sh -Mode diff         # local/upstream differences
+scripts/sync-upstream.sh -Mode dry-run      # preview -Mode sync without writing
+scripts/sync-upstream.sh -Mode sync         # copy from pinned upstream snapshots
+scripts/sync-upstream.sh -Mode prune        # remove upstream files deleted upstream
+scripts/generate-lock.sh                    # regenerate UPSTREAM_LOCK.json (-Utc for pinned timestamp)
+tests/collection-checks.sh                  # structural checks (CI and local)
 ```
 
 `check` 在缺包、缺引用资源、偏离固定修订、或对上游管理文件存在未授权

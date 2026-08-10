@@ -24,7 +24,7 @@
     }
   ],
   "collection_checksum": "4fab91c49bb24e6f175448e63c7c08a04e18558dabef429d9bdaad3f93ea44ed",
-  "generated_utc": "2026-08-10T11:52:41Z",
+  "generated_utc": "2026-08-10T14:47:12Z",
   "installation": {
     "whole_collection": "npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --yes --copy --agent codex",
     "single_skill": "npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --skill <skill-name> --yes --copy --agent codex",

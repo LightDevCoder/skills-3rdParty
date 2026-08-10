@@ -69,7 +69,6 @@ sha256_file() {
   fi
 }
 
-jq_get() { jq -r "$1" "$2"; }
 
 relative_files() {
   local dir="$1"
@@ -92,9 +91,9 @@ referenced_resources() {
     | grep -v '^<' | grep -v '^$' | grep -vE '^(link|path|url)$' | LC_ALL=C sort -u
 }
 
-list_packages() { jq_get '.packages[] | .name' "$ALLOWLIST"; }
+list_packages() { jq -r '.packages[] | .name' "$ALLOWLIST"; }
 
-package_json() { jq_get ".packages[] | select(.name == \"$1\")" "$ALLOWLIST" 2>/dev/null || die "package $1 not in allowlist"; }
+package_json() { jq -r ".packages[] | select(.name == \"$1\")" "$ALLOWLIST" 2>/dev/null || die "package $1 not in allowlist"; }
 
 local_package_dir() {
   local name="$1"
@@ -145,7 +144,7 @@ check_source_pins() {
 }
 
 verify_one_package() {
-  local name="$1" entry files local_patch ok=1
+  local name="$1" entry
   entry=$(jq -r --arg n "$name" '.entries[] | select(.package_name == $n)' "$MANIFEST" 2>/dev/null) \
     || die "manifest has no entry for $name"
   local dest

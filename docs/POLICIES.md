@@ -43,9 +43,10 @@ scripts/sync-upstream.sh -Mode check        # 完整性/哈希/资源/记录校�
 scripts/sync-upstream.sh -Mode resource     # SKILL.md 引用资源存在性
 scripts/sync-upstream.sh -Mode unauthorized-patch  # 上游文件未被本地改动
 scripts/sync-upstream.sh -Mode diff         # 与上游快照的差异
+scripts/sync-upstream.sh -Mode dry-run      # 预览 sync 动作，不写盘
 scripts/sync-upstream.sh -Mode sync         # 从上游快照复制（只增不删）
 scripts/sync-upstream.sh -Mode prune        # 移除上游已删除的文件（先看 diff）
-scripts/generate-lock.sh                    # 重新生成 UPSTREAM_LOCK.json
+scripts/generate-lock.sh                    # 重新生成 UPSTREAM_LOCK.json（支持 -Utc 固定时间戳）
 tests/collection-checks.sh                  # 结构性检查（CI 与本地同一条命令）
 ```
 
