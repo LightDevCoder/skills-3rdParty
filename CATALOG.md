@@ -2,7 +2,7 @@
 
 [中文目录](CATALOG.zh-CN.md)
 
-This catalog is derived from the 26-entry allowlist and
+This catalog is derived from the 27-entry allowlist and
 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json). Package behavior remains owned by
 each upstream `SKILL.md`; this file records source and installation facts.
 
@@ -12,9 +12,9 @@ each upstream `SKILL.md`; this file records source and installation facts.
 | --- | --- |
 | Repository | `LightDevCoder/skills-3rdParty` |
 | Visibility | Public |
-| Packages | 26 (25 mattpocock + 1 blader) |
-| Source pins | mattpocock/skills `v1.2.3` (`6acc160e`); blader/humanizer `v2.9.1` (`523374de`) |
-| Local release | `v0.2.0` — public tag and release |
+| Packages | 27 (25 mattpocock + 1 blader + 1 op7418) |
+| Source pins | mattpocock/skills `v1.2.3` (`6acc160e`); blader/humanizer `v2.9.1` (`523374de`); op7418/Humanizer-zh `91f3d394` |
+| Local release | `v0.2.1` — public tag and release |
 | Manifest | [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) (generated, never hand-edited) |
 | Sync | [scripts/sync-upstream.sh](scripts/sync-upstream.sh) |
 | Policy | [docs/POLICIES.md](docs/POLICIES.md) |
@@ -49,6 +49,7 @@ each upstream `SKILL.md`; this file records source and installation facts.
 | `wait-what` | mattpocock | productivity | `skills/mattpocock/productivity/wait-what` | none |
 | `writing-for-agents` | mattpocock | productivity | `skills/mattpocock/productivity/writing-for-agents` | none |
 | `humanizer` | blader | — | `skills/blader/humanizer` | none |
+| `humanizer-zh` | op7418 | — | `skills/op7418/humanizer-zh` | none |
 
 Each package has a package-local [UPSTREAM.md](skills/mattpocock/engineering/ask-matt/UPSTREAM.md)
 and [PATCHES.md](skills/mattpocock/engineering/ask-matt/PATCHES.md); replace
@@ -58,6 +59,7 @@ the path to inspect another entry.
 
 - [sources/mattpocock-skills/README.md](sources/mattpocock-skills/README.md)
 - [sources/blader-humanizer/README.md](sources/blader-humanizer/README.md)
+- [sources/op7418-humanizer-zh/README.md](sources/op7418-humanizer-zh/README.md)
 
 ## Changelog
 

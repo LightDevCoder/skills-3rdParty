@@ -16,34 +16,210 @@
       "resolved_commit": "523374dee72d67c7b2b5f858ea0094ffda49c3ac",
       "license": "MIT",
       "license_source": "LICENSE at upstream repository root"
+    },
+    "op7418": {
+      "repository": "op7418/Humanizer-zh",
+      "url": "https://github.com/op7418/Humanizer-zh",
+      "selected_tag": "91f3d394db8419c20d67ebe22a96cf8fee0a404b",
+      "resolved_commit": "91f3d394db8419c20d67ebe22a96cf8fee0a404b",
+      "license": "MIT",
+      "license_source": "LICENSE at upstream repository root"
     }
   },
   "packages": [
-    { "name": "ask-matt", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/ask-matt", "dependencies": [] },
-    { "name": "code-review", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/code-review", "dependencies": [] },
-    { "name": "codebase-design", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/codebase-design", "dependencies": [] },
-    { "name": "diagnosing-bugs", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/diagnosing-bugs", "dependencies": [] },
-    { "name": "domain-modeling", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/domain-modeling", "dependencies": [] },
-    { "name": "grill-with-docs", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/grill-with-docs", "dependencies": ["grilling", "domain-modeling"] },
-    { "name": "implement", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/implement", "dependencies": [] },
-    { "name": "improve-codebase-architecture", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/improve-codebase-architecture", "dependencies": [] },
-    { "name": "prototype", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/prototype", "dependencies": [] },
-    { "name": "research", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/research", "dependencies": [] },
-    { "name": "resolving-merge-conflicts", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/resolving-merge-conflicts", "dependencies": [] },
-    { "name": "setup-matt-pocock-skills", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/setup-matt-pocock-skills", "dependencies": [] },
-    { "name": "tdd", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/tdd", "dependencies": [] },
-    { "name": "to-spec", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/to-spec", "dependencies": [] },
-    { "name": "to-tickets", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/to-tickets", "dependencies": [] },
-    { "name": "triage", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/triage", "dependencies": [] },
-    { "name": "wayfinder", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/wayfinder", "dependencies": [] },
-    { "name": "wizard", "source": "mattpocock", "group": "engineering", "upstream_path": "skills/engineering/wizard", "dependencies": [] },
-    { "name": "grill-me", "source": "mattpocock", "group": "productivity", "upstream_path": "skills/productivity/grill-me", "dependencies": ["grilling"] },
-    { "name": "grilling", "source": "mattpocock", "group": "productivity", "upstream_path": "skills/productivity/grilling", "dependencies": [] },
-    { "name": "handoff", "source": "mattpocock", "group": "productivity", "upstream_path": "skills/productivity/handoff", "dependencies": [] },
-    { "name": "teach", "source": "mattpocock", "group": "productivity", "upstream_path": "skills/productivity/teach", "dependencies": [] },
-    { "name": "to-questionnaire", "source": "mattpocock", "group": "productivity", "upstream_path": "skills/productivity/to-questionnaire", "dependencies": [] },
-    { "name": "wait-what", "source": "mattpocock", "group": "productivity", "upstream_path": "skills/productivity/wait-what", "dependencies": [] },
-    { "name": "writing-for-agents", "source": "mattpocock", "group": "productivity", "upstream_path": "skills/productivity/writing-for-agents", "dependencies": [] },
-    { "name": "humanizer", "source": "blader", "group": null, "upstream_path": ".", "dependencies": [] }
+    {
+      "name": "ask-matt",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/ask-matt",
+      "dependencies": []
+    },
+    {
+      "name": "code-review",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/code-review",
+      "dependencies": []
+    },
+    {
+      "name": "codebase-design",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/codebase-design",
+      "dependencies": []
+    },
+    {
+      "name": "diagnosing-bugs",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/diagnosing-bugs",
+      "dependencies": []
+    },
+    {
+      "name": "domain-modeling",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/domain-modeling",
+      "dependencies": []
+    },
+    {
+      "name": "grill-with-docs",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/grill-with-docs",
+      "dependencies": [
+        "grilling",
+        "domain-modeling"
+      ]
+    },
+    {
+      "name": "implement",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/implement",
+      "dependencies": []
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/improve-codebase-architecture",
+      "dependencies": []
+    },
+    {
+      "name": "prototype",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/prototype",
+      "dependencies": []
+    },
+    {
+      "name": "research",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/research",
+      "dependencies": []
+    },
+    {
+      "name": "resolving-merge-conflicts",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/resolving-merge-conflicts",
+      "dependencies": []
+    },
+    {
+      "name": "setup-matt-pocock-skills",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/setup-matt-pocock-skills",
+      "dependencies": []
+    },
+    {
+      "name": "tdd",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/tdd",
+      "dependencies": []
+    },
+    {
+      "name": "to-spec",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/to-spec",
+      "dependencies": []
+    },
+    {
+      "name": "to-tickets",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/to-tickets",
+      "dependencies": []
+    },
+    {
+      "name": "triage",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/triage",
+      "dependencies": []
+    },
+    {
+      "name": "wayfinder",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/wayfinder",
+      "dependencies": []
+    },
+    {
+      "name": "wizard",
+      "source": "mattpocock",
+      "group": "engineering",
+      "upstream_path": "skills/engineering/wizard",
+      "dependencies": []
+    },
+    {
+      "name": "grill-me",
+      "source": "mattpocock",
+      "group": "productivity",
+      "upstream_path": "skills/productivity/grill-me",
+      "dependencies": [
+        "grilling"
+      ]
+    },
+    {
+      "name": "grilling",
+      "source": "mattpocock",
+      "group": "productivity",
+      "upstream_path": "skills/productivity/grilling",
+      "dependencies": []
+    },
+    {
+      "name": "handoff",
+      "source": "mattpocock",
+      "group": "productivity",
+      "upstream_path": "skills/productivity/handoff",
+      "dependencies": []
+    },
+    {
+      "name": "teach",
+      "source": "mattpocock",
+      "group": "productivity",
+      "upstream_path": "skills/productivity/teach",
+      "dependencies": []
+    },
+    {
+      "name": "to-questionnaire",
+      "source": "mattpocock",
+      "group": "productivity",
+      "upstream_path": "skills/productivity/to-questionnaire",
+      "dependencies": []
+    },
+    {
+      "name": "wait-what",
+      "source": "mattpocock",
+      "group": "productivity",
+      "upstream_path": "skills/productivity/wait-what",
+      "dependencies": []
+    },
+    {
+      "name": "writing-for-agents",
+      "source": "mattpocock",
+      "group": "productivity",
+      "upstream_path": "skills/productivity/writing-for-agents",
+      "dependencies": []
+    },
+    {
+      "name": "humanizer",
+      "source": "blader",
+      "group": null,
+      "upstream_path": ".",
+      "dependencies": []
+    },
+    {
+      "name": "humanizer-zh",
+      "source": "op7418",
+      "group": null,
+      "upstream_path": ".",
+      "dependencies": []
+    }
   ]
 }

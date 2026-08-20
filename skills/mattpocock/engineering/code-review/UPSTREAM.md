@@ -28,8 +28,8 @@ copy.
 
 ## Installation and update
 
-- **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --yes --copy --agent codex
-- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --skill code-review --yes --copy --agent codex
+- **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --yes --copy --agent codex
+- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill code-review --yes --copy --agent codex
 - **Manual fallback:** copy the complete skills/mattpocock/engineering/code-review directory (or skills/mattpocock/code-review for ungrouped packages) into the host's recognized Skills root.
 - **Update source:** run `scripts/sync-upstream.sh -Mode check` against the
   pinned source checkouts; review `-Mode diff`, then use `-Mode sync` and

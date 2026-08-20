@@ -8,13 +8,14 @@ Skills 收藏集，刻意与 first-party 的
 
 ## 当前版本
 
-稳定版本为 `v0.2.0`，公开发布并带全新安装证据。镜像 **两个来源仓库共
-26 个包**：
+稳定版本为 `v0.2.1`，公开发布并带全新安装证据。镜像 **三个来源仓库共
+27 个包**：
 
 | 来源 | Pin | 包数 |
 | --- | --- | --- |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | tag `v1.2.3`，commit `6acc160e4e0cd062dbbbd7a1b26ae92855edf07e` | 25（engineering 18，productivity 7） |
 | [blader/humanizer](https://github.com/blader/humanizer) | tag `v2.9.1`，commit `523374dee72d67c7b2b5f858ea0094ffda49c3ac` | 1 |
+| [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh) | commit `91f3d394db8419c20d67ebe22a96cf8fee0a404b`（无 tag） | 1 |
 
 权威清单是 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json)：记录每个来源的 pin、
 逐文件 checksum、源分组、license 路径、依赖与本地修改状态。该 manifest 由
@@ -26,6 +27,7 @@ Skills 收藏集，刻意与 first-party 的
 skills/mattpocock/engineering/<skill>/  18 个包
 skills/mattpocock/productivity/<skill>/  7 个包
 skills/blader/humanizer/                 1 个包
+skills/op7418/humanizer-zh/              1 个包
 ```
 
 每个包包含未经修改的上游文件，加上 `UPSTREAM.md`（来源记录）与
@@ -35,13 +37,13 @@ skills/blader/humanizer/                 1 个包
 ## 快速安装
 
 ```text
-npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --yes --copy --agent codex
+npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --yes --copy --agent codex
 ```
 
 只装一个包：
 
 ```text
-npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --skill grill-with-docs --yes --copy --agent codex
+npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill grill-with-docs --yes --copy --agent codex
 ```
 
 收录、同步与发布策略见 [POLICIES.md](docs/POLICIES.md)。
@@ -67,8 +69,9 @@ tests/collection-checks.sh                  # 结构性检查
 ```
 
 源快照放在一个 `sources/` 根下，每个来源一个 checkout
-（`sources/mattpocock`、`sources/blader`）；工具用 `-SourcesRoot <dir>`
-指定。发布证据：[docs/evidence/releases/](docs/evidence/releases/)。
+（`sources/mattpocock`、`sources/blader`、`sources/op7418`）；工具用
+`-SourcesRoot <dir>` 指定。发布证据：
+[docs/evidence/releases/](docs/evidence/releases/)。
 
 - [目录](CATALOG.md)
 - [更新日志](CHANGELOG.md)

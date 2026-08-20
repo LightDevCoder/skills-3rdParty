@@ -26,6 +26,12 @@ jobs:
           repository: blader/humanizer
           ref: v2.9.1
           path: sources/blader
+      - name: Checkout pinned upstream op7418/Humanizer-zh
+        uses: actions/checkout@v4
+        with:
+          repository: op7418/Humanizer-zh
+          ref: 91f3d394db8419c20d67ebe22a96cf8fee0a404b
+          path: sources/op7418
       - name: Run collection checks
         shell: bash
         working-directory: collection

@@ -5,6 +5,21 @@
 All release claims below require the corresponding repository evidence under
 `docs/evidence/releases/`.
 
+## Unreleased — v0.2.1 (release candidate)
+
+Release evidence: `docs/evidence/releases/v0.2.1/` — `NOT TESTED` until the
+fresh-install gate runs against the published tag.
+
+### Added
+
+- **`humanizer-zh` admitted as a third mirrored source** (`op7418/Humanizer-zh`
+  `91f3d394db8419c20d67ebe22a96cf8fee0a404b`), the Chinese localized variant
+  of the Humanizer writing editor, mirrored unmodified under
+  `skills/op7418/humanizer-zh/` alongside the English `blader/humanizer`.
+- Collection grows to **27 pinned packages from three sources**; allowlist,
+  `UPSTREAM_LOCK.json`, CI source checkouts, catalog, and bilingual docs
+  updated for the new source.
+
 ## v0.2.0 — 2026-08-10
 
 ### Changed

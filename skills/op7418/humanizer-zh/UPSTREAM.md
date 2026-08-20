@@ -1,4 +1,4 @@
-# Upstream Record: grilling
+# Upstream Record: humanizer-zh
 
 This package is a pinned upstream snapshot. The upstream Skill instructions
 and referenced resources are preserved unmodified; the only local additions
@@ -7,13 +7,13 @@ copy.
 
 ## Identity
 
-- **Source:** mattpocock (https://github.com/mattpocock/skills)
-- **Source group:** productivity
-- **Package:** grilling
-- **Upstream repository:** mattpocock/skills
-- **Original upstream package path:** skills/productivity/grilling
-- **Selected upstream tag:** v1.2.3
-- **Resolved commit:** 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e
+- **Source:** op7418 (https://github.com/op7418/Humanizer-zh)
+- **Source group:** ungrouped
+- **Package:** humanizer-zh
+- **Upstream repository:** op7418/Humanizer-zh
+- **Original upstream package path:** .
+- **Selected upstream tag:** 91f3d394db8419c20d67ebe22a96cf8fee0a404b
+- **Resolved commit:** 91f3d394db8419c20d67ebe22a96cf8fee0a404b
 - **Applicable license:** MIT; see `LICENSE` in this package.
 - **Upstream author/notice:** preserve the upstream license and attribution.
 
@@ -29,8 +29,8 @@ copy.
 ## Installation and update
 
 - **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --yes --copy --agent codex
-- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill grilling --yes --copy --agent codex
-- **Manual fallback:** copy the complete skills/mattpocock/productivity/grilling directory (or skills/mattpocock/grilling for ungrouped packages) into the host's recognized Skills root.
+- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill humanizer-zh --yes --copy --agent codex
+- **Manual fallback:** copy the complete skills/op7418//humanizer-zh directory (or skills/op7418/humanizer-zh for ungrouped packages) into the host's recognized Skills root.
 - **Update source:** run `scripts/sync-upstream.sh -Mode check` against the
   pinned source checkouts; review `-Mode diff`, then use `-Mode sync` and
   `scripts/generate-lock.sh` only after the allowlist and revision are approved.
@@ -41,4 +41,4 @@ copy.
   in `UPSTREAM_LOCK.json`.
 - **Local difference:** provenance records only (plus license copy where noted).
 - **Patch record:** `PATCHES.md`
-- **Lock entry:** UPSTREAM_LOCK.json entry grilling
+- **Lock entry:** UPSTREAM_LOCK.json entry humanizer-zh

@@ -21,15 +21,24 @@
       "resolved_commit": "523374dee72d67c7b2b5f858ea0094ffda49c3ac",
       "license": "MIT",
       "license_source": "LICENSE at upstream repository root"
+    },
+    {
+      "key": "op7418",
+      "repository": "op7418/Humanizer-zh",
+      "url": "https://github.com/op7418/Humanizer-zh",
+      "selected_tag": "91f3d394db8419c20d67ebe22a96cf8fee0a404b",
+      "resolved_commit": "91f3d394db8419c20d67ebe22a96cf8fee0a404b",
+      "license": "MIT",
+      "license_source": "LICENSE at upstream repository root"
     }
   ],
-  "collection_checksum": "4fab91c49bb24e6f175448e63c7c08a04e18558dabef429d9bdaad3f93ea44ed",
-  "generated_utc": "2026-08-10T14:47:12Z",
+  "collection_checksum": "7eb7f6d1abb6217070765936a34074af6f3a64707d3b162afcced11c83d633f8",
+  "generated_utc": "2026-08-20T01:09:04Z",
   "installation": {
-    "whole_collection": "npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --yes --copy --agent codex",
-    "single_skill": "npx skills add LightDevCoder/skills-3rdParty#v0.2.0 --skill <skill-name> --yes --copy --agent codex",
-    "revision_semantics": "The #v0.2.0 fragment pins the local collection release; mirrored content is pinned per source (mattpocock/skills v1.2.3, blader/humanizer v2.9.1).",
-    "release_status": "released; self-check and CI verified; independent review gate abolished"
+    "whole_collection": "npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --yes --copy --agent codex",
+    "single_skill": "npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill <skill-name> --yes --copy --agent codex",
+    "revision_semantics": "The #v0.2.1 fragment pins the local collection release; mirrored content is pinned per source (mattpocock/skills v1.2.3, blader/humanizer v2.9.1, op7418/Humanizer-zh 91f3d394).",
+    "release_status": "candidate v0.2.1; self-check and CI verified; fresh-install verification pending"
   },
   "entries": [
     {
@@ -67,7 +76,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "364acfc0ac2e740610fdd0e501e842aeff8c76f37d3951a01e977241586eb373",
+      "local_patch_checksum": "d3aa89f43a797b14add768712c6506ecdef0dca3abcb37e799a73bfc7967e349",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -112,7 +121,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "db6e904f02c69f7e6c91969a2d6f286a9e5bf925ad79e395a30333709b0b146a",
+      "local_patch_checksum": "1e54d5ac245443b48a8a6e20bd83627d6d9c0b62c8eb4f9c84b0db3a4aa23799",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -167,7 +176,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "0945189e31cc6c2b731a71547882f96b729361e0ef0c245843aad6f935777fd5",
+      "local_patch_checksum": "c47677b16cab1ec513c0ac8e0b580ab8e132934247496109e19ee5b6bc32996f",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -217,7 +226,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "bf67f1381fbd402508ebcb4bbb2b671e5225042e9a336242bf6e77c1adabd416",
+      "local_patch_checksum": "e85e8fa6d52a5558d293e9b7e8bcd75a296e4ba6da9697e638baaf8ce9e2bf04",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -272,7 +281,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "cee5bd3e58485c038293b619ad8ffcbc9436ec8fd7728e99e5e98a0c1860bfce",
+      "local_patch_checksum": "900c415cc86dafd4cb8168008ac65295e6bae5819549b1440d5aec290d4c57d0",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -317,7 +326,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "f5c17fab1557ec7fdcfcda63bea4d6ba0b2801cdc9a682ef7060716e1cac087f",
+      "local_patch_checksum": "f824fdd758d43b75d20106c138198abb4e1910be9d41041495bc5ed7c5950d95",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "peers",
@@ -365,7 +374,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "c6da34056f709f2202d0899232a2ef03b0ff8b79a0d2df21ae2139d7876513d1",
+      "local_patch_checksum": "93a8b9bfdfc608d0f5b7b86badd29cb080c694cfb568a10cac76c084f6987b74",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -415,7 +424,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "1be8fcf112f38f3776241b3e735c4b73c83d8a2c9d5603d2164ba56fab32ff2f",
+      "local_patch_checksum": "b30bec2a9a726340c7fb8b5cbf1dd80df99206682ed11c04dc6e08c6296059ce",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -470,7 +479,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "2a275506e305108aaa16ec0eeada653d029ef7c84b55512b3da431c557d48a8d",
+      "local_patch_checksum": "b1c5debbc5e6918142c456537a94962b03e2f818310271424c69695aa499d214",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -515,7 +524,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "318b37abb9672d44918fcd05c1dd44c9c261ab3ef1859106a9dcb4f43614f65b",
+      "local_patch_checksum": "3d3acf6fe40daba660000263c4ed4e1aecf02ee3d88f78cb62dbb4627df58882",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -560,7 +569,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "dee13fcf708b59c907c066a922b029fe2312b4b879ac97a85226dfbe666d0516",
+      "local_patch_checksum": "def1dbb27aa9e399e8719e06b5b52772b417316c38d667da85aa0ce151c35672",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -630,7 +639,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "f88910baf80c64016980a7d7a7a7234bb1e38432a3b6ebb463efe8c37bae1033",
+      "local_patch_checksum": "1204a8918daaae5d6c644e97d2f2c6e07b1838fb4d1218ddcadccef8616cb4c9",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -685,7 +694,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "f06fccca269b617802bf2f5fe711382f74fd0995068d343d2745e90c3b44a224",
+      "local_patch_checksum": "805dd0631e68047e8589d7708ace91f57e989ad4d00fc624e0aaa1b7332a5ac1",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -730,7 +739,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "66bbd9596d4516b297ad2cebde72bc2759f217738157b7b96d11181e50451e33",
+      "local_patch_checksum": "87c03397e35fbff817f5acfdc3f608c16ebd89c93f6d3479e9d81ce404cdb059",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -775,7 +784,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "020eb2b752f765333c0762a98d2f6e646be4b4e614628546cc68d37e01ba322b",
+      "local_patch_checksum": "d37f3c3afc2f3164a302035f325ac9359dbc0a13c2755ed5d826cfed1d1ae807",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -830,7 +839,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "1c1341052c4332cb98ff2d60e688861bf58eac0e35886c167991698cc0b2c45f",
+      "local_patch_checksum": "9f242ea5e4856b11cb6a1598e88bf9eca1f2cb6a4b5b54854da33787fd24f5a6",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -875,7 +884,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "4dd92e3681e17db5567f8d44b28480a31ef000516f972373a0c263a28d630c0b",
+      "local_patch_checksum": "8f17d787fbe3ce1af192ff6cf5167171fb930c5993dc031351e8c6106993e9b0",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -925,7 +934,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "7121da682436510a0dbaeebf5ba6a5ca2a12db0f5b327d16c0a00563f435070f",
+      "local_patch_checksum": "9021ece2a2fb9b6aa3b239d26b807e01659a1db859ddf59c83de814b4a042402",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -970,7 +979,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "e06bc786a8d09295a20dce127ebdf2e0f504262001b4a724cc2ecda9ce782f8d",
+      "local_patch_checksum": "d18e53494b16fff9abfcbdffffa19ea72bc16693adda4cd68089d49e40ab31d7",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "peers",
@@ -1017,7 +1026,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "2fea4c70e00be71d00e73130d3ac0a895ea02f2665b9a35d08a2a37e982aae98",
+      "local_patch_checksum": "c11d6ee6b782ebdee0bc81bbe7e98f744e28dca6fbe2ea8e3fa9bd7662a27d2f",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -1062,7 +1071,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "e2d4a380165f4570e7e37c43b901eeb29e85fd69b136f378fcf06d621b00e04c",
+      "local_patch_checksum": "dd7bc2586570c1c68166cb529403443dc44a027c13ed384ebd40084d55005771",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -1127,7 +1136,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "8f290adab0fb4c83146cdc16d0bcea2608c4cf499fd0f2a3630d9253c92ada3a",
+      "local_patch_checksum": "726153c7fd609f4b983230fa586c1dbc58434f286c483208e1c9de61fdfc94e3",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -1172,7 +1181,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "073261e7128d99e012c21f18762bcefa939ff6a13e47a380bedd8dd1663fea55",
+      "local_patch_checksum": "59b3960dd4922128a881b0939bf9f317b8f1f140e1b3724a555d66176fe0a5d7",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -1217,7 +1226,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "58fe3f8b3ccea5d523f511ee925e87644e50d9a63a7febe66df52ad77beb4064",
+      "local_patch_checksum": "7cdadc6bce54c4150eef6c636c0102bcdff57d39d74d4bed9c43450e706217c4",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -1267,7 +1276,7 @@
         "PATCHES.md",
         "LICENSE"
       ],
-      "local_patch_checksum": "5631c7d174b459f388aa5af81305f71833a7b4b0a583fde4707b1a43b5759bf5",
+      "local_patch_checksum": "d0427c767a5a36094978d160963370aeafadf81b82a4ff0eebfd61d2472cc540",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -1346,7 +1355,7 @@
         "UPSTREAM.md",
         "PATCHES.md"
       ],
-      "local_patch_checksum": "1fc14da99f9074b3547615b304d4df235a707d21dcd8ad3bcfea45f75aee6257",
+      "local_patch_checksum": "29f98bc94e7e9208e8051c25c40057bc1e9e033dcaad9cf5f0f208188f8b3f55",
       "upstream_snapshot": true,
       "dependency_state": {
         "state": "none",
@@ -1359,6 +1368,56 @@
       "referenced_resource_check": {
         "missing": [],
         "source_file_count": 9
+      }
+    },
+    {
+      "package_name": "humanizer-zh",
+      "source": "op7418",
+      "source_group": "ungrouped",
+      "source_state": "pinned-upstream-mirror",
+      "upstream_repository": "op7418/Humanizer-zh",
+      "upstream_url": "https://github.com/op7418/Humanizer-zh",
+      "upstream_package_path": ".",
+      "local_package_path": "skills/op7418/humanizer-zh",
+      "pinned_revision": "91f3d394db8419c20d67ebe22a96cf8fee0a404b",
+      "resolved_commit": "91f3d394db8419c20d67ebe22a96cf8fee0a404b",
+      "checksum": "1f10d4cc1a4dbb83c049b081fd0cd83c17e4673809bfbded9d752180c49980a9",
+      "files": [
+        {
+          "path": ".gitignore",
+          "sha256": "e52aac198acd71945e1730f45cafba41fffda4e2a0d7d6a38175880aae8eabea",
+          "bytes": 41
+        },
+        {
+          "path": "README.md",
+          "sha256": "60cd3ed8b4753837ca8f8fcebf6076a38591a269d91ea1791aa7448e5a1b1b58",
+          "bytes": 7799
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "e0edbdbc9008644263d5573fb59beac95794e188fd99c35012bfd79e9ae4beeb",
+          "bytes": 18898
+        }
+      ],
+      "local_modification_state": "records-only",
+      "local_patch_paths": [
+        "UPSTREAM.md",
+        "PATCHES.md",
+        "LICENSE"
+      ],
+      "local_patch_checksum": "8055d8538dd2d5066dd9f00d3e26094f02800221cda9aa1dfc171466a33e28a4",
+      "upstream_snapshot": true,
+      "dependency_state": {
+        "state": "none",
+        "packages": []
+      },
+      "license": "MIT",
+      "license_path": "skills/op7418/humanizer-zh/LICENSE",
+      "provenance_path": "skills/op7418/humanizer-zh/UPSTREAM.md",
+      "patch_record_path": "skills/op7418/humanizer-zh/PATCHES.md",
+      "referenced_resource_check": {
+        "missing": [],
+        "source_file_count": 3
       }
     }
   ]

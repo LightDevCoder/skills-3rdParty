@@ -2,7 +2,7 @@
 
 [English](CATALOG.md)
 
-本目录由 26 项允许清单与 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 派生。
+本目录由 27 项允许清单与 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 派生。
 包行为仍归各上游 `SKILL.md` 所有；本文件只记录来源与安装事实。
 
 ## 收藏集状态
@@ -11,9 +11,9 @@
 | --- | --- |
 | 仓库 | `LightDevCoder/skills-3rdParty` |
 | 可见性 | 公开 |
-| 包数 | 26（mattpocock 25 + blader 1） |
-| 来源 pin | mattpocock/skills `v1.2.3`（`6acc160e`）；blader/humanizer `v2.9.1`（`523374de`） |
-| 本地版本 | `v0.2.0` — 公开 tag 与 release |
+| 包数 | 27（mattpocock 25 + blader 1 + op7418 1） |
+| 来源 pin | mattpocock/skills `v1.2.3`（`6acc160e`）；blader/humanizer `v2.9.1`（`523374de`）；op7418/Humanizer-zh `91f3d394` |
+| 本地版本 | `v0.2.1` — 公开 tag 与 release |
 | 清单 | [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json)（生成物，禁止手工编辑） |
 | 同步 | [scripts/sync-upstream.sh](scripts/sync-upstream.sh) |
 | 策略 | [docs/POLICIES.md](docs/POLICIES.md) |
@@ -48,6 +48,7 @@
 | `wait-what` | mattpocock | productivity | `skills/mattpocock/productivity/wait-what` | none |
 | `writing-for-agents` | mattpocock | productivity | `skills/mattpocock/productivity/writing-for-agents` | none |
 | `humanizer` | blader | — | `skills/blader/humanizer` | none |
+| `humanizer-zh` | op7418 | — | `skills/op7418/humanizer-zh` | none |
 
 每个包内都有 [UPSTREAM.md](skills/mattpocock/engineering/ask-matt/UPSTREAM.md)
 与 [PATCHES.md](skills/mattpocock/engineering/ask-matt/PATCHES.md)；改路径
@@ -57,6 +58,7 @@
 
 - [sources/mattpocock-skills/README.md](sources/mattpocock-skills/README.md)
 - [sources/blader-humanizer/README.md](sources/blader-humanizer/README.md)
+- [sources/op7418-humanizer-zh/README.md](sources/op7418-humanizer-zh/README.md)
 
 ## 更新日志
 

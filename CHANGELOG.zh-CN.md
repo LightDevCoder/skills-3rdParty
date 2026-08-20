@@ -4,6 +4,20 @@
 
 以下发布声明均需 `docs/evidence/releases/` 下对应证据支撑。
 
+## Unreleased — v0.2.1（release candidate）
+
+发布证据：`docs/evidence/releases/v0.2.1/` — 在针对已发布 tag 跑
+fresh-install gate 前标记为 `NOT TESTED`。
+
+### 新增
+
+- **`humanizer-zh` 作为第三个镜像来源入库**（`op7418/Humanizer-zh`
+  `91f3d394db8419c20d67ebe22a96cf8fee0a404b`），即 Humanizer 写作编辑器的
+  中文汉化版，原样镜像到 `skills/op7418/humanizer-zh/`，与英文版
+  `blader/humanizer` 并存。
+- 收藏集扩至 **三个来源共 27 个固定版本包**；allowlist、`UPSTREAM_LOCK.json`、
+  CI 来源 checkout、目录与双语文档同步更新。
+
 ## v0.2.0 — 2026-08-10
 
 ### 变更

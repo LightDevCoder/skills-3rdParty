@@ -35,7 +35,7 @@ allowlist_checks() {
   [ "$(jq -r '.schema_version' "$ALLOWLIST")" = "2" ] || fail "allowlist schema_version != 2"
   local count
   count=$(jq '.packages | length' "$ALLOWLIST")
-  assert "$count" "26" "allowlist has 26 packages"
+  assert "$count" "27" "allowlist has 27 packages"
 
   jq -r '.packages[].name' "$ALLOWLIST" | LC_ALL=C sort | uniq -d | while read -r dup; do
     fail "duplicate package in allowlist: $dup"
@@ -60,7 +60,7 @@ manifest_checks() {
 
   local entry_count
   entry_count=$(jq '.entries | length' "$MANIFEST")
-  assert "$entry_count" "26" "manifest has 26 entries"
+  assert "$entry_count" "27" "manifest has 27 entries"
 
   local allow sorted manifest_names sorted2
   allow=$(jq -r '.packages[].name' "$ALLOWLIST" | LC_ALL=C sort)
@@ -113,7 +113,7 @@ no_stray_packages() {
     local rel
     rel=${dir#"$SKILL_ROOT/"}
     case "$rel" in
-      mattpocock|blader) ;;
+      mattpocock|blader|op7418) ;;
       *) fail "stray directory under skills/: $rel" ;;
     esac
   done < <(find "$SKILL_ROOT" -mindepth 1 -maxdepth 1 -type d | LC_ALL=C sort)
@@ -122,7 +122,7 @@ no_stray_packages() {
     local rel
     rel=${dir#"$SKILL_ROOT/"}
     case "$rel" in
-      mattpocock/engineering|mattpocock/productivity|blader/humanizer) ;;
+      mattpocock/engineering|mattpocock/productivity|blader/humanizer|op7418/humanizer-zh) ;;
       *) fail "unexpected source/group directory: $rel" ;;
     esac
   done < <(find "$SKILL_ROOT" -mindepth 2 -maxdepth 2 -type d | LC_ALL=C sort)
@@ -156,8 +156,8 @@ governance_docs() {
     [ -f "$ROOT/docs/$stale.zh-CN.md" ] && fail "obsolete governance doc still present: docs/$stale.zh-CN.md"
   done
 
-  grep -q 'v0.2.0' "$ROOT/README.md" || fail "README does not reference v0.2.0"
-  grep -q 'v0.2.0' "$ROOT/CATALOG.md" || fail "CATALOG does not reference v0.2.0"
+  grep -q 'v0.2.1' "$ROOT/README.md" || fail "README does not reference v0.2.1"
+  grep -q 'v0.2.1' "$ROOT/CATALOG.md" || fail "CATALOG does not reference v0.2.1"
 
   local ps1_files
   ps1_files=$(find "$ROOT" -name '*.ps1' -not -path '*/.git/*' | wc -l | tr -d ' ')
