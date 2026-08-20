@@ -5,10 +5,7 @@
 All release claims below require the corresponding repository evidence under
 `docs/evidence/releases/`.
 
-## Unreleased — v0.2.1 (release candidate)
-
-Release evidence: `docs/evidence/releases/v0.2.1/` — `NOT TESTED` until the
-fresh-install gate runs against the published tag.
+## v0.2.1 — 2026-08-20
 
 ### Added
 
@@ -19,6 +16,16 @@ fresh-install gate runs against the published tag.
 - Collection grows to **27 pinned packages from three sources**; allowlist,
   `UPSTREAM_LOCK.json`, CI source checkouts, catalog, and bilingual docs
   updated for the new source.
+
+### Release evidence
+
+- `docs/evidence/releases/v0.2.1/` — verified 2026-08-20.
+- CLI: `npx skills` 1.5.23; released commit `1c68526ccfa02b9cbbc8827b78fab5fceba722a8`;
+  CI run `32320186456` success (ubuntu).
+- Fresh install verified against published `#v0.2.1` tag: whole collection
+  27/27 (pinned and latest), single `humanizer-zh` (pinned and latest),
+  repeat install idempotent, discovery without source checkout (`Found 27
+  skills`). See the evidence docs for the full matrix and limitations.
 
 ## v0.2.0 — 2026-08-10
 

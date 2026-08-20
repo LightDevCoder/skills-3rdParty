@@ -4,10 +4,7 @@
 
 以下发布声明均需 `docs/evidence/releases/` 下对应证据支撑。
 
-## Unreleased — v0.2.1（release candidate）
-
-发布证据：`docs/evidence/releases/v0.2.1/` — 在针对已发布 tag 跑
-fresh-install gate 前标记为 `NOT TESTED`。
+## v0.2.1 — 2026-08-20
 
 ### 新增
 
@@ -17,6 +14,15 @@ fresh-install gate 前标记为 `NOT TESTED`。
   `blader/humanizer` 并存。
 - 收藏集扩至 **三个来源共 27 个固定版本包**；allowlist、`UPSTREAM_LOCK.json`、
   CI 来源 checkout、目录与双语文档同步更新。
+
+### 发布证据
+
+- `docs/evidence/releases/v0.2.1/` — 2026-08-20 验证通过。
+- CLI：`npx skills` 1.5.23；发布 commit `1c68526ccfa02b9cbbc8827b78fab5fceba722a8`；
+  CI run `32320186456` success（ubuntu）。
+- 针对已发布 `#v0.2.1` tag 的全新安装已验证：整仓 27/27（pinned 与 latest）、
+  单包 `humanizer-zh`（pinned 与 latest）、重复安装幂等、无源码 checkout
+  的发现（`Found 27 skills`）。完整矩阵与限制见证据文档。
 
 ## v0.2.0 — 2026-08-10
 

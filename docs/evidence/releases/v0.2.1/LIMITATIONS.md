@@ -12,8 +12,17 @@
   "independent review-loop acceptance" gate. Acceptance is: self-check +
   CI + manual review. There is no third-party reviewer.
 - **Host refresh/model runtime not re-verified per host.** Fresh install and
-  discovery are verified with the Skills CLI for an agent destination;
-  specific agent-host runtime behavior is not exercised in this release
+  discovery were verified with the Skills CLI for multi-agent destinations;
+  specific agent-host runtime behavior was not exercised in this release
   cycle.
-- **Upstream pins are static.** A package in the collection tracks a pined
+- **`--agent '*'` compaction quirk (non-collection).** When installing to
+  every agent with `--agent '*'`, the CLI writes one non-dotted generic root
+  (`agent/skills`) in a compacted SKILL.md that omits the `name` frontmatter
+  field, so that specific root is skipped by name-based discovery. This is a
+  CLI behavior on an opportunistic root, not a collection defect: the agent
+  roots the hosts actually read (`.agents`, `.claude`, `.codex`, …) receive
+  complete copies with `name` intact, and the pinned whole-collection /
+  single-package installs otherwise verify clean. Installing to a specific
+  agent (e.g. `--agent codex`) avoids this root entirely.
+- **Upstream pins are static.** A package in the collection tracks a pinned
   commit, never an upstream branch.

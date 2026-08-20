@@ -2,17 +2,18 @@
 
 [English](RELEASE_RECEIPT.md)
 
-状态：`RELEASE CANDIDATE` — 待对已发布 tag 做 fresh-install 验证后再打公开
-tag 与 GitHub release。验收声明：**自检 + CI + 人工核对**；v0.2.0 起已废除
-独立 `review-loop` gate。
+状态：`RELEASED` — 公开 tag、公开 GitHub release、CI 通过、fresh-install
+证据齐全。验收声明：**自检 + CI + 人工核对**；v0.2.0 起已废除独立
+`review-loop` gate。
 
 ## 身份
 
 | 字段 | 值 |
 | --- | --- |
 | 仓库 | `LightDevCoder/skills-3rdParty` |
-| 版本 | `v0.2.1`（候选） |
+| 版本 | `v0.2.1` |
 | Release URL | https://github.com/LightDevCoder/skills-3rdParty/releases/tag/v0.2.1 |
+| 发布 commit | `1c68526ccfa02b9cbbc8827b78fab5fceba722a8` |
 | 上游 | `mattpocock/skills` `v1.2.3` / `6acc160e4e0cd062dbbbd7a1b26ae92855edf07e`；`blader/humanizer` `v2.9.1` / `523374dee72d67c7b2b5f858ea0094ffda49c3ac`；`op7418/Humanizer-zh` `91f3d394db8419c20d67ebe22a96cf8fee0a404b` |
 | 范围 | 27 个固定版本包（mattpocock 25 + blader 1 + op7418 1），嵌套目录，bash+jq 工具链，生成式 manifest |
 
@@ -25,20 +26,21 @@ tag 与 GitHub release。验收声明：**自检 + CI + 人工核对**；v0.2.0 
 
 ## 验收证据
 
-- [测试摘要](TEST_SUMMARY.md) — 网关运行前为 `NOT TESTED`。
-- [安装验证](INSTALLATION_VERIFICATION.md) — `NOT TESTED`。
-- [发现验证](DISCOVERY_VERIFICATION.md) — `NOT TESTED`。
+- [测试摘要](TEST_SUMMARY.md)
+- [安装验证](INSTALLATION_VERIFICATION.md)
+- [发现验证](DISCOVERY_VERIFICATION.md)
 - [限制](LIMITATIONS.md)
 - 策略：[docs/POLICIES.md](../../../POLICIES.md)
 
-## 发布闸门（候选）
+## 发布闸门
 
-- [x] 本地（macOS）全部 sync 模式通过：`check`、`resource`、
+- [x] 本地（macOS）与 CI（ubuntu）全部 sync 模式通过：`check`、`resource`、
       `unauthorized-patch`、`diff`、`prune`。
 - [x] `tests/collection-checks.sh` 通过（27 包）；提交的 `UPSTREAM_LOCK.json`
       已验证可重新生成。
-- [ ] 针对已发布 `#v0.2.1` tag 在全新目录做整仓（27 包）与单包安装；
-      重复安装幂等。
-- [ ] 通过公开仓库 URL / tag 验证无源码 checkout 的发现。
-- [ ] 从候选 commit 创建发布 tag 与 GitHub release。
-- [ ] CI 在候选 commit 上通过（ubuntu）。
+- [x] 候选 commit 上 CI 通过：run `32320186456`（success）。
+- [x] 针对已发布 `#v0.2.1` tag 在全新目录做整仓（27 包）与单包
+      （`humanizer-zh`）安装；重复安装幂等。
+- [x] 通过已发布 tag 验证了无源码 checkout 的发现（`Found 27 skills`，
+      `humanizer-zh` 在列）。
+- [x] 从候选 commit 创建了 `v0.2.1` tag 并发布 GitHub release。
