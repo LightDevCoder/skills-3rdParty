@@ -64,12 +64,14 @@ tests/collection-checks.sh                  # 结构性检查（CI 与本地同�
   `npx skills` 在全新目录做整仓/单包安装与发现验证，结果记入
   `docs/evidence/releases/<version>/`。
 - 发布声明：自检 + CI + 人工核对。不再设置独立验收 gate。
-- 安装命令固定版本号（`#v0.2.1`），保证可复现。
+- 安装命令固定版本号（`#v0.3.0`），保证可复现。
 
 ## 已知边界
 
 - `grill-me` 依赖 `grilling`；`grill-with-docs` 依赖 `grilling` 与
-  `domain-modeling`。这是声明的 peer Skills，不是隐藏运行时依赖。
+  `domain-modeling`；`implement-spec` 依赖 `tdd` 与 `code-review`；`retro`
+  依赖 `writing-for-agents`。这些都是声明的 peer Skills，不是隐藏运行时
+  依赖。
 - `ask-matt` 只做导航，不得安装、调用或编排其他 Skill。
 - `writing-for-agents` 是写作知识源，不是 first-party `learn-anything` 的
   隐式运行时依赖。

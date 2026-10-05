@@ -35,7 +35,7 @@ allowlist_checks() {
   [ "$(jq -r '.schema_version' "$ALLOWLIST")" = "2" ] || fail "allowlist schema_version != 2"
   local count
   count=$(jq '.packages | length' "$ALLOWLIST")
-  assert "$count" "27" "allowlist has 27 packages"
+  assert "$count" "29" "allowlist has 29 packages"
 
   jq -r '.packages[].name' "$ALLOWLIST" | LC_ALL=C sort | uniq -d | while read -r dup; do
     fail "duplicate package in allowlist: $dup"
@@ -60,7 +60,7 @@ manifest_checks() {
 
   local entry_count
   entry_count=$(jq '.entries | length' "$MANIFEST")
-  assert "$entry_count" "27" "manifest has 27 entries"
+  assert "$entry_count" "29" "manifest has 29 entries"
 
   local allow sorted manifest_names sorted2
   allow=$(jq -r '.packages[].name' "$ALLOWLIST" | LC_ALL=C sort)
@@ -129,6 +129,20 @@ no_stray_packages() {
   ok "no stray packages under skills/"
 }
 
+no_stale_package_dirs() {
+  # Every SKILL.md under skills/ must belong to an allowlist package, and every
+  # allowlist package must have one. A package removed from the allowlist is
+  # therefore caught here instead of staying discoverable in the released tag.
+  local expected actual extra missing
+  expected=$(jq -r '.packages[] | if .group == null then "\(.source)/\(.name)/SKILL.md" else "\(.source)/\(.group)/\(.name)/SKILL.md" end' "$ALLOWLIST" | LC_ALL=C sort)
+  actual=$(find "$SKILL_ROOT" -type f -name 'SKILL.md' | sed "s|^$SKILL_ROOT/||" | LC_ALL=C sort)
+  extra=$(comm -13 <(echo "$expected") <(echo "$actual") || true)
+  [ -z "$extra" ] || fail "SKILL.md outside the allowlist: $(echo "$extra" | tr '\n' ' ')"
+  missing=$(comm -23 <(echo "$expected") <(echo "$actual") || true)
+  [ -z "$missing" ] || fail "allowlist package without SKILL.md: $(echo "$missing" | tr '\n' ' ')"
+  ok "allowlist and package directories match exactly"
+}
+
 manifest_regenerable() {
   local tmp pinned
   tmp=$(mktemp -d)
@@ -156,8 +170,8 @@ governance_docs() {
     [ -f "$ROOT/docs/$stale.zh-CN.md" ] && fail "obsolete governance doc still present: docs/$stale.zh-CN.md"
   done
 
-  grep -q 'v0.2.1' "$ROOT/README.md" || fail "README does not reference v0.2.1"
-  grep -q 'v0.2.1' "$ROOT/CATALOG.md" || fail "CATALOG does not reference v0.2.1"
+  grep -q 'v0.3.0' "$ROOT/README.md" || fail "README does not reference v0.3.0"
+  grep -q 'v0.3.0' "$ROOT/CATALOG.md" || fail "CATALOG does not reference v0.3.0"
 
   local ps1_files
   ps1_files=$(find "$ROOT" -name '*.ps1' -not -path '*/.git/*' | wc -l | tr -d ' ')
@@ -172,6 +186,7 @@ allowlist_checks
 manifest_checks
 package_checks
 no_stray_packages
+no_stale_package_dirs
 manifest_regenerable
 governance_docs
 

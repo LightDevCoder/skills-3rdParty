@@ -37,8 +37,8 @@
 
 ## 安装与更新
 
-- **整仓安装：** `npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --yes --copy --agent codex`
-- **单包安装：** `npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill humanizer-zh --yes --copy --agent codex`
+- **整仓安装：** `npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --yes --copy --agent codex`
+- **单包安装：** `npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --skill humanizer-zh --yes --copy --agent codex`
 - **更新来源：** 修改 allowlist 中 `op7418` 的 tag/commit → 重跑
   `scripts/sync-upstream.sh -Mode sync` 与 `scripts/generate-lock.sh`。
 

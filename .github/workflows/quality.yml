@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: mattpocock/skills
-          ref: v1.2.3
+          ref: v1.3.1
           path: sources/mattpocock
       - name: Checkout pinned upstream blader/humanizer
         uses: actions/checkout@v4

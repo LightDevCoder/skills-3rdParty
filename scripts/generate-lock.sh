@@ -207,10 +207,10 @@ manifest=$(jq -n \
     collection_checksum: $cc,
     generated_utc: $utc,
     installation: {
-      whole_collection: "npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --yes --copy --agent codex",
-      single_skill: "npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill <skill-name> --yes --copy --agent codex",
-      revision_semantics: "The #v0.2.1 fragment pins the local collection release; mirrored content is pinned per source (mattpocock/skills v1.2.3, blader/humanizer v2.9.1, op7418/Humanizer-zh 91f3d394).",
-      release_status: "released v0.2.1; self-check and CI verified; independent review gate abolished"
+      whole_collection: "npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --yes --copy --agent codex",
+      single_skill: "npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --skill <skill-name> --yes --copy --agent codex",
+      revision_semantics: "The #v0.3.0 fragment pins the local collection release; mirrored content is pinned per source (mattpocock/skills v1.3.1, blader/humanizer v2.9.1, op7418/Humanizer-zh 91f3d394).",
+      release_status: "candidate v0.3.0; self-check and CI verified; fresh-install verification pending"
     },
     entries: $entries
   }')

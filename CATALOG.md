@@ -2,7 +2,7 @@
 
 [中文目录](CATALOG.zh-CN.md)
 
-This catalog is derived from the 27-entry allowlist and
+This catalog is derived from the 29-entry allowlist and
 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json). Package behavior remains owned by
 each upstream `SKILL.md`; this file records source and installation facts.
 
@@ -12,9 +12,9 @@ each upstream `SKILL.md`; this file records source and installation facts.
 | --- | --- |
 | Repository | `LightDevCoder/skills-3rdParty` |
 | Visibility | Public |
-| Packages | 27 (25 mattpocock + 1 blader + 1 op7418) |
-| Source pins | mattpocock/skills `v1.2.3` (`6acc160e`); blader/humanizer `v2.9.1` (`523374de`); op7418/Humanizer-zh `91f3d394` |
-| Local release | `v0.2.1` — public tag and release |
+| Packages | 29 (27 mattpocock + 1 blader + 1 op7418) |
+| Source pins | mattpocock/skills `v1.3.1` (`24fe0ef`); blader/humanizer `v2.9.1` (`523374de`); op7418/Humanizer-zh `91f3d394` |
+| Local release | `v0.3.0` — public tag and release |
 | Manifest | [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) (generated, never hand-edited) |
 | Sync | [scripts/sync-upstream.sh](scripts/sync-upstream.sh) |
 | Policy | [docs/POLICIES.md](docs/POLICIES.md) |
@@ -30,10 +30,12 @@ each upstream `SKILL.md`; this file records source and installation facts.
 | `domain-modeling` | mattpocock | engineering | `skills/mattpocock/engineering/domain-modeling` | none |
 | `grill-with-docs` | mattpocock | engineering | `skills/mattpocock/engineering/grill-with-docs` | grilling, domain-modeling |
 | `implement` | mattpocock | engineering | `skills/mattpocock/engineering/implement` | none |
+| `implement-spec` | mattpocock | engineering | `skills/mattpocock/engineering/implement-spec` | tdd, code-review |
 | `improve-codebase-architecture` | mattpocock | engineering | `skills/mattpocock/engineering/improve-codebase-architecture` | none |
+| `pr` | mattpocock | engineering | `skills/mattpocock/engineering/pr` | none |
 | `prototype` | mattpocock | engineering | `skills/mattpocock/engineering/prototype` | none |
 | `research` | mattpocock | engineering | `skills/mattpocock/engineering/research` | none |
-| `resolving-merge-conflicts` | mattpocock | engineering | `skills/mattpocock/engineering/resolving-merge-conflicts` | none |
+| `retro` | mattpocock | engineering | `skills/mattpocock/engineering/retro` | writing-for-agents |
 | `setup-matt-pocock-skills` | mattpocock | engineering | `skills/mattpocock/engineering/setup-matt-pocock-skills` | none |
 | `tdd` | mattpocock | engineering | `skills/mattpocock/engineering/tdd` | none |
 | `to-spec` | mattpocock | engineering | `skills/mattpocock/engineering/to-spec` | none |

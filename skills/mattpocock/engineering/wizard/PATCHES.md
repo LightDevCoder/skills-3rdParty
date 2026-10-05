@@ -1,6 +1,6 @@
 # Local Patch Record: wizard
 
-- **Upstream revision:** v1.2.3 (6acc160e4e0cd062dbbbd7a1b26ae92855edf07e)
+- **Upstream revision:** v1.3.1 (24fe0ef7737efae15c87225755e9f6f5965e4888)
 - **Local state:** no upstream behavior patch; collection records only.
 - **Allowed local paths:** UPSTREAM.md,PATCHES.md,LICENSE
 

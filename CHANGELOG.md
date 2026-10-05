@@ -5,6 +5,48 @@
 All release claims below require the corresponding repository evidence under
 `docs/evidence/releases/`.
 
+## Unreleased — v0.3.0 (release candidate)
+
+Release evidence: `docs/evidence/releases/v0.3.0/` — `NOT TESTED` until the
+fresh-install gate runs against the published tag.
+
+### Changed
+
+- **Upstream upgraded** from `mattpocock/skills` `v1.2.3` (`6acc160e`) to
+  `v1.3.1` (`24fe0ef7`); the source group now contributes 27 packages
+  (engineering 20 + productivity 7).
+- **Content refresh across the mattpocock packages**: the domain-doc convention
+  moved from `CONTEXT.md`/`CONTEXT-MAP.md` to `GLOSSARY.md`/`GLOSSARY-MAP.md`
+  (`domain-modeling`'s `CONTEXT-FORMAT.md` became `GLOSSARY-FORMAT.md`),
+  cross-skill invocation is now an explicit "Call the Skill tool with ..."
+  instruction, upstream prose dropped its em-dashes, and invalid YAML front
+  matter was quoted in `to-spec`, `code-review`, `setup-matt-pocock-skills`,
+  and `wait-what`.
+- **Tooling**: `tests/collection-checks.sh` now fails when the `SKILL.md` set
+  under `skills/` does not match the allowlist exactly, so a package removed
+  from the allowlist cannot stay discoverable in a release.
+
+### Added
+
+- **`implement-spec`** (engineering, pinned mirror): implements a whole spec in
+  one run, working the tickets as a task graph on a single integration branch.
+  Declared peer dependencies: `tdd`, `code-review`.
+- **`pr`** (engineering, pinned mirror): the shape a pull request body should
+  take, with before/after evidence and a merge-danger call.
+- **`retro`** (engineering, pinned mirror): a retrospective over the coding
+  agent's environment rather than the code. Declared peer dependency:
+  `writing-for-agents`.
+- Collection grows to **29 pinned packages from three sources**; allowlist, CI
+  source checkout, `UPSTREAM_LOCK.json`, catalog, and bilingual docs updated.
+
+### Removed
+
+- **`resolving-merge-conflicts` is gone** (breaking for installs that use it):
+  upstream deleted the skill in `v1.3.0` with no replacement, so the agent
+  works through an in-progress merge or rebase conflict without a dedicated
+  skill. The package directory was deleted; upgrade destinations should drop
+  the stale copy.
+
 ## v0.2.1 — 2026-08-20
 
 ### Added

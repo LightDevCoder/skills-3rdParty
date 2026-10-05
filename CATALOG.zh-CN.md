@@ -2,7 +2,7 @@
 
 [English](CATALOG.md)
 
-本目录由 27 项允许清单与 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 派生。
+本目录由 29 项允许清单与 [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json) 派生。
 包行为仍归各上游 `SKILL.md` 所有；本文件只记录来源与安装事实。
 
 ## 收藏集状态
@@ -11,9 +11,9 @@
 | --- | --- |
 | 仓库 | `LightDevCoder/skills-3rdParty` |
 | 可见性 | 公开 |
-| 包数 | 27（mattpocock 25 + blader 1 + op7418 1） |
-| 来源 pin | mattpocock/skills `v1.2.3`（`6acc160e`）；blader/humanizer `v2.9.1`（`523374de`）；op7418/Humanizer-zh `91f3d394` |
-| 本地版本 | `v0.2.1` — 公开 tag 与 release |
+| 包数 | 29（mattpocock 27 + blader 1 + op7418 1） |
+| 来源 pin | mattpocock/skills `v1.3.1`（`24fe0ef`）；blader/humanizer `v2.9.1`（`523374de`）；op7418/Humanizer-zh `91f3d394` |
+| 本地版本 | `v0.3.0` — 公开 tag 与 release |
 | 清单 | [UPSTREAM_LOCK.json](UPSTREAM_LOCK.json)（生成物，禁止手工编辑） |
 | 同步 | [scripts/sync-upstream.sh](scripts/sync-upstream.sh) |
 | 策略 | [docs/POLICIES.md](docs/POLICIES.md) |
@@ -29,10 +29,12 @@
 | `domain-modeling` | mattpocock | engineering | `skills/mattpocock/engineering/domain-modeling` | none |
 | `grill-with-docs` | mattpocock | engineering | `skills/mattpocock/engineering/grill-with-docs` | grilling、domain-modeling |
 | `implement` | mattpocock | engineering | `skills/mattpocock/engineering/implement` | none |
+| `implement-spec` | mattpocock | engineering | `skills/mattpocock/engineering/implement-spec` | tdd、code-review |
 | `improve-codebase-architecture` | mattpocock | engineering | `skills/mattpocock/engineering/improve-codebase-architecture` | none |
+| `pr` | mattpocock | engineering | `skills/mattpocock/engineering/pr` | none |
 | `prototype` | mattpocock | engineering | `skills/mattpocock/engineering/prototype` | none |
 | `research` | mattpocock | engineering | `skills/mattpocock/engineering/research` | none |
-| `resolving-merge-conflicts` | mattpocock | engineering | `skills/mattpocock/engineering/resolving-merge-conflicts` | none |
+| `retro` | mattpocock | engineering | `skills/mattpocock/engineering/retro` | writing-for-agents |
 | `setup-matt-pocock-skills` | mattpocock | engineering | `skills/mattpocock/engineering/setup-matt-pocock-skills` | none |
 | `tdd` | mattpocock | engineering | `skills/mattpocock/engineering/tdd` | none |
 | `to-spec` | mattpocock | engineering | `skills/mattpocock/engineering/to-spec` | none |

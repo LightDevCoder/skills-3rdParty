@@ -35,7 +35,8 @@ English | [简体中文](README.zh-CN.md)
   `sync-upstream.sh -Mode check` 失败，直到在 `PATCHES.md` 明确记录。
 - 保留上游 LICENSE；快照/镜像/外部依赖状态在 manifest 中区分。
 - `grill-me` 依赖 `grilling`；`grill-with-docs` 依赖 `grilling` 与
-  `domain-modeling`。这是声明的 peer Skills，不是隐藏执行。
+  `domain-modeling`；`implement-spec` 依赖 `tdd` 与 `code-review`；`retro`
+  依赖 `writing-for-agents`。这些都是声明的 peer Skills，不是隐藏执行。
 - `ask-matt` 保持纯导航：可以指路，不得安装、调用或编排其他 Skill。
 - `writing-for-agents` 是写作知识源，不是 first-party `learn-anything` 的
   隐式运行时依赖。
@@ -58,7 +59,10 @@ tests/collection-checks.sh                  # structural checks (CI and local)
 
 `check` 在缺包、缺引用资源、偏离固定修订、或对上游管理文件存在未授权
 本地改动时失败。`diff`/`dry-run` 不写盘。`sync` 只增不删；删除由
-`prune` 显式执行（先看 `diff`）。`generate-lock.sh` 重新生成 manifest。
+`prune` 显式执行（先看 `diff`）。`prune` 只处理仍在 allowlist 里的包，
+所以从 allowlist 移除一个包后必须同时删除它的目录；
+`tests/collection-checks.sh` 会校验 allowlist 与 `skills/` 下的 `SKILL.md`
+集合完全一致。`generate-lock.sh` 重新生成 manifest。
 绝不静默解决冲突或覆盖未记录的本地补丁。
 
 ## 发布与证据

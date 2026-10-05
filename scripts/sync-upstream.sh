@@ -105,8 +105,9 @@ local_package_dir() {
 
 local_patch_paths() {
   local name="$1"
-  # v1.2.3 packages ship their own agents/openai.yaml; the only local
-  # additions are the collection records and (for mattpocock) the license copy.
+  # Every admitted upstream package ships its own agents/openai.yaml; the only
+  # local additions are the collection records and (for mattpocock) the license
+  # copy.
   local src
   src=$(jq -r --arg name "$name" '.packages[] | select(.name == $name) | .source' "$ALLOWLIST")
   if [ "$src" = "blader" ]; then
@@ -423,8 +424,8 @@ copy.
 
 ## Installation and update
 
-- **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --yes --copy --agent codex
-- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill $name --yes --copy --agent codex
+- **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --yes --copy --agent codex
+- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --skill $name --yes --copy --agent codex
 - **Manual fallback:** copy the complete skills/$src/${group#ungrouped}/$name directory (or skills/$src/$name for ungrouped packages) into the host's recognized Skills root.
 - **Update source:** run \`scripts/sync-upstream.sh -Mode check\` against the
   pinned source checkouts; review \`-Mode diff\`, then use \`-Mode sync\` and

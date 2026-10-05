@@ -8,12 +8,12 @@ Skills 收藏集，刻意与 first-party 的
 
 ## 当前版本
 
-稳定版本为 `v0.2.1`，公开发布并带全新安装证据。镜像 **三个来源仓库共
-27 个包**：
+稳定版本为 `v0.3.0`，公开发布并带全新安装证据。镜像 **三个来源仓库共
+29 个包**：
 
 | 来源 | Pin | 包数 |
 | --- | --- | --- |
-| [mattpocock/skills](https://github.com/mattpocock/skills) | tag `v1.2.3`，commit `6acc160e4e0cd062dbbbd7a1b26ae92855edf07e` | 25（engineering 18，productivity 7） |
+| [mattpocock/skills](https://github.com/mattpocock/skills) | tag `v1.3.1`，commit `24fe0ef7737efae15c87225755e9f6f5965e4888` | 27（engineering 20，productivity 7） |
 | [blader/humanizer](https://github.com/blader/humanizer) | tag `v2.9.1`，commit `523374dee72d67c7b2b5f858ea0094ffda49c3ac` | 1 |
 | [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh) | commit `91f3d394db8419c20d67ebe22a96cf8fee0a404b`（无 tag） | 1 |
 
@@ -24,7 +24,7 @@ Skills 收藏集，刻意与 first-party 的
 ## 目录
 
 ```
-skills/mattpocock/engineering/<skill>/  18 个包
+skills/mattpocock/engineering/<skill>/  20 个包
 skills/mattpocock/productivity/<skill>/  7 个包
 skills/blader/humanizer/                 1 个包
 skills/op7418/humanizer-zh/              1 个包
@@ -37,13 +37,13 @@ skills/op7418/humanizer-zh/              1 个包
 ## 快速安装
 
 ```text
-npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --yes --copy --agent codex
+npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --yes --copy --agent codex
 ```
 
 只装一个包：
 
 ```text
-npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill grill-with-docs --yes --copy --agent codex
+npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --skill grill-with-docs --yes --copy --agent codex
 ```
 
 收录、同步与发布策略见 [POLICIES.md](docs/POLICIES.md)。
@@ -51,7 +51,9 @@ npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill grill-with-docs --ye
 ## 依赖与边界
 
 - `grill-me` 依赖 `grilling`；`grill-with-docs` 依赖 `grilling` 与
-  `domain-modeling`（声明的 peer Skills，不是隐藏运行时依赖）。
+  `domain-modeling`；`implement-spec` 依赖 `tdd` 与 `code-review`；
+  `retro` 依赖 `writing-for-agents`（声明的 peer Skills，不是隐藏运行时
+  依赖）。
 - `ask-matt` 纯导航，永不自动作执行器。
 - `writing-for-agents` 是写作知识源，不是 first-party `learn-anything` 的
   隐式运行时依赖。

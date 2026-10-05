@@ -28,8 +28,8 @@ copy.
 
 ## Installation and update
 
-- **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --yes --copy --agent codex
-- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill humanizer-zh --yes --copy --agent codex
+- **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --yes --copy --agent codex
+- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --skill humanizer-zh --yes --copy --agent codex
 - **Manual fallback:** copy the complete skills/op7418//humanizer-zh directory (or skills/op7418/humanizer-zh for ungrouped packages) into the host's recognized Skills root.
 - **Update source:** run `scripts/sync-upstream.sh -Mode check` against the
   pinned source checkouts; review `-Mode diff`, then use `-Mode sync` and

@@ -12,8 +12,8 @@ copy.
 - **Package:** grill-me
 - **Upstream repository:** mattpocock/skills
 - **Original upstream package path:** skills/productivity/grill-me
-- **Selected upstream tag:** v1.2.3
-- **Resolved commit:** 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e
+- **Selected upstream tag:** v1.3.1
+- **Resolved commit:** 24fe0ef7737efae15c87225755e9f6f5965e4888
 - **Applicable license:** MIT; see `LICENSE` in this package.
 - **Upstream author/notice:** preserve the upstream license and attribution.
 
@@ -28,8 +28,8 @@ copy.
 
 ## Installation and update
 
-- **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --yes --copy --agent codex
-- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.2.1 --skill grill-me --yes --copy --agent codex
+- **Whole collection (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --yes --copy --agent codex
+- **Single package (published release):** npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --skill grill-me --yes --copy --agent codex
 - **Manual fallback:** copy the complete skills/mattpocock/productivity/grill-me directory (or skills/mattpocock/grill-me for ungrouped packages) into the host's recognized Skills root.
 - **Update source:** run `scripts/sync-upstream.sh -Mode check` against the
   pinned source checkouts; review `-Mode diff`, then use `-Mode sync` and

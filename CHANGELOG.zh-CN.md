@@ -4,6 +4,43 @@
 
 以下发布声明均需 `docs/evidence/releases/` 下对应证据支撑。
 
+## 未发布 — v0.3.0（release candidate）
+
+发布证据：`docs/evidence/releases/v0.3.0/` — 在针对已发布 tag 跑完
+fresh-install gate 前标记为 `NOT TESTED`。
+
+### 变更
+
+- **上游升级**：mattpocock/skills 从 `v1.2.3`（`6acc160e`）升级到 `v1.3.1`
+  （`24fe0ef7`）；该来源贡献 27 个包（engineering 20 + productivity 7）。
+- **mattpocock 各包内容刷新**：领域文档约定由 `CONTEXT.md`/`CONTEXT-MAP.md`
+  改为 `GLOSSARY.md`/`GLOSSARY-MAP.md`（`domain-modeling` 的
+  `CONTEXT-FORMAT.md` 改名为 `GLOSSARY-FORMAT.md`）；跨 Skill 调用统一为
+  显式的 "Call the Skill tool with ..." 指令；上游正文去除破折号；`to-spec`、
+  `code-review`、`setup-matt-pocock-skills`、`wait-what` 的非法 YAML
+  front matter 已加引号修正。
+- **工具**：`tests/collection-checks.sh` 新增校验——`skills/` 下的 `SKILL.md`
+  集合必须与 allowlist 完全一致，避免从 allowlist 移除的包仍留在发布 tag 里
+  可被发现。
+
+### 新增
+
+- **`implement-spec`**（engineering，pinned mirror）：一次运行实现整份 spec，
+  把 tickets 当作任务图在单一 integration branch 上推进。声明 peer 依赖：
+  `tdd`、`code-review`。
+- **`pr`**（engineering，pinned mirror）：PR 正文应有的形状，包含前后对比
+  证据与合并风险判断。
+- **`retro`**（engineering，pinned mirror）：面向编码 agent 环境而非代码的
+  复盘。声明 peer 依赖：`writing-for-agents`。
+- 收藏集扩至 **三个来源共 29 个固定版本包**；allowlist、CI 来源 checkout、
+  `UPSTREAM_LOCK.json`、目录与双语文档同步更新。
+
+### 移除
+
+- **`resolving-merge-conflicts` 已移除**（对使用它的安装是破坏性变更）：
+  上游在 `v1.3.0` 删除了该 skill 且无替代品，agent 直接处理进行中的 merge
+  或 rebase 冲突。包目录已删除；升级目标应清理残留副本。
+
 ## v0.2.1 — 2026-08-20
 
 ### 新增

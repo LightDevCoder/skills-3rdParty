@@ -1,0 +1,3 @@
+# macOS Finder metadata; never admit OS junk into a package directory, where the
+# sync checks treat any extra file as an unauthorized local change.
+.DS_Store
