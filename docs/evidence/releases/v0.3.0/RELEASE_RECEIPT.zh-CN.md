@@ -2,8 +2,8 @@
 
 [English](RELEASE_RECEIPT.md)
 
-状态：`RELEASE CANDIDATE` — 公开 tag 与 GitHub release 待发布，fresh-install
-验证将在 tag 发布后进行。验收声明：**自检 + CI + 人工核对**；v0.2.0 起已废除
+状态：`RELEASED` — 公开 annotated tag、公开 GitHub release、CI 通过、
+fresh-install 证据齐全。验收声明：**自检 + CI + 人工核对**；v0.2.0 起已废除
 独立 `review-loop` gate。
 
 ## 身份
@@ -11,9 +11,14 @@
 | 字段 | 值 |
 | --- | --- |
 | 仓库 | `LightDevCoder/skills-3rdParty` |
-| 版本 | `v0.3.0`（候选） |
+| 版本 | `v0.3.0` |
 | Release URL | https://github.com/LightDevCoder/skills-3rdParty/releases/tag/v0.3.0 |
+| 发布时间 | 2026-10-05T18:47:51Z（2026-10-06 02:47:51 +08:00） |
+| Tag 对象 | `a8d390b6069051cc944778fa7588705eaee136b1`（annotated tag） |
+| Peeled commit | `e376baadafdcb3a6d6609de138ea5f42d594752b` |
+| CI run | `37358048011` — workflow `third-party-quality`，job `quality`，结论 `success` |
 | 上游 | `mattpocock/skills` `v1.3.1` / `24fe0ef7737efae15c87225755e9f6f5965e4888`；`blader/humanizer` `v2.9.1` / `523374dee72d67c7b2b5f858ea0094ffda49c3ac`；`op7418/Humanizer-zh` `91f3d394db8419c20d67ebe22a96cf8fee0a404b` |
+| CLI | `npx skills` 1.7.0（Node v26.7.0） |
 | 范围 | 29 个固定版本包（mattpocock 27 + blader 1 + op7418 1），嵌套目录，bash+jq 工具链，生成式 manifest |
 
 ## 自 v0.2.1 以来的变更
@@ -34,20 +39,22 @@
 
 ## 验收证据
 
-- [测试摘要](TEST_SUMMARY.md) — 在 gate 运行前为 `NOT TESTED`。
-- [安装验证](INSTALLATION_VERIFICATION.md) — `NOT TESTED`。
-- [发现验证](DISCOVERY_VERIFICATION.md) — `NOT TESTED`。
+- [测试摘要](TEST_SUMMARY.md)
+- [安装验证](INSTALLATION_VERIFICATION.md)
+- [发现验证](DISCOVERY_VERIFICATION.md)
 - [限制](LIMITATIONS.md)
 - 策略：[docs/POLICIES.md](../../../POLICIES.md)
 
-## 发布闸门（候选）
+## 发布闸门
 
-- [x] 本地（macOS）全部 sync 模式通过：`check`、`resource`、
+- [x] 本地（macOS）与 CI（ubuntu）全部 sync 模式通过：`check`、`resource`、
       `unauthorized-patch`、`diff`、`prune`。
 - [x] `tests/collection-checks.sh` 通过（29 包）；提交的 `UPSTREAM_LOCK.json`
       已验证可重新生成。
-- [ ] 候选 commit 上 CI 通过。
-- [ ] 针对已发布 `#v0.3.0` tag 在全新目录做整仓（29 包）与单包安装；重复安装
-      幂等。
-- [ ] 通过已发布 tag 验证无源码 checkout 的发现（`Found 29 skills`）。
-- [ ] 从候选 commit 创建 `v0.3.0` tag 并发布 GitHub release。
+- [x] 候选 commit 上 CI 通过：run `37358048011`（success）。
+- [x] 针对已发布 `#v0.3.0` tag 在全新目录做整仓（29 包，pinned 与 latest）安装，
+      安装树与镜像逐字节一致；单包安装 `retro`（pinned）与 `humanizer-zh`
+      （latest）；重复安装幂等。
+- [x] 通过已发布 tag 验证无源码 checkout 的发现（`Found 29 skills`；
+      `implement-spec`、`pr`、`retro` 在列；无 `resolving-merge-conflicts`）。
+- [x] 从候选 commit 创建了 `v0.3.0` tag 并发布 GitHub release。

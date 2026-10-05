@@ -22,13 +22,13 @@
 - **Host refresh/model runtime not re-verified per host.** Fresh install and
   discovery are verified with the Skills CLI for multi-agent destinations;
   specific agent-host runtime behavior is not exercised in this release cycle.
-- **`--agent '*'` compaction quirk (non-collection).** When installing to every
-  agent with `--agent '*'`, the CLI writes one non-dotted generic root
-  (`agent/skills`) in a compacted SKILL.md that omits the `name` front matter
-  field, so that specific root is skipped by name-based discovery. This is a CLI
-  behavior on an opportunistic root, not a collection defect: the agent roots
-  the hosts actually read (`.agents`, `.claude`, `.codex`, …) receive complete
-  copies with `name` intact. Installing to a specific agent (e.g.
-  `--agent codex`) avoids this root entirely.
+- **`--agent '*'` compaction quirk (non-collection, older CLI).** With `npx
+  skills` 1.5.23, installing to every agent wrote one non-dotted generic root
+  (`agent/skills`) in a compacted SKILL.md that omitted the `name` front matter
+  field, so that root was skipped by name-based discovery. The quirk was not
+  observed with the CLI used for this release (1.7.0): every agent root that
+  received the collection held all 29 packages and `agent/skills` kept the
+  `name` field for 29/29 packages. It remains a CLI behavior on an
+  opportunistic root, not a collection defect.
 - **Upstream pins are static.** A package in the collection tracks a pinned
   commit, never an upstream branch.

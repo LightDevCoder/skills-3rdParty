@@ -4,10 +4,7 @@
 
 以下发布声明均需 `docs/evidence/releases/` 下对应证据支撑。
 
-## 未发布 — v0.3.0（release candidate）
-
-发布证据：`docs/evidence/releases/v0.3.0/` — 在针对已发布 tag 跑完
-fresh-install gate 前标记为 `NOT TESTED`。
+## v0.3.0 — 2026-10-06
 
 ### 变更
 
@@ -40,6 +37,18 @@ fresh-install gate 前标记为 `NOT TESTED`。
 - **`resolving-merge-conflicts` 已移除**（对使用它的安装是破坏性变更）：
   上游在 `v1.3.0` 删除了该 skill 且无替代品，agent 直接处理进行中的 merge
   或 rebase 冲突。包目录已删除；升级目标应清理残留副本。
+
+### 发布证据
+
+- `docs/evidence/releases/v0.3.0/` — 2026-10-06 验证通过。
+- CLI：`npx skills` 1.7.0（Node v26.7.0）；发布 commit
+  `e376baadafdcb3a6d6609de138ea5f42d594752b`；annotated tag 对象
+  `a8d390b6069051cc944778fa7588705eaee136b1`；CI run `37358048011` success
+  （ubuntu）。
+- 针对已发布 `#v0.3.0` tag 的全新安装已验证：整仓 29/29（pinned 与 latest，
+  安装树与镜像逐字节一致）、单包 `retro`（pinned）与 `humanizer-zh`
+  （latest）、重复安装幂等、无源码 checkout 的发现（`Found 29 skills`）。
+  完整矩阵与限制见证据文档。
 
 ## v0.2.1 — 2026-08-20
 

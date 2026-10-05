@@ -33,12 +33,12 @@
     }
   ],
   "collection_checksum": "ead140445745941c0369d6ee66e179520b773b11df8c02eb0ee6ae92971dc22e",
-  "generated_utc": "2026-10-05T18:41:59Z",
+  "generated_utc": "2026-10-05T18:48:23Z",
   "installation": {
     "whole_collection": "npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --yes --copy --agent codex",
     "single_skill": "npx skills add LightDevCoder/skills-3rdParty#v0.3.0 --skill <skill-name> --yes --copy --agent codex",
     "revision_semantics": "The #v0.3.0 fragment pins the local collection release; mirrored content is pinned per source (mattpocock/skills v1.3.1, blader/humanizer v2.9.1, op7418/Humanizer-zh 91f3d394).",
-    "release_status": "candidate v0.3.0; self-check and CI verified; fresh-install verification pending"
+    "release_status": "released v0.3.0; self-check and CI verified; independent review gate abolished"
   },
   "entries": [
     {

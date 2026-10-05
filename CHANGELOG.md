@@ -5,10 +5,7 @@
 All release claims below require the corresponding repository evidence under
 `docs/evidence/releases/`.
 
-## Unreleased — v0.3.0 (release candidate)
-
-Release evidence: `docs/evidence/releases/v0.3.0/` — `NOT TESTED` until the
-fresh-install gate runs against the published tag.
+## v0.3.0 — 2026-10-06
 
 ### Changed
 
@@ -46,6 +43,19 @@ fresh-install gate runs against the published tag.
   works through an in-progress merge or rebase conflict without a dedicated
   skill. The package directory was deleted; upgrade destinations should drop
   the stale copy.
+
+### Release evidence
+
+- `docs/evidence/releases/v0.3.0/` — verified 2026-10-06.
+- CLI: `npx skills` 1.7.0 (Node v26.7.0); released commit
+  `e376baadafdcb3a6d6609de138ea5f42d594752b`; annotated tag object
+  `a8d390b6069051cc944778fa7588705eaee136b1`; CI run `37358048011` success
+  (ubuntu).
+- Fresh install verified against the published `#v0.3.0` tag: whole collection
+  29/29 (pinned and latest, installed tree byte-identical to the mirror),
+  single `retro` (pinned) and `humanizer-zh` (latest), repeat install
+  idempotent, discovery without source checkout (`Found 29 skills`). See the
+  evidence docs for the full matrix and limitations.
 
 ## v0.2.1 — 2026-08-20
 
